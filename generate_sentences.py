@@ -1,7 +1,7 @@
 import json
 from random import randint, sample
 
-# Variables 
+# Global variables
 data = []          
 connectives = []    
 
@@ -34,16 +34,7 @@ def create_sentence(arg1, arg2, connective, sense):
     }
     return sentence
 
-
-
-
-
-if __name__ == '__main__':
-
-    # Import relations data as a JSON object
-    for line in open(relations_json, 'r'):
-        data.append(json.loads(line))
-
+def keep_only_top_level_sense():
     # Only keep top level Sense
     for line in data:
         top_level_sense = ""
@@ -52,13 +43,20 @@ if __name__ == '__main__':
             top_level_sense = split_sense[0]
         line['Sense'] = top_level_sense
 
-    # Remove sentences with Explicit connectives
+def remove_sentences_with_explicit_connectives():
+    # Remove sentence with Explicit connectives
+    global data
     data = filter(lambda line: line['Type'] != 'Explicit', data)
+
+def remove_sentences_with_unlisted_connectives():
     # Remove sentences with "" as Connective
+    global data
     data = filter(lambda line: line['Connective']['RawText'] != '', data)
     data = filter(lambda line: line['Connective']['RawText'] != "", data)
 
+def prepare_coherent_sentences():
     # Coherent sentences
+    global data
     coherent_sentences = []
     for line in data:
         coherent_sentences.append(create_sentence(line['Arg1']['RawText'],
@@ -69,7 +67,9 @@ if __name__ == '__main__':
         connective = {line['Connective']['RawText']: line['Sense']}
         connectives.append(connective)
     output_sentences(coherent_sentences, coherent_sentences_file)
+    return coherent_sentences
 
+def create_unique_connectives():
     # Create a set of unique connectives and their senses
     unique_connectives_senses = {}
     for i in iter(connectives):
@@ -79,6 +79,9 @@ if __name__ == '__main__':
             elif s not in unique_connectives_senses[c]:
                 unique_connectives_senses[c].append(s)
 
+    return unique_connectives_senses
+
+def generate_sentences_random_arg2():
     # RANDOM: Incoherent sentences by swapping Arg2s
     incoherent_sentences = []
     coherent_copy = list(coherent_sentences)
@@ -94,6 +97,8 @@ if __name__ == '__main__':
                                                     line['Sense']))
     output_sentences(incoherent_sentences, incoherent_sentences_arg2_random)
 
+
+def generate_sentences_swapping_connectives():
     # RANDOM: Incoherent sentences by swapping connectives
     incoherent_sentences = []
     for line in data:
@@ -107,6 +112,7 @@ if __name__ == '__main__':
                                                                   connective]))))  # Issue: this will always be the first element (thus the first possible Sense)
     output_sentences(incoherent_sentences, incoherent_sentences_connective_random)
 
+def generate_sentences_swapping_arg2_same_sense():
     # SAME SENSE: Incoherent sentences by swapping Arg2s
     incoherent_sentences = []
     coherent_copy = list(coherent_sentences)
@@ -131,6 +137,7 @@ if __name__ == '__main__':
                                                     line['Sense']))
     output_sentences(incoherent_sentences, incoherent_sentences_arg2_same_sense)
 
+def generate_sentences_swapping_arg2_different_sense():
     # DIFFERENT SENSE: Incoherent sentences by swapping Arg2s
     incoherent_sentences = []
     coherent_copy = list(coherent_sentences)
@@ -155,6 +162,7 @@ if __name__ == '__main__':
                                                     line['Sense']))
     output_sentences(incoherent_sentences, incoherent_sentences_arg2_diff_sense)
 
+def generate_sentences_swapping_arg2_matching_connective():
     # MATCHING CONNECTIVE: Incoherent sentences by swapping Arg2s
     incoherent_sentences = []
     coherent_copy = list(coherent_sentences)
@@ -181,6 +189,7 @@ if __name__ == '__main__':
                                                     line['Sense']))
     output_sentences(incoherent_sentences, incoherent_sentences_arg2_matching_connectives)
 
+def generate_sentences_swapping_arg2_different_sense_connective():
     # DIFFERENT SENSE CONNECTIVE: Incoherent sentences by swapping connectives
     incoherent_sentences = []
     for line in data:
@@ -197,3 +206,27 @@ if __name__ == '__main__':
                                                     connective,
                                                     next(iter(unique_connectives_senses[connective]))))
     output_sentences(incoherent_sentences, incoherent_sentences_connective_diff_sense)
+
+if __name__ == '__main__':
+    # Import relations data as a JSON object
+    for line in open(relations_json, 'r'):
+        data.append(json.loads(line))
+
+    keep_only_top_level_sense()
+    remove_sentences_with_explicit_connectives()
+    prepare_coherent_sentences()
+
+    coherent_sentences = prepare_coherent_sentences()
+
+    unique_connectives_senses = create_unique_connectives()
+
+    generate_sentences_random_arg2()
+    generate_sentences_swapping_connectives()
+    generate_sentences_swapping_arg2_same_sense()
+    generate_sentences_swapping_arg2_different_sense()
+    generate_sentences_swapping_arg2_matching_connective()
+    generate_sentences_swapping_arg2_different_sense_connective()
+
+
+
+
