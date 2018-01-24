@@ -30,7 +30,8 @@ def randomize_words_in_sentence(filename):
 
 
 # Stats output file
-open("data/corpus_stats.txt", 'w') # Clear contents of file 
+statistics_file_location = "data/corpus_stats.txt"
+open(statistics_file_location, 'w') # Clear contents of file
 stats_file = open("data/corpus_stats.txt", 'a+')
 
 # Build dictionary and convert sentences to raw text 
@@ -86,6 +87,7 @@ for filename in os.listdir(os.getcwd()+ "/data/json"):
 
     # Get one dataset with words fully randomized 
     if filename == 'incoherent_sentences_arg2_diff_sense.json':
+        print("Randomizing words in sentence: " + filename)
         randomize_words_in_sentence(filename)
 
     # Output File Stats 
@@ -107,9 +109,9 @@ for key in sorted(dictionary.keys()):
     mapped_dictionary[key.lower()] = index
     entry = str(index) + " " + key + " " + str(dictionary[key]) + "\n"
     dict_file.write(entry)
-    index += 1 
+    index += 1
 
-
+print("Writing statistics file: " + statistics_file_location)
 # Output corpus stats
 stats_file.write("Total words: " + str(total_words) + "\n")
 stats_file.write("Most frequent word: " + str(most_frequent_word) + "\n")

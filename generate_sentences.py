@@ -36,6 +36,8 @@ def create_sentence(arg1, arg2, connective, sense):
 
 
 
+
+
 if __name__ == '__main__':
 
     # Import relations data as a JSON object
