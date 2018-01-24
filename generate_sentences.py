@@ -98,7 +98,7 @@ def generate_sentences_random_arg2():
     output_sentences(incoherent_sentences, incoherent_sentences_arg2_random)
 
 
-def generate_sentences_swapping_connectives():
+def generate_sentences_swapping_connectives(unique_connectives_senses):
     # RANDOM: Incoherent sentences by swapping connectives
     incoherent_sentences = []
     for line in data:
@@ -112,7 +112,7 @@ def generate_sentences_swapping_connectives():
                                                                   connective]))))  # Issue: this will always be the first element (thus the first possible Sense)
     output_sentences(incoherent_sentences, incoherent_sentences_connective_random)
 
-def generate_sentences_swapping_arg2_same_sense():
+def generate_sentences_swapping_arg2_same_sense(unique_connectives_senses):
     # SAME SENSE: Incoherent sentences by swapping Arg2s
     incoherent_sentences = []
     coherent_copy = list(coherent_sentences)
@@ -137,7 +137,7 @@ def generate_sentences_swapping_arg2_same_sense():
                                                     line['Sense']))
     output_sentences(incoherent_sentences, incoherent_sentences_arg2_same_sense)
 
-def generate_sentences_swapping_arg2_different_sense():
+def generate_sentences_swapping_arg2_different_sense(unique_connectives_senses):
     # DIFFERENT SENSE: Incoherent sentences by swapping Arg2s
     incoherent_sentences = []
     coherent_copy = list(coherent_sentences)
@@ -189,7 +189,7 @@ def generate_sentences_swapping_arg2_matching_connective():
                                                     line['Sense']))
     output_sentences(incoherent_sentences, incoherent_sentences_arg2_matching_connectives)
 
-def generate_sentences_swapping_arg2_different_sense_connective():
+def generate_sentences_swapping_arg2_different_sense_connective(unique_connectives_senses):
     # DIFFERENT SENSE CONNECTIVE: Incoherent sentences by swapping connectives
     incoherent_sentences = []
     for line in data:
@@ -221,11 +221,11 @@ if __name__ == '__main__':
     unique_connectives_senses = create_unique_connectives()
 
     generate_sentences_random_arg2()
-    generate_sentences_swapping_connectives()
-    generate_sentences_swapping_arg2_same_sense()
-    generate_sentences_swapping_arg2_different_sense()
+    generate_sentences_swapping_connectives(unique_connectives_senses)
+    generate_sentences_swapping_arg2_same_sense(unique_connectives_senses)
+    generate_sentences_swapping_arg2_different_sense(unique_connectives_senses)
     generate_sentences_swapping_arg2_matching_connective()
-    generate_sentences_swapping_arg2_different_sense_connective()
+    generate_sentences_swapping_arg2_different_sense_connective(unique_connectives_senses)
 
 
 
