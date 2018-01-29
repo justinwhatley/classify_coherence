@@ -5,13 +5,6 @@ import nltk
 import json 
 import random
 
-dictionary = {}
-mapped_dictionary = {}
-max_sentence_length = 0 
-most_frequent_word = ""
-most_frequent_word_freq = 0
-total_words = 0 
-
 def randomize_words_in_sentence(filename):
     data = []
     open("data/txt/incoherent_sentences_randomized_words.txt", 'w') # Clear contents of file 
@@ -34,90 +27,115 @@ statistics_file_location = "data/corpus_stats.txt"
 open(statistics_file_location, 'w') # Clear contents of file
 stats_file = open("data/corpus_stats.txt", 'a+')
 
-# Build dictionary and convert sentences to raw text 
-print("Converting to raw text")
-for filename in os.listdir(os.getcwd()+ "/data/json"):
-    # Variables for file-specific data 
-    if filename == ".keep":
-        continue
-    file_max_sentence_length = 0
-    file_num_sentences = 0
-    file_dict = {}
+def connect_sentence(line):
+    # Convert to raw text
+    # sentence = line['Arg1Raw'] + " " + line['ConnectiveRaw'] + " " + line['Arg2Raw'] + "\n"
+    sentence = line['Arg1Raw'] + " " + line['Arg2Raw'] + "\n"
+    return sentence
 
-    # Import data as a JSON object 
-    data = []
-    for line in open("data/json/" + filename, 'r'):
-        data.append(json.loads(line))
-        file_num_sentences += 1 
 
-    output_file = "data/txt/" + filename[:-5] + ".txt"
-    # print(output_file)
-    open(output_file, 'w') # Clear contents of file
-    out = open(output_file, 'a+')
+# Build dictionary and convert sentences to raw text
+def convert_sentence_to_raw(dictionary, text_properties):
+    for filename in os.listdir(os.getcwd() + "/data/json"):
+        # Variables for file-specific data
+        if filename == ".keep":
+            continue
+        file_max_sentence_length = 0
+        file_num_sentences = 0
+        file_dict = {}
 
-    for line in data:
-        # Convert to raw text
-        sentence = line['Arg1Raw'] + " " + line['ConnectiveRaw'] + " " + line['Arg2Raw'] + "\n"
-        out.write(sentence.encode('ascii', 'ignore')) 
+        # Import data as a JSON object
+        data = []
+        for line in open("data/json/" + filename, 'r'):
+            data.append(json.loads(line))
+            file_num_sentences += 1
 
-        # Tokenize sentence and build dictionary + corpus stats 
-        word_sentence = nltk.word_tokenize(sentence.lower())
+        output_file = "data/txt/" + filename[:-5] + ".txt"
+        # print(output_file)
+        open(output_file, 'w')  # Clear contents of file
+        out = open(output_file, 'a+')
 
-        # Find maximum sentence length
-        if len(word_sentence) > max_sentence_length:
-            max_sentence_length = len(word_sentence)
-        if len(word_sentence) > file_max_sentence_length:
-            file_max_sentence_length = len(word_sentence)
+        for line in data:
+            sentence = connect_sentence(line)
+            out.write(sentence.encode('ascii', 'ignore'))
 
-        # Build dictionary
-        for word in word_sentence:
-            try: 
-                word = word.decode('utf8').encode('ascii', errors='ignore')
-            except UnicodeEncodeError:
-                stripped = (c for c in word if 0 < ord(c) < 127)
-                word = ''.join(stripped)
-            total_words += 1
-            if word not in dictionary:
-                dictionary[word] = 1
-            else:
-                dictionary[word] += 1 
-                if dictionary[word] > most_frequent_word_freq:
-                    most_frequent_word = word
-                    most_frequent_word_freq = dictionary[word]
+            # Tokenize sentence and build dictionary + corpus stats
+            word_sentence = nltk.word_tokenize(sentence.lower())
 
-            if word not in file_dict:
-                file_dict[word] = True 
+            # Find maximum sentence length
+            if len(word_sentence) > text_properties['max_sentence_length']:
+                text_properties['max_sentence_length'] = len(word_sentence)
+            if len(word_sentence) > file_max_sentence_length:
+                file_max_sentence_length = len(word_sentence)
 
-    # Get one dataset with words fully randomized 
-    if filename == 'incoherent_sentences_arg2_diff_sense.json':
-        print("Randomizing words in sentence: " + filename)
-        randomize_words_in_sentence(filename)
+            # Build dictionary
+            for word in word_sentence:
+                try:
+                    word = word.decode('utf8').encode('ascii', errors='ignore')
+                except UnicodeEncodeError:
+                    stripped = (c for c in word if 0 < ord(c) < 127)
+                    word = ''.join(stripped)
+                text_properties['total_words'] += 1
+                if word not in dictionary:
+                    dictionary[word] = 1
+                else:
+                    dictionary[word] += 1
+                    if dictionary[word] > text_properties['most_frequent_word_freq']:
+                        text_properties['most_frequent_word'] = word
+                        text_properties['most_frequent_word_freq'] = dictionary[word]
 
-    # Output File Stats 
-    stats_file.write(filename + " stats:\n")
-    stats_file.write("# words: " + str(len(file_dict.keys())) + "\n")
-    stats_file.write("# sentences: " + str(file_num_sentences) + "\n")
-    stats_file.write("Max sentence length: " + str(file_max_sentence_length) + "\n")
+                if word not in file_dict:
+                    file_dict[word] = True
 
-# Output dictionary and create mapping of terms to integers
-index = 1
-open("data/dictionary.txt", 'w') # Clear contents of file 
-dict_file = open("data/dictionary.txt", 'a+')
-# Used for padding sentences to max_sentence_length
-mapped_dictionary["<pad>"] = 0
-dict_file.write("0 <pad> -1\n")
+                    # Get one dataset with words fully randomized
+        if filename == 'incoherent_sentences_arg2_diff_sense.json':
+            print("Randomizing words in sentence: " + filename)
+            randomize_words_in_sentence(filename)
 
-# Print all terms from dictionary and map them to integers in mapped_dictionary
-for key in sorted(dictionary.keys()):
-    mapped_dictionary[key.lower()] = index
-    entry = str(index) + " " + key + " " + str(dictionary[key]) + "\n"
-    dict_file.write(entry)
-    index += 1
+        # Output File Stats
+        stats_file.write(filename + " stats:\n")
+        stats_file.write("# words: " + str(len(file_dict.keys())) + "\n")
+        stats_file.write("# sentences: " + str(file_num_sentences) + "\n")
+        stats_file.write("Max sentence length: " + str(file_max_sentence_length) + "\n")
 
-print("Writing statistics file: " + statistics_file_location)
-# Output corpus stats
-stats_file.write("Total words: " + str(total_words) + "\n")
-stats_file.write("Most frequent word: " + str(most_frequent_word) + "\n")
-stats_file.write("Most frequent word frequency: " + str(most_frequent_word_freq) + "\n")
-stats_file.write("Unique terms in dictionary: " + str(len(dictionary.keys())) + "\n")
-stats_file.write("Max sentence length: " + str(max_sentence_length) + "\n")
+def write_corpus_statistics(text_properties):
+    print("Writing statistics file: " + statistics_file_location)
+    # Output corpus stats
+    stats_file.write("Total words: " + text_properties['total_words'] + "\n")
+    stats_file.write("Most frequent word: " + text_properties['most_frequent_word'] + "\n")
+    stats_file.write("Most frequent word frequency: " + str(text_properties['most_frequent_word_freq']) + "\n")
+    stats_file.write("Unique terms in dictionary: " + str(len(dictionary.keys())) + "\n")
+    stats_file.write("Max sentence length: " + str(text_properties['max_sentence_length']) + "\n")
+
+
+if __name__ == '__main__':
+
+    dictionary = {}
+    mapped_dictionary = {}
+
+    text_properties = {
+        'max_sentence_length': 0,
+        'most_frequent_word': "",
+        'most_frequent_word_freq': 0,
+        'total_words': 0
+    }
+
+    print("Converting to raw text")
+    convert_sentence_to_raw(dictionary, text_properties)
+
+    # Output dictionary and create mapping of terms to integers
+    index = 1
+    open("data/dictionary.txt", 'w') # Clear contents of file
+    dict_file = open("data/dictionary.txt", 'a+')
+    # Used for padding sentences to max_sentence_length
+    mapped_dictionary["<pad>"] = 0
+    dict_file.write("0 <pad> -1\n")
+
+    # Print all terms from dictionary and map them to integers in mapped_dictionary
+    for key in sorted(dictionary.keys()):
+        mapped_dictionary[key.lower()] = index
+        entry = str(index) + " " + key + " " + str(dictionary[key]) + "\n"
+        dict_file.write(entry)
+        index += 1
+
+    write_corpus_statistics(text_properties)
