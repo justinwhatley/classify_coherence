@@ -38,6 +38,8 @@ stats_file = open("data/corpus_stats.txt", 'a+')
 print("Converting to raw text")
 for filename in os.listdir(os.getcwd()+ "/data/json"):
     # Variables for file-specific data 
+    if filename == ".keep":
+        continue
     file_max_sentence_length = 0
     file_num_sentences = 0
     file_dict = {}
@@ -49,7 +51,8 @@ for filename in os.listdir(os.getcwd()+ "/data/json"):
         file_num_sentences += 1 
 
     output_file = "data/txt/" + filename[:-5] + ".txt"
-    open(output_file, 'w') # Clear contents of file 
+    # print(output_file)
+    open(output_file, 'w') # Clear contents of file
     out = open(output_file, 'a+')
 
     for line in data:
