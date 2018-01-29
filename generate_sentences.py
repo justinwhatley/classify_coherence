@@ -34,6 +34,17 @@ def create_sentence(arg1, arg2, connective, sense):
     }
     return sentence
 
+def create_sentence_pair(arg1, arg2, connective, sense):
+    sentence = {
+        'Arg1Raw': arg1,
+        'Arg2Raw': arg2,
+        'ConnectiveRaw': connective.lower(),
+        'Sense': sense.lower(),
+    }
+    # print(arg1)
+    return sentence
+
+
 def keep_only_top_level_sense():
     # Only keep top level Sense
     for line in data:
@@ -46,7 +57,22 @@ def keep_only_top_level_sense():
 def remove_sentences_with_explicit_connectives():
     # Remove sentence with Explicit connectives
     global data
-    data = filter(lambda line: line['Type'] != 'Explicit', data)
+    data = (filter(lambda line: line['Type'] != 'Explicit', data))
+
+def include_only_sentences_of_type(type):
+    global data
+    data = (filter(lambda line: line['Type'] == type, data))
+
+def display_different_types():
+    global data
+
+    type = []
+    for line in data:
+        if line['Type'] not in type:
+            type.append(line['Type'])
+
+    print('Different types of sentences are: ')
+    print(type)
 
 def remove_sentences_with_unlisted_connectives():
     # Remove sentences with "" as Connective
@@ -59,7 +85,7 @@ def prepare_coherent_sentences():
     global data
     coherent_sentences = []
     for line in data:
-        coherent_sentences.append(create_sentence(line['Arg1']['RawText'],
+        coherent_sentences.append(create_sentence_pair(line['Arg1']['RawText'],
                                                   line['Arg2']['RawText'],
                                                   line['Connective']['RawText'],
                                                   line['Sense']))
@@ -81,7 +107,7 @@ def create_unique_connectives():
 
     return unique_connectives_senses
 
-def generate_sentences_random_arg2():
+def generate_sentences_random_arg2(coherent_sentences):
     # RANDOM: Incoherent sentences by swapping Arg2s
     incoherent_sentences = []
     coherent_copy = list(coherent_sentences)
@@ -112,7 +138,7 @@ def generate_sentences_swapping_connectives(unique_connectives_senses):
                                                                   connective]))))  # Issue: this will always be the first element (thus the first possible Sense)
     output_sentences(incoherent_sentences, incoherent_sentences_connective_random)
 
-def generate_sentences_swapping_arg2_same_sense(unique_connectives_senses):
+def generate_sentences_swapping_arg2_same_sense(unique_connectives_senses, coherent_sentences):
     # SAME SENSE: Incoherent sentences by swapping Arg2s
     incoherent_sentences = []
     coherent_copy = list(coherent_sentences)
@@ -137,7 +163,7 @@ def generate_sentences_swapping_arg2_same_sense(unique_connectives_senses):
                                                     line['Sense']))
     output_sentences(incoherent_sentences, incoherent_sentences_arg2_same_sense)
 
-def generate_sentences_swapping_arg2_different_sense(unique_connectives_senses):
+def generate_sentences_swapping_arg2_different_sense(unique_connectives_senses, coherent_sentences):
     # DIFFERENT SENSE: Incoherent sentences by swapping Arg2s
     incoherent_sentences = []
     coherent_copy = list(coherent_sentences)
@@ -162,7 +188,7 @@ def generate_sentences_swapping_arg2_different_sense(unique_connectives_senses):
                                                     line['Sense']))
     output_sentences(incoherent_sentences, incoherent_sentences_arg2_diff_sense)
 
-def generate_sentences_swapping_arg2_matching_connective():
+def generate_sentences_swapping_arg2_matching_connective(coherent_sentences):
     # MATCHING CONNECTIVE: Incoherent sentences by swapping Arg2s
     incoherent_sentences = []
     coherent_copy = list(coherent_sentences)
@@ -213,19 +239,24 @@ if __name__ == '__main__':
         data.append(json.loads(line))
 
     keep_only_top_level_sense()
-    remove_sentences_with_explicit_connectives()
-    prepare_coherent_sentences()
+
+    # remove_sentences_with_explicit_connectives()
+    include_only_sentences_of_type('Implicit')
+    # display_different_types()
+    remove_sentences_with_unlisted_connectives()
 
     coherent_sentences = prepare_coherent_sentences()
+    # for line in coherent_sentences:
+    #     print line
 
     unique_connectives_senses = create_unique_connectives()
 
-    generate_sentences_random_arg2()
-    generate_sentences_swapping_connectives(unique_connectives_senses)
-    generate_sentences_swapping_arg2_same_sense(unique_connectives_senses)
-    generate_sentences_swapping_arg2_different_sense(unique_connectives_senses)
-    generate_sentences_swapping_arg2_matching_connective()
-    generate_sentences_swapping_arg2_different_sense_connective(unique_connectives_senses)
+    generate_sentences_random_arg2(coherent_sentences)
+    # generate_sentences_swapping_connectives(unique_connectives_senses)
+    # generate_sentences_swapping_arg2_same_sense(unique_connectives_senses, coherent_sentences)
+    # generate_sentences_swapping_arg2_different_sense(unique_connectives_senses, coherent_sentences)
+    # generate_sentences_swapping_arg2_matching_connective(coherent_sentences)
+    # generate_sentences_swapping_arg2_different_sense_connective(unique_connectives_senses)
 
 
 
