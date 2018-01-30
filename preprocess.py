@@ -27,10 +27,29 @@ statistics_file_location = "data/corpus_stats.txt"
 open(statistics_file_location, 'w') # Clear contents of file
 stats_file = open("data/corpus_stats.txt", 'a+')
 
+def fix_capitalization_arg2(line):
+    """
+    Capitalizes first letter of the arg2 if it is not already capitalized
+    """
+    arg2 = line['Arg2Raw'][0]
+    if arg2[0].islower():
+        temp_arg2 = []
+        for i, char in enumerate(arg2):
+            if i == 0:
+                temp_arg2.append(char.upper())
+            else:
+                temp_arg2.append(char)
+        arg2 = ''.join(temp_arg2)
+    return arg2
+
+
 def connect_sentence(line):
     # Convert to raw text
     # sentence = line['Arg1Raw'] + " " + line['ConnectiveRaw'] + " " + line['Arg2Raw'] + "\n"
-    sentence = line['Arg1Raw'] + " " + line['Arg2Raw'] + "\n"
+
+    capitalized_arg2 = fix_capitalization_arg2(line)
+    sentence = line['Arg1Raw'] + ". " + capitalized_arg2 + "\n"
+    # fix_capitalization_arg2(line)
     return sentence
 
 
@@ -101,7 +120,7 @@ def convert_sentence_to_raw(dictionary, text_properties):
 def write_corpus_statistics(text_properties):
     print("Writing statistics file: " + statistics_file_location)
     # Output corpus stats
-    stats_file.write("Total words: " + text_properties['total_words'] + "\n")
+    stats_file.write("Total words: " + str(text_properties['total_words']) + "\n")
     stats_file.write("Most frequent word: " + text_properties['most_frequent_word'] + "\n")
     stats_file.write("Most frequent word frequency: " + str(text_properties['most_frequent_word_freq']) + "\n")
     stats_file.write("Unique terms in dictionary: " + str(len(dictionary.keys())) + "\n")
