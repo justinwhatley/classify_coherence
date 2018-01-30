@@ -34,14 +34,14 @@ def create_sentence(arg1, arg2, connective, sense):
     }
     return sentence
 
-def create_sentence_pair(arg1, arg2, connective, sense):
+def create_sentence_pair(arg1, arg2, connective, sense, original_sentence_index):
     sentence = {
         'Arg1Raw': arg1,
         'Arg2Raw': arg2,
         'ConnectiveRaw': connective.lower(),
         'Sense': sense.lower(),
+        'Original_Sentence_Index': original_sentence_index
     }
-    # print(arg1)
     return sentence
 
 
@@ -66,6 +66,7 @@ def include_only_sentences_of_type(type):
 def display_different_types():
     global data
 
+
     type = []
     for line in data:
         if line['Type'] not in type:
@@ -73,6 +74,14 @@ def display_different_types():
 
     print('Different types of sentences are: ')
     print(type)
+
+def display_different_keys():
+    global data
+    for dict in data:
+        for line in dict.keys():
+            print(line)
+        break
+
 
 def remove_sentences_with_unlisted_connectives():
     # Remove sentences with "" as Connective
@@ -85,7 +94,7 @@ def prepare_coherent_sentences():
     global data
     coherent_sentences = []
     for line in data:
-        coherent_sentences.append(create_sentence_pair(line['Arg1']['RawText'],
+        coherent_sentences.append(create_sentence(line['Arg1']['RawText'],
                                                   line['Arg2']['RawText'],
                                                   line['Connective']['RawText'],
                                                   line['Sense']))
@@ -117,10 +126,12 @@ def generate_sentences_random_arg2(coherent_sentences):
         random_coherent_sentence = coherent_copy[index]
 
         coherent_copy.pop(index)  # Remove sentence with used Arg2 from set of sentences
-        incoherent_sentences.append(create_sentence(line['Arg1']['RawText'],
+
+        incoherent_sentences.append(create_sentence_pair(line['Arg1']['RawText'],
                                                     random_coherent_sentence['Arg2Raw'],
                                                     line['Connective']['RawText'],
-                                                    line['Sense']))
+                                                    line['Sense'],
+                                                    index))
     output_sentences(incoherent_sentences, incoherent_sentences_arg2_random)
 
 
@@ -242,12 +253,9 @@ if __name__ == '__main__':
 
     # remove_sentences_with_explicit_connectives()
     include_only_sentences_of_type('Implicit')
-    # display_different_types()
     remove_sentences_with_unlisted_connectives()
 
     coherent_sentences = prepare_coherent_sentences()
-    # for line in coherent_sentences:
-    #     print line
 
     unique_connectives_senses = create_unique_connectives()
 
