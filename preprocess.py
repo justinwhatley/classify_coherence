@@ -33,13 +33,8 @@ def fix_capitalization_arg2(line):
     """
     arg2 = line['Arg2Raw'][0]
     if arg2[0].islower():
-        temp_arg2 = []
-        for i, char in enumerate(arg2):
-            if i == 0:
-                temp_arg2.append(char.upper())
-            else:
-                temp_arg2.append(char)
-        arg2 = ''.join(temp_arg2)
+        temp_arg2 = line['Arg2Raw'][:1].upper() + line['Arg2Raw'][1:]
+        arg2 = temp_arg2
     return arg2
 
 
@@ -47,8 +42,7 @@ def connect_sentence(line):
     # Convert to raw text
     # sentence = line['Arg1Raw'] + " " + line['ConnectiveRaw'] + " " + line['Arg2Raw'] + "\n"
 
-    capitalized_arg2 = fix_capitalization_arg2(line)
-    sentence = line['Arg1Raw'] + ". " + capitalized_arg2 + "\n"
+    sentence = line['Arg1Raw'] + ". " + line['Arg2Raw'] + ". " + "\n"
     # fix_capitalization_arg2(line)
     return sentence
 
@@ -111,11 +105,15 @@ def convert_sentence_to_raw(dictionary, text_properties):
             print("Randomizing words in sentence: " + filename)
             randomize_words_in_sentence(filename)
 
-        # Output File Stats
-        stats_file.write(filename + " stats:\n")
-        stats_file.write("# words: " + str(len(file_dict.keys())) + "\n")
-        stats_file.write("# sentences: " + str(file_num_sentences) + "\n")
-        stats_file.write("Max sentence length: " + str(file_max_sentence_length) + "\n")
+        write_output_stats(filename, file_dict, file_num_sentences, file_max_sentence_length)
+
+
+def write_output_stats(filename, file_dict, file_num_sentences, file_max_sentence_length):
+    # Output File Stats
+    stats_file.write(filename + " stats:\n")
+    stats_file.write("# words: " + str(len(file_dict.keys())) + "\n")
+    stats_file.write("# sentences: " + str(file_num_sentences) + "\n")
+    stats_file.write("Max sentence length: " + str(file_max_sentence_length) + "\n")
 
 def write_corpus_statistics(text_properties):
     print("Writing statistics file: " + statistics_file_location)

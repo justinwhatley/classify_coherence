@@ -89,6 +89,17 @@ def remove_sentences_with_unlisted_connectives():
     data = filter(lambda line: line['Connective']['RawText'] != '', data)
     data = filter(lambda line: line['Connective']['RawText'] != "", data)
 
+def remove_texts_with_args_starting_midsentence():
+    # Remove sentences that are separated by implicit connective mid-sentence
+    global data
+    data = filter(lambda line: line['Arg1']['RawText'][0].isupper(), data)
+    data = filter(lambda line: line['Arg2']['RawText'][0].isupper(), data)
+
+def remove_texts_with_nested_sentences():
+    global data
+    # Removes sentences containing a period to simplify dataset since these may be multipart arguments
+    data = filter(lambda line: line['Arg1']['RawText'].rfind('.') == -1, data)
+
 def prepare_coherent_sentences():
     # Coherent sentences
     global data
@@ -253,7 +264,10 @@ if __name__ == '__main__':
 
     # remove_sentences_with_explicit_connectives()
     include_only_sentences_of_type('Implicit')
+    remove_texts_with_nested_sentences()
+    remove_texts_with_args_starting_midsentence()
     remove_sentences_with_unlisted_connectives()
+    # print(len(data))
 
     coherent_sentences = prepare_coherent_sentences()
 
