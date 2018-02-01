@@ -40,7 +40,7 @@ def create_sentence_pair(arg1, arg2, connective, sense, original_sentence_index)
         'Arg2Raw': arg2,
         'ConnectiveRaw': connective.lower(),
         'Sense': sense.lower(),
-        'Original_Sentence_Index': original_sentence_index
+        'OriginalSentenceIndex': original_sentence_index
     }
     return sentence
 
@@ -66,7 +66,6 @@ def include_only_sentences_of_type(type):
 def display_different_types():
     global data
 
-
     type = []
     for line in data:
         if line['Type'] not in type:
@@ -76,6 +75,10 @@ def display_different_types():
     print(type)
 
 def display_different_keys():
+    """
+    Show the different keys in a particular dictionary object
+    :return: none
+    """
     global data
     for dict in data:
         for line in dict.keys():
@@ -131,7 +134,7 @@ def generate_sentences_random_arg2(coherent_sentences):
     # RANDOM: Incoherent sentences by swapping Arg2s
     incoherent_sentences = []
     coherent_copy = list(coherent_sentences)
-    for line in data:
+    for i, line in enumerate(data):
         # Get a random sentence
         index = randint(0, len(coherent_copy) - 1)
         random_coherent_sentence = coherent_copy[index]
@@ -142,7 +145,7 @@ def generate_sentences_random_arg2(coherent_sentences):
                                                     random_coherent_sentence['Arg2Raw'],
                                                     line['Connective']['RawText'],
                                                     line['Sense'],
-                                                    index))
+                                                    i))
     output_sentences(incoherent_sentences, incoherent_sentences_arg2_random)
 
 

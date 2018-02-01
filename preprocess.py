@@ -4,6 +4,8 @@ import os
 import nltk 
 import json 
 import random
+import sampling
+import csv
 
 def randomize_words_in_sentence(filename):
     data = []
@@ -38,14 +40,21 @@ def fix_capitalization_arg2(line):
     return arg2
 
 
+def get_original_sentence(coherent_data, incoherent_data_line):
+    # Gets the original sentence which was corrupted
+    print connect_sentence(incoherent_data_line)
+    print connect_sentence(coherent_data[incoherent_data_line['OriginalSentenceIndex']])
+
+    return connect_sentence(coherent_data[incoherent_data_line['OriginalSentenceIndex']])
+
 def connect_sentence(line):
     # Convert to raw text
     # sentence = line['Arg1Raw'] + " " + line['ConnectiveRaw'] + " " + line['Arg2Raw'] + "\n"
+    #TODO add option to include connective or not
 
     sentence = line['Arg1Raw'] + ". " + line['Arg2Raw'] + ". " + "\n"
     # fix_capitalization_arg2(line)
     return sentence
-
 
 # Build dictionary and convert sentences to raw text
 def convert_sentence_to_raw(dictionary, text_properties):
@@ -100,12 +109,71 @@ def convert_sentence_to_raw(dictionary, text_properties):
                 if word not in file_dict:
                     file_dict[word] = True
 
-                    # Get one dataset with words fully randomized
+        # Get one dataset with words fully randomized TODO look into the filename here, seems wrong
         if filename == 'incoherent_sentences_arg2_diff_sense.json':
             print("Randomizing words in sentence: " + filename)
             randomize_words_in_sentence(filename)
 
         write_output_stats(filename, file_dict, file_num_sentences, file_max_sentence_length)
+
+
+def get_random_sample(sample_size, population_size):
+    return random.sample(range(1, population_size), sample_size)
+
+def setup_csv(sample_name):
+    directory = 'mechanical_turks_input_data'
+
+    file_location = os.path.join(directory, sample_name)
+    # Clear contents of file
+    f = open(file_location, 'w+')
+    f.close()
+    # Get txt version of data
+    csvfile = open(file_location, 'a+')
+    writer = csv.writer(csvfile)
+    # Generate header information
+    writer.writerow(["Dataset", "CoherentSample", "IncoherentSample"])
+    return csvfile, writer
+
+def prepare_sample():
+
+    # Erases and sets up a new CSV file, returning handles
+    sample_name = "samples.csv"
+    csvfile, writer = setup_csv(sample_name)
+
+    # Loads data for the uncorrupted sentences
+    coherent_data = []
+    coherent_json_filename = "coherent_sentences.json"
+    for line in open(os.path.join("data/json/",coherent_json_filename), 'r'):
+        coherent_data.append(json.loads(line))
+
+    for filename in os.listdir(os.getcwd() + "/data/json"):
+        # Variables for file-specific data
+        if filename in [".keep", coherent_json_filename]:
+            continue
+
+        # Loads data for the corrupted sentences
+        incoherent_data = []
+        for line in open(os.path.join("data/json/",filename), 'r'):
+            incoherent_data.append(json.loads(line))
+
+        # Insert from sampling module
+        sample_size = 51
+        population_size = len(incoherent_data)
+        sample_list = get_random_sample(sample_size, population_size)
+
+        counter = 0
+        print len(incoherent_data)
+        for i, line in enumerate(incoherent_data):
+            if i in sample_list:
+                counter += 1
+                incoherent_sentence = connect_sentence(line).encode('ascii', 'ignore')
+                coherent_sentence = get_original_sentence(coherent_data, line).encode('ascii', 'ignore')
+                writer.writerow([filename, incoherent_sentence, coherent_sentence])
+                sample_list.remove(i)
+                if len(sample_list) == 0:
+                    break
+
+    csvfile.close()
 
 
 def write_output_stats(filename, file_dict, file_num_sentences, file_max_sentence_length):
@@ -125,21 +193,7 @@ def write_corpus_statistics(text_properties):
     stats_file.write("Max sentence length: " + str(text_properties['max_sentence_length']) + "\n")
 
 
-if __name__ == '__main__':
-
-    dictionary = {}
-    mapped_dictionary = {}
-
-    text_properties = {
-        'max_sentence_length': 0,
-        'most_frequent_word': "",
-        'most_frequent_word_freq': 0,
-        'total_words': 0
-    }
-
-    print("Converting to raw text")
-    convert_sentence_to_raw(dictionary, text_properties)
-
+def map_terms_to_integers():
     # Output dictionary and create mapping of terms to integers
     index = 1
     open("data/dictionary.txt", 'w') # Clear contents of file
@@ -155,4 +209,22 @@ if __name__ == '__main__':
         dict_file.write(entry)
         index += 1
 
-    write_corpus_statistics(text_properties)
+if __name__ == '__main__':
+
+    dictionary = {}
+    mapped_dictionary = {}
+
+    text_properties = {
+        'max_sentence_length': 0,
+        'most_frequent_word': "",
+        'most_frequent_word_freq': 0,
+        'total_words': 0
+    }
+
+    print("Converting to raw text")
+    # convert_sentence_to_raw(dictionary, text_properties)
+    # write_corpus_statistics(text_properties)
+
+    # sampling.sample_for_crowdflower()
+    prepare_sample()
+    # sampling.sample_for_mechanical_turks()
