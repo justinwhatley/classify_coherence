@@ -1,4 +1,7 @@
 data
 runs
-crowdflower_data/samples.csv
-crowdflower_data/samples.xlsx
+crowdflower_input_data/samples.csv
+crowdflower_input_data/samples.xlsx
+crowdflower_output_data/crowdflower_results_tim.csv
+crowdflower_output_data/crowdflower_results_tim2.csv
+

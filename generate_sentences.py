@@ -102,6 +102,7 @@ def remove_texts_with_nested_sentences():
     global data
     # Removes sentences containing a period to simplify dataset since these may be multipart arguments
     data = filter(lambda line: line['Arg1']['RawText'].rfind('.') == -1, data)
+    data = filter(lambda line: line['Arg2']['RawText'].rfind('.') == -1, data)
 
 def prepare_coherent_sentences():
     # Coherent sentences
@@ -180,7 +181,6 @@ def generate_sentences_swapping_arg2_same_sense(unique_connectives_senses, coher
             index = randint(0, len(coherent_copy) - 1)
             random_coherent_sentence = coherent_copy[index]
             tries += 1
-        tries = 0
         coherent_copy.pop(index)  # Remove sentence with used Arg2 from set of sentences
         incoherent_sentences.append(create_sentence(line['Arg1']['RawText'],
                                                     random_coherent_sentence['Arg2Raw'],
@@ -240,9 +240,20 @@ def generate_sentences_swapping_arg2_matching_connective(coherent_sentences):
                                                     line['Sense']))
     output_sentences(incoherent_sentences, incoherent_sentences_arg2_matching_connectives)
 
+def extract_text_with_sense(sense):
+    global data
+    return filter(lambda line: line['Sense'] == sense, data)
+
 def generate_sentences_swapping_arg2_different_sense_connective(unique_connectives_senses):
     # DIFFERENT SENSE CONNECTIVE: Incoherent sentences by swapping connectives
     incoherent_sentences = []
+
+    comparison_examples = extract_text_with_sense('Comparison')
+    print(len(comparison_examples))
+
+    contingency_examples = extract_text_with_sense('Contingency')
+    print(len(contingency_examples))
+
     for line in data:
         # Get a random connective
         connective_list = sample(unique_connectives_senses, 1)
@@ -270,7 +281,8 @@ if __name__ == '__main__':
     remove_texts_with_nested_sentences()
     remove_texts_with_args_starting_midsentence()
     remove_sentences_with_unlisted_connectives()
-    # print(len(data))
+
+    print(len(data))
 
     coherent_sentences = prepare_coherent_sentences()
 
@@ -281,7 +293,7 @@ if __name__ == '__main__':
     # generate_sentences_swapping_arg2_same_sense(unique_connectives_senses, coherent_sentences)
     # generate_sentences_swapping_arg2_different_sense(unique_connectives_senses, coherent_sentences)
     # generate_sentences_swapping_arg2_matching_connective(coherent_sentences)
-    # generate_sentences_swapping_arg2_different_sense_connective(unique_connectives_senses)
+    generate_sentences_swapping_arg2_different_sense_connective(unique_connectives_senses)
 
 
 

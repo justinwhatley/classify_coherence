@@ -6,7 +6,7 @@ import json
 MECHANICAL_TURKS_DIR = "mechanical_turks_input_data"
 CROWDFLOWER_DIR = "crowdflower_input_data"
 
-def sample_for_crowdflower():
+def prepare_sample_for_crowdflower():
 
     open(CROWDFLOWER_DIR + "/samples.csv", 'w') # Clear contents of file
     # Get txt version of data
@@ -55,13 +55,12 @@ def connect_sentence(line, include_connective = True):
     if include_connective:
         sentence = line['Arg1Raw'] + ". " \
                    + first_char_to_upper(line['ConnectiveRaw']) + " " \
-                   + first_char_to_lower(line['Arg2Raw'] + "\n")
+                   + first_char_to_lower(line['Arg2Raw'] + "\n") + ". "
     else:
         sentence = line['Arg1Raw'] + ". " + line['Arg2Raw'] + ". " + "\n"
     return sentence
 
-def setup_csv(sample_name):
-    directory = 'mechanical_turks_input_data'
+def setup_csv(sample_name, directory):
 
     file_location = os.path.join(directory, sample_name)
     # Clear contents of file
@@ -86,11 +85,11 @@ def get_original_sentence(coherent_data, incoherent_data_line):
 
     return connect_sentence(coherent_data[incoherent_data_line['OriginalSentenceIndex']])
 
-def prepare_sample():
+def prepare_coherent_incoherent_pair_sample(sample_name, directory):
 
     # Erases and sets up a new CSV file, returning handles
-    sample_name = "samples.csv"
-    csvfile, writer = setup_csv(sample_name)
+
+    csvfile, writer = setup_csv(sample_name, directory)
 
     # Loads data for the uncorrupted sentences
     coherent_data = []
@@ -129,4 +128,7 @@ def prepare_sample():
 
             
 if __name__ == '__main__':
-    prepare_sample()
+    sample_name = "samples.csv"
+    directory = MECHANICAL_TURKS_DIR
+    prepare_coherent_incoherent_pair_sample(sample_name, directory)
+    # prepare_sample_for_crowdflower()

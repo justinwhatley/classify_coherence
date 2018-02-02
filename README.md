@@ -64,5 +64,5 @@ Model parameters saved by tensorflow after each run
 
 
 ### Detailed Report
-A detailled report of this project can be found at https://www.overleaf.com/read/ngfcbdxkcgby
+A detailed report of this project can be found at https://www.overleaf.com/read/ngfcbdxkcgby
 

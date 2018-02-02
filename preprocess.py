@@ -4,8 +4,12 @@ import os
 import nltk 
 import json 
 import random
-import sampling
-import csv
+
+# Stats output file
+statistics_file_location = "data/corpus_stats.txt"
+open(statistics_file_location, 'w') # Clear contents of file
+stats_file = open("data/corpus_stats.txt", 'a+')
+
 
 def randomize_words_in_sentence(filename):
     data = []
@@ -23,38 +27,16 @@ def randomize_words_in_sentence(filename):
             randomized_file.write(word.encode('ascii', 'ignore') + " ")
         randomized_file.write('\n')
 
-
-# Stats output file
-statistics_file_location = "data/corpus_stats.txt"
-open(statistics_file_location, 'w') # Clear contents of file
-stats_file = open("data/corpus_stats.txt", 'a+')
-
-def fix_capitalization_arg2(line):
-    """
-    Capitalizes first letter of the arg2 if it is not already capitalized
-    """
-    arg2 = line['Arg2Raw'][0]
-    if arg2[0].islower():
-        temp_arg2 = line['Arg2Raw'][:1].upper() + line['Arg2Raw'][1:]
-        arg2 = temp_arg2
-    return arg2
-
-
-def get_original_sentence(coherent_data, incoherent_data_line):
-    # Gets the original sentence which was corrupted
-    print connect_sentence(incoherent_data_line)
-    print connect_sentence(coherent_data[incoherent_data_line['OriginalSentenceIndex']])
-
-    return connect_sentence(coherent_data[incoherent_data_line['OriginalSentenceIndex']])
-
-def connect_sentence(line):
+def connect_sentence(line, include_connective = False):
     # Convert to raw text
-    # sentence = line['Arg1Raw'] + " " + line['ConnectiveRaw'] + " " + line['Arg2Raw'] + "\n"
-    #TODO add option to include connective or not
+    if include_connective:
+        sentence = line['Arg1Raw'] + ". " \
+                   + line['ConnectiveRaw'] + " " \
+                   + line['Arg2Raw'] + "\n"
+    else:
+        sentence = line['Arg1Raw'] + ". " + line['Arg2Raw'] + ". " + "\n"
+    return sentence.lower()
 
-    sentence = line['Arg1Raw'] + ". " + line['Arg2Raw'] + ". " + "\n"
-    # fix_capitalization_arg2(line)
-    return sentence
 
 # Build dictionary and convert sentences to raw text
 def convert_sentence_to_raw(dictionary, text_properties):
@@ -117,65 +99,6 @@ def convert_sentence_to_raw(dictionary, text_properties):
         write_output_stats(filename, file_dict, file_num_sentences, file_max_sentence_length)
 
 
-def get_random_sample(sample_size, population_size):
-    return random.sample(range(1, population_size), sample_size)
-
-def setup_csv(sample_name):
-    directory = 'mechanical_turks_input_data'
-
-    file_location = os.path.join(directory, sample_name)
-    # Clear contents of file
-    f = open(file_location, 'w+')
-    f.close()
-    # Get txt version of data
-    csvfile = open(file_location, 'a+')
-    writer = csv.writer(csvfile)
-    # Generate header information
-    writer.writerow(["Dataset", "CoherentSample", "IncoherentSample"])
-    return csvfile, writer
-
-def prepare_sample():
-
-    # Erases and sets up a new CSV file, returning handles
-    sample_name = "samples.csv"
-    csvfile, writer = setup_csv(sample_name)
-
-    # Loads data for the uncorrupted sentences
-    coherent_data = []
-    coherent_json_filename = "coherent_sentences.json"
-    for line in open(os.path.join("data/json/",coherent_json_filename), 'r'):
-        coherent_data.append(json.loads(line))
-
-    for filename in os.listdir(os.getcwd() + "/data/json"):
-        # Variables for file-specific data
-        if filename in [".keep", coherent_json_filename]:
-            continue
-
-        # Loads data for the corrupted sentences
-        incoherent_data = []
-        for line in open(os.path.join("data/json/",filename), 'r'):
-            incoherent_data.append(json.loads(line))
-
-        # Insert from sampling module
-        sample_size = 51
-        population_size = len(incoherent_data)
-        sample_list = get_random_sample(sample_size, population_size)
-
-        counter = 0
-        print len(incoherent_data)
-        for i, line in enumerate(incoherent_data):
-            if i in sample_list:
-                counter += 1
-                incoherent_sentence = connect_sentence(line).encode('ascii', 'ignore')
-                coherent_sentence = get_original_sentence(coherent_data, line).encode('ascii', 'ignore')
-                writer.writerow([filename, incoherent_sentence, coherent_sentence])
-                sample_list.remove(i)
-                if len(sample_list) == 0:
-                    break
-
-    csvfile.close()
-
-
 def write_output_stats(filename, file_dict, file_num_sentences, file_max_sentence_length):
     # Output File Stats
     stats_file.write(filename + " stats:\n")
@@ -222,9 +145,5 @@ if __name__ == '__main__':
     }
 
     print("Converting to raw text")
-    # convert_sentence_to_raw(dictionary, text_properties)
-    # write_corpus_statistics(text_properties)
-
-    # sampling.sample_for_crowdflower()
-    prepare_sample()
-    # sampling.sample_for_mechanical_turks()
+    convert_sentence_to_raw(dictionary, text_properties)
+    write_corpus_statistics(text_properties)
