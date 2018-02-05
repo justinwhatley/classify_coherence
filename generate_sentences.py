@@ -190,6 +190,14 @@ def generate_sentences_swapping_arg2_same_sense(unique_connectives_senses, coher
 
 def generate_sentences_swapping_arg2_different_sense(unique_connectives_senses, coherent_sentences):
     # DIFFERENT SENSE: Incoherent sentences by swapping Arg2s
+
+    comparison_examples = extract_text_with_sense('Comparison')
+    print(len(comparison_examples))
+
+    contingency_examples = extract_text_with_sense('Contingency')
+    print(len(contingency_examples))
+
+
     incoherent_sentences = []
     coherent_copy = list(coherent_sentences)
     for line in data:
@@ -248,12 +256,6 @@ def generate_sentences_swapping_arg2_different_sense_connective(unique_connectiv
     # DIFFERENT SENSE CONNECTIVE: Incoherent sentences by swapping connectives
     incoherent_sentences = []
 
-    comparison_examples = extract_text_with_sense('Comparison')
-    print(len(comparison_examples))
-
-    contingency_examples = extract_text_with_sense('Contingency')
-    print(len(contingency_examples))
-
     for line in data:
         # Get a random connective
         connective_list = sample(unique_connectives_senses, 1)
@@ -291,9 +293,9 @@ if __name__ == '__main__':
     generate_sentences_random_arg2(coherent_sentences)
     # generate_sentences_swapping_connectives(unique_connectives_senses)
     # generate_sentences_swapping_arg2_same_sense(unique_connectives_senses, coherent_sentences)
-    # generate_sentences_swapping_arg2_different_sense(unique_connectives_senses, coherent_sentences)
+    generate_sentences_swapping_arg2_different_sense(unique_connectives_senses, coherent_sentences)
     # generate_sentences_swapping_arg2_matching_connective(coherent_sentences)
-    generate_sentences_swapping_arg2_different_sense_connective(unique_connectives_senses)
+    # generate_sentences_swapping_arg2_different_sense_connective(unique_connectives_senses)
 
 
 
