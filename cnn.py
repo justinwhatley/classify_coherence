@@ -1,10 +1,16 @@
 import tensorflow as tf
 import numpy as np
 
+"""
+Original code from Denny Britz 
+http://www.wildml.com/2015/12/implementing-a-cnn-for-text-classification-in-tensorflow/
+"""
+
 class CNN(object):
     """
     A CNN for text classification.
     Uses an embedding layer, followed by a convolutional, max-pooling and softmax layer.
+    Modified from https://github.com/dennybritz/cnn-text-classification-tf/blob/master/text_cnn.py
     """
     def __init__(
       self, sequence_length, num_classes, vocab_size,
