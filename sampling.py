@@ -12,7 +12,7 @@ def prepare_sample_for_crowdflower():
     # Get txt version of data
     with open(CROWDFLOWER_DIR + "/samples.csv", 'a+') as csvfile:
         writer = csv.writer(csvfile)
-        writer.writerow(["Dataset", "CoherentSample", "IncoherentSample"])
+        writer.writerow(["Dataset", "Sample1", "Sample2", "CoherentSentence", "IncoherentSentence"])
         for filename in os.listdir(os.getcwd()+ "/data/txt"):
 
             if filename in [".keep", "coherent_sentences.txt"]:
@@ -55,7 +55,7 @@ def connect_sentence(line, include_connective = True):
     if include_connective:
         sentence = line['Arg1Raw'] + ". " \
                    + first_char_to_upper(line['ConnectiveRaw']) + " " \
-                   + first_char_to_lower(line['Arg2Raw'] + "\n") + ". "
+                   + first_char_to_lower(line['Arg2Raw'] + ". " + "\n")
     else:
         sentence = line['Arg1Raw'] + ". " + line['Arg2Raw'] + ". " + "\n"
     return sentence
@@ -70,7 +70,11 @@ def setup_csv(sample_name, directory):
     csvfile = open(file_location, 'a+')
     writer = csv.writer(csvfile)
     # Generate header information
-    writer.writerow(["Dataset", "CoherentSample", "IncoherentSample"])
+    dataset = "Dataset"
+    sample1 = "Sample1"
+    sample2 = "Sample2"
+    incoherent_sample = "Incoherent_Sample"
+    writer.writerow([dataset, sample1, sample2, incoherent_sample])
     return csvfile, writer
 
 
@@ -82,8 +86,8 @@ def get_original_sentence(coherent_data, incoherent_data_line):
     # Gets the original sentence which was corrupted
     print connect_sentence(incoherent_data_line)
     print connect_sentence(coherent_data[incoherent_data_line['OriginalSentenceIndex']])
-
     return connect_sentence(coherent_data[incoherent_data_line['OriginalSentenceIndex']])
+
 
 def prepare_coherent_incoherent_pair_sample(sample_name, directory):
 
@@ -108,7 +112,7 @@ def prepare_coherent_incoherent_pair_sample(sample_name, directory):
             incoherent_data.append(json.loads(line))
 
         # Insert from sampling module
-        sample_size = 51
+        sample_size = 50
         population_size = len(incoherent_data)
         sample_list = get_random_sample(sample_size, population_size)
 
@@ -119,13 +123,16 @@ def prepare_coherent_incoherent_pair_sample(sample_name, directory):
                 counter += 1
                 incoherent_sentence = connect_sentence(line).encode('ascii', 'ignore')
                 coherent_sentence = get_original_sentence(coherent_data, line).encode('ascii', 'ignore')
-                writer.writerow([filename, incoherent_sentence, coherent_sentence])
+                incoherent_selection = random.randint(0, 1)
+                if incoherent_selection:
+                    writer.writerow([filename, coherent_sentence, incoherent_sentence, incoherent_selection+1])
+                else:
+                    writer.writerow([filename, incoherent_sentence, coherent_sentence, incoherent_selection+1])
                 sample_list.remove(i)
                 if len(sample_list) == 0:
                     break
 
     csvfile.close()
-
             
 if __name__ == '__main__':
     sample_name = "samples.csv"

@@ -10,7 +10,6 @@ class CNN(object):
     """
     A CNN for text classification.
     Uses an embedding layer, followed by a convolutional, max-pooling and softmax layer.
-    Modified from https://github.com/dennybritz/cnn-text-classification-tf/blob/master/text_cnn.py
     """
     def __init__(
       self, sequence_length, num_classes, vocab_size,

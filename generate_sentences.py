@@ -191,34 +191,28 @@ def generate_sentences_swapping_arg2_same_sense(unique_connectives_senses, coher
 def generate_sentences_swapping_arg2_different_sense(unique_connectives_senses, coherent_sentences):
     # DIFFERENT SENSE: Incoherent sentences by swapping Arg2s
 
-    comparison_examples = extract_text_with_sense('Comparison')
-    print(len(comparison_examples))
-
-    contingency_examples = extract_text_with_sense('Contingency')
-    print(len(contingency_examples))
-
-
     incoherent_sentences = []
     coherent_copy = list(coherent_sentences)
-    for line in data:
+    for i, line in enumerate(data):
         # Get a random sentence that is not the same as the current one
-        index = randint(0, len(coherent_copy) - 1)
-        random_coherent_sentence = coherent_copy[index]
-
-        # Ensure that connection between Arg1 and new Arg2 is not the same as connection between Arg1 and original Arg2
-        # Because this may not be possible for all sentences, we will try a maximum of 1000 times.
-        tries = 0
-        while (random_coherent_sentence['Sense'] in unique_connectives_senses[
-            line['Connective']['RawText']] and tries < 1000):
+        if line['Sense'] == 'Comparison' or line['Sense'] == 'Contingency':
             index = randint(0, len(coherent_copy) - 1)
             random_coherent_sentence = coherent_copy[index]
-            tries += 1
-        tries = 0
-        coherent_copy.pop(index)  # Remove sentence with used Arg2 from set of sentences
-        incoherent_sentences.append(create_sentence(line['Arg1']['RawText'],
-                                                    random_coherent_sentence['Arg2Raw'],
-                                                    line['Connective']['RawText'],
-                                                    line['Sense']))
+
+            # Ensure that connection between Arg1 and new Arg2 is not the same as connection between Arg1 and original Arg2
+            # Because this may not be possible for all sentences, we will try a maximum of 1000 times.
+            tries = 0
+            while (random_coherent_sentence['Sense'] in unique_connectives_senses[
+                line['Connective']['RawText']] and tries < 1000):
+                index = randint(0, len(coherent_copy) - 1)
+                random_coherent_sentence = coherent_copy[index]
+                tries += 1
+            coherent_copy.pop(index)  # Remove sentence with used Arg2 from set of sentences
+            incoherent_sentences.append(create_sentence_pair(line['Arg1']['RawText'],
+                                                        random_coherent_sentence['Arg2Raw'],
+                                                        line['Connective']['RawText'],
+                                                        line['Sense'],
+                                                        i))
     output_sentences(incoherent_sentences, incoherent_sentences_arg2_diff_sense)
 
 def generate_sentences_swapping_arg2_matching_connective(coherent_sentences):
@@ -284,6 +278,11 @@ if __name__ == '__main__':
     remove_texts_with_args_starting_midsentence()
     remove_sentences_with_unlisted_connectives()
 
+    # comparison_examples = extract_text_with_sense('Comparison')
+    # print(len(comparison_examples))
+    #
+    # contingency_examples = extract_text_with_sense('Contingency')
+    # print(len(contingency_examples))
     print(len(data))
 
     coherent_sentences = prepare_coherent_sentences()
