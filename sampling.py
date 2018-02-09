@@ -112,7 +112,7 @@ def prepare_coherent_incoherent_pair_sample(sample_name, directory):
             incoherent_data.append(json.loads(line))
 
         # Insert from sampling module
-        sample_size = 50
+        sample_size = 10
         population_size = len(incoherent_data)
         sample_list = get_random_sample(sample_size, population_size)
 
@@ -120,6 +120,7 @@ def prepare_coherent_incoherent_pair_sample(sample_name, directory):
         print len(incoherent_data)
         for i, line in enumerate(incoherent_data):
             if i in sample_list:
+                print(counter)
                 counter += 1
                 incoherent_sentence = connect_sentence(line).encode('ascii', 'ignore')
                 coherent_sentence = get_original_sentence(coherent_data, line).encode('ascii', 'ignore')
@@ -131,7 +132,6 @@ def prepare_coherent_incoherent_pair_sample(sample_name, directory):
                 sample_list.remove(i)
                 if len(sample_list) == 0:
                     break
-
     csvfile.close()
             
 if __name__ == '__main__':
