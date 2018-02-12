@@ -5,19 +5,22 @@ import glob
 import csv
 
 # Graph Imports
-import matplotlib.pyplot as plt
-import matplotlib.mlab as mlab
+# import matplotlib.pyplot as plt
+# import matplotlib.mlab as mlab
 import numpy as np
 
 
 crowdflower_output_directory = 'crowdflower_output_data'
+mechanical_turks_output_directory = 'mechanical_turks_output_data'
+batch = 'Batch_3108852_batch_results.csv'
 
 
 def read_csv():
+    directory = mechanical_turks_output_directory
 
     csv_list_of_dicts = []
     #TODO ensure that different header information does not break functionality down the line
-    for filename in glob.glob(path.join(crowdflower_output_directory, '*.csv')):
+    for filename in glob.glob(path.join(directory, '*.csv')):
         with open(filename, 'rb') as csv_file:
             reader = csv.reader(csv_file, delimiter=',')
             header = None
@@ -68,7 +71,7 @@ def get_sentence_length_based_results(csv_data, agreement_threshold, length_type
     categories_list = get_diff_values_from_category(csv_data, 'dataset')
     result_list = []
     for _bin in bins:
-        result_list.append(get_bin_data(_bin, list(categories_list), agreement_threshold=agreement_threshold, aggregate=aggregate))
+        result_list.append(get_bin_data(list(categories_list), bin=_bin, agreement_threshold=agreement_threshold, aggregate=aggregate))
 
     print(cluster_matching_datasets(list(categories_list), result_list, agreement_threshold=agreement_threshold))
 
@@ -89,59 +92,16 @@ def cluster_matching_datasets(categories_list, result_list, agreement_threshold=
 
 
 def output_percent_incoherence(dict, to_check):
-    return ('Range: [' + str(dict['range'][0]) + ":" + str(dict['range'][1]) + ']'
-               + "  Percent Incoherent: " + str(
+    return ("Percent Incoherent: " + str(
                 dict[to_check]['bin_incoherence_freq'] / dict[to_check]['total_size'] * 100)
                + '\n')
 
 def output_percent_incoherence_with_annotator_agreement(dict, to_check, agreement_threshold):
-    return ('Range: [' + str(dict['range'][0]) + ":" + str(dict['range'][1]) + ']'
-            + "  Percent Incoherent at " + str(agreement_threshold) + " agreement: " +  str(
+    return ("Percent Incoherent at " + str(agreement_threshold) + " agreement: " +  str(
                 dict[to_check]['incoherence_agreement'][0] / dict[to_check]['incoherence_agreement'][1] * 100)
             + " (" + str(dict[to_check]['incoherence_agreement'][0]) + " labelled incoherent at agreement rate out of "
             + str(dict[to_check]['incoherence_agreement'][1]) + " possible)"
             + '\n')
-# Before evaluate coherence with threshold
-# def get_bin_data(_bin, categories_list, agreement_threshold, aggregate=False):
-#     """
-#     Prints text length ranges as well as the percent of responses that were evaluated as incoherent
-#     :param _bin:
-#     :return:
-#     """
-#     result = {}
-#     lower_boundary = _bin[0]['sample_length']
-#     upper_boundary = _bin[-1]['sample_length']
-#     result['range'] = (lower_boundary, upper_boundary)
-#
-#     # print('\nRange: [' + str(lower_boundary) + ' : ' + str(upper_boundary) + ']')
-#     if aggregate:
-#         bin_incoherence_freq = 0
-#         for i, dict in enumerate(_bin):
-#
-#
-#             if is_incoherent(dict):
-#                 bin_incoherence_freq += 1
-#
-#         print('Percent evaluated as incoherent: ' + str(bin_incoherence_freq / len(_bin) * 100))
-#
-#     else:
-#         while categories_list:
-#             to_check = categories_list.pop()
-#             temp_list = []
-#             for i, dict in enumerate(_bin):
-#                 if dict['dataset'] == to_check:
-#                     temp_list.append(dict)
-#
-#             bin_incoherence_freq = 0
-#             for i, dict in enumerate(temp_list):
-#                 if is_incoherent(dict):
-#                     bin_incoherence_freq += 1
-#
-#             result[to_check] = {'bin_incoherence_freq': bin_incoherence_freq, 'total_size': len(temp_list)}
-#
-#         return result
-#             # print('Percent evaluated as incoherent: ' + str(bin_incoherence_freq/len(temp_list)*100))
-
 
 def get_bin_data(_bin, categories_list, agreement_threshold, aggregate=False):
     """
@@ -149,53 +109,46 @@ def get_bin_data(_bin, categories_list, agreement_threshold, aggregate=False):
     :param _bin:
     :return:
     """
-    result = {}
-    lower_boundary = _bin[0]['sample_length']
-    upper_boundary = _bin[-1]['sample_length']
-    result['range'] = (lower_boundary, upper_boundary)
 
-    # print('\nRange: [' + str(lower_boundary) + ' : ' + str(upper_boundary) + ']')
+    result = {}
     if aggregate:
         bin_incoherence_freq = 0
         for i, dict in enumerate(_bin):
-
-
-            if is_incoherent(dict):
+            if dict['correct_response']:
                 bin_incoherence_freq += 1
 
         print('Percent evaluated as incoherent: ' + str(bin_incoherence_freq / len(_bin) * 100))
-
     else:
         while categories_list:
             to_check = categories_list.pop()
             temp_list = []
             for i, dict in enumerate(_bin):
-                if dict['dataset'] == to_check:
+                if dict['Input.Dataset'] == to_check:
                     temp_list.append(dict)
 
-            incoherence_agreement = evaluate_incoherence_agreement(agreement_threshold, temp_list)
+            incoherence_agreement = count_incoherence_agreement(agreement_threshold, temp_list)
             bin_incoherence_freq = evaluate_incoherence_frequency(temp_list)
             result[to_check] = {'incoherence_agreement':incoherence_agreement, 'bin_incoherence_freq': bin_incoherence_freq, 'total_size': len(temp_list)}
 
         return result
-            # print('Percent evaluated as incoherent: ' + str(bin_incoherence_freq/len(temp_list)*100))
 
 
-def evaluate_incoherence_agreement(agreement_threshold, temp_list):
+def count_incoherence_agreement(agreement_threshold, temp_list):
     # for category to check
     # for every unique sample to check
     # ensure that the result is above the threshold (which will be a fraction)
     # return a fraction consisting of the samples meeting the threshold over the ones that did not
+
 
     coherent_counter = 0
     incoherent_counter = 0
     score = 0
     possible_score = 0
 
-    testing_sample = temp_list[0]['sample']
+    testing_sample = (temp_list[0]['Input.Sample1'], temp_list[0]['Input.Sample2'])
     for dict in temp_list:
-        if dict['sample'] == testing_sample:
-            if is_incoherent(dict):
+        if (dict['Input.Sample1'], dict['Input.Sample2']) == testing_sample:
+            if dict['correct_answer']:
                 incoherent_counter += 1
             else:
                 coherent_counter += 1
@@ -204,25 +157,23 @@ def evaluate_incoherence_agreement(agreement_threshold, temp_list):
             if incoherent_counter/(incoherent_counter+coherent_counter) >= agreement_threshold:
                 score += 1
             possible_score += 1
+            print possible_score
 
             # Reset parameters
             coherent_counter = 0
             incoherent_counter = 0
 
             # Set to next testing sample
-            testing_sample = dict['sample']
-            if is_incoherent(dict):
+            testing_sample = (temp_list[0]['Input.Sample1'], temp_list[0]['Input.Sample2'])
+            if dict['correct_answer']:
                 incoherent_counter += 1
             else:
                 coherent_counter += 1
 
     # For last sample
-    if incoherent_counter / coherent_counter >= agreement_threshold:
+    if incoherent_counter / (incoherent_counter+coherent_counter) >= agreement_threshold:
         score += 1
     possible_score += 1
-    #
-    # print('Score: ' + str(score))
-    # print('Possible score: ' + str(possible_score))
 
     return(score, possible_score)
 
@@ -231,15 +182,10 @@ def evaluate_incoherence_frequency(categories_list):
 
     bin_incoherence_freq = 0
     for i, dict in enumerate(categories_list):
-        if is_incoherent(dict):
+        if dict['correct_answer']:
             bin_incoherence_freq += 1
 
     return bin_incoherence_freq
-
-def is_incoherent(dict):
-    if dict['please_classify_the_sample'] == 'incoherent':
-        return True
-    return False
 
 def remove_dataset(csv_data, dataset_to_remove):
     new_csv_data = []
@@ -255,66 +201,6 @@ def get_diff_values_from_category(csv_data, category):
         if item[category] not in listed:
             listed.append(item[category])
     return listed
-
-
-# def make_bar_chart(bins):
-#
-#     N = len(bins)
-#
-#     men_means = (20, 35, 30, 35, 27)
-#     men_std = (2, 3, 4, 1, 2)
-#
-#     ind = np.arange(N)  # the x locations for the groups
-#     width = 0.35       # the width of the bars
-#
-#     fig, ax = plt.subplots()
-#     rects1 = ax.bar(ind, men_means, width, color='r', yerr=men_std)
-#
-#     women_means = (25, 32, 34, 20, 25)
-#     women_std = (3, 5, 2, 3, 3)
-#     rects2 = ax.bar(ind + width, women_means, width, color='y', yerr=women_std)
-#
-#     # add some text for labels, title and axes ticks
-#     ax.set_ylabel('Scores')
-#     ax.set_title('Scores by group and gender')
-#     ax.set_xticks(ind + width / 2)
-#     ax.set_xticklabels(('G1', 'G2', 'G3', 'G4', 'G5'))
-#
-#     ax.legend((rects1[0], rects2[0]), ('Men', 'Women'))
-#
-#     def autolabel(rects):
-#         """
-#     Attach a text label above each bar displaying its height
-#     """
-#         for rect in rects:
-#             height = rect.get_height()
-#             ax.text(rect.get_x() + rect.get_width()/2., 1.05*height,
-#                     '%d' % int(height),
-#                     ha='center', va='bottom')
-#
-#     autolabel(rects1)
-#     autolabel(rects2)
-#
-#     plt.show()
-
-# def make_histogram():
-#     mu, sigma = 100, 15
-#     x = mu + sigma * np.random.randn(10000)
-#
-#     # the histogram of the data
-#     n, bins, patches = plt.hist(x, 50, normed=1, facecolor='green', alpha=0.75)
-#
-#     # add a 'best fit' line
-#     y = mlab.normpdf(bins, mu, sigma)
-#     l = plt.plot(bins, y, 'r--', linewidth=1)
-#
-#     plt.xlabel('Smarts')
-#     plt.ylabel('Probability')
-#     plt.title(r'$\mathrm{Histogram\ of\ IQ:}\ \mu=100,\ \sigma=15$')
-#     plt.axis([40, 160, 0, 0.03])
-#     plt.grid(True)
-#
-#     plt.show()
 
 
 def count_from_country(csv_data, countries_list):
@@ -371,23 +257,77 @@ def remove_infrequent_samples(csv_data, sample_threshold):
     # print(marked_for_removal)
     # print(len(marked_for_removal))
 
+def update_correct_answers(csv_data):
+    """
+    Adds
+    :param csv_data:
+    :return:
+    """
+
+    # for line in csv_data:
+    #     for keys in line:
+    #         print keys
+    #     break
+
+    correct_counter = 0
+    incorrect_counter = 0
+    for line in csv_data:
+        correct_answer = int(line['Input.Incoherent_Sample'].strip())
+        answer_given = line['Answer.Answer'].strip()
+        # print line['WorkerId']
+        # print correct_answer
+        # print answer_given
+
+        #TODO handle empty submission
+        if (answer_given == 'SampleText1' and correct_answer == 1) or (answer_given == 'SampleText2' and correct_answer == 2):
+            correct_counter += 1
+            line['correct_answer'] = True
+        elif (answer_given == 'SampleText1' and correct_answer != 1) or (answer_given == 'SampleText2' and correct_answer != 2):
+            incorrect_counter += 1
+            line['correct_answer'] = False
+        else:
+            print 'Empty response'
+            line['correct_answer'] = False
+
+    # print correct_counter
+    # print incorrect_counter
+
+    return csv_data
+
+
+def get_results_with_agreement(csv_data, agreement_threshold, categories_list, bins = None, aggregate = False):
+    if not bins:
+        bins = [csv_data]
+    result_list = []
+    for _bin in bins:
+        result_list.append(
+            get_bin_data(_bin, list(categories_list), agreement_threshold, aggregate=aggregate))
+    return result_list
 
 
 if __name__ == '__main__':
 
     csv_data = read_csv()
-    csv_data = remove_dataset(csv_data, 'incoherent_sentences_randomized_words.txt')
+    # csv_data = remove_dataset(csv_data, 'incoherent_sentences_randomized_words.txt')
 
     #csv_data = include_only_this_dataset(csv_data, '.txt')
 
     print('The datasets included are: ')
-    print(get_diff_values_from_category(csv_data, 'dataset'))
+    print(get_diff_values_from_category(csv_data, 'Input.Dataset'))
 
-    sample_threshold = 4
-    remove_infrequent_samples(csv_data, sample_threshold)
+    # sample_threshold = 4
+    # remove_infrequent_samples(csv_data, sample_threshold)
 
     agreement_threshold = 3 / 4
-    get_sentence_length_based_results(csv_data, agreement_threshold)
+    update_correct_answers(csv_data)
+
+    #Gets the different corruption method datasets
+    categories_list = get_diff_values_from_category(csv_data, 'Input.Dataset')
+    result_list = get_results_with_agreement(csv_data, agreement_threshold, categories_list)
+    print(cluster_matching_datasets(list(categories_list), result_list, agreement_threshold=agreement_threshold))
+
+
+    # get_sentence_length_based_results(csv_data, agreement_threshold)
 
     # countries_list = ['GBR', 'CAN', 'USA', 'JAM', 'IDN']
     # # countries_list = ['VEN']
