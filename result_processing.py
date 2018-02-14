@@ -264,11 +264,6 @@ def update_correct_answers(csv_data):
     :return:
     """
 
-    # for line in csv_data:
-    #     for keys in line:
-    #         print keys
-    #     break
-
     correct_counter = 0
     incorrect_counter = 0
     for line in csv_data:
@@ -328,10 +323,6 @@ if __name__ == '__main__':
 
 
     # get_sentence_length_based_results(csv_data, agreement_threshold)
-
-    # countries_list = ['GBR', 'CAN', 'USA', 'JAM', 'IDN']
-    # # countries_list = ['VEN']
-    # print(count_from_country(csv_data, countries_list))
 
     # for item in csv_data:
     #     print(item)
