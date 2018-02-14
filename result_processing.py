@@ -146,6 +146,7 @@ def count_incoherence_agreement(agreement_threshold, temp_list):
     possible_score = 0
 
     testing_sample = (temp_list[0]['Input.Sample1'], temp_list[0]['Input.Sample2'])
+
     for dict in temp_list:
         if (dict['Input.Sample1'], dict['Input.Sample2']) == testing_sample:
             if dict['correct_answer']:
@@ -157,14 +158,13 @@ def count_incoherence_agreement(agreement_threshold, temp_list):
             if incoherent_counter/(incoherent_counter+coherent_counter) >= agreement_threshold:
                 score += 1
             possible_score += 1
-            print possible_score
 
             # Reset parameters
             coherent_counter = 0
             incoherent_counter = 0
 
             # Set to next testing sample
-            testing_sample = (temp_list[0]['Input.Sample1'], temp_list[0]['Input.Sample2'])
+            testing_sample = (dict['Input.Sample1'], dict['Input.Sample2'])
             if dict['correct_answer']:
                 incoherent_counter += 1
             else:
@@ -318,7 +318,7 @@ if __name__ == '__main__':
     # sample_threshold = 4
     # remove_infrequent_samples(csv_data, sample_threshold)
 
-    agreement_threshold = 3 / 4
+    agreement_threshold =3 / 4
     update_correct_answers(csv_data)
 
     #Gets the different corruption method datasets
