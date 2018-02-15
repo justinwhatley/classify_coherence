@@ -163,25 +163,14 @@ def write_csv_data_multi_question_hit(sample_name, sample_directory, questions_p
     csvfile, writer = setup_csv_multi_question_hit(sample_name, sample_directory, questions_per_hit)
 
     counter = 1
-    for row in sample_pair_list:
-        if counter % questions_per_hit == 0:
-            writer.writerow(row_list)
-
-        writer.writerow(row)
-
-    dataset = "Dataset"
-    sample_template = "Sample"
-    incoherent_sample_template = "Incoherent_Sample"
-
-    exit(0)
-    counter = 1
     column_list = []
-    column_list.append(dataset)
-    while counter <= questions_per_hit:
-        column_list.append(sample_template + str(counter) + '_' + str(1))
-        column_list.append(sample_template + str(counter) + '_' + str(2))
-        column_list.append(incoherent_sample_template + str(counter))
+    for row in sample_pair_list:
+        column_list = column_list + row
+        if counter % questions_per_hit == 0:
+            writer.writerow(column_list)
+            column_list = []
         counter += 1
+
 
 def prepare_coherent_incoherent_pair_sample(sample_name, sample_directory, sample_size, questions_per_hit = 1):
 
@@ -215,5 +204,5 @@ if __name__ == '__main__':
     sample_name = "samples.csv"
     sample_directory = MECHANICAL_TURKS_DIR
     sample_size = 10
-    questions_per_hit = 1
+    questions_per_hit = 10
     prepare_coherent_incoherent_pair_sample(sample_name, sample_directory, sample_size, questions_per_hit)
