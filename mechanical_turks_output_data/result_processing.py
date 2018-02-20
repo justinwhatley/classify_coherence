@@ -4,6 +4,8 @@ import os.path as path
 import glob
 import csv
 
+from datetime import datetime
+
 # Graph Imports
 # import matplotlib.pyplot as plt
 # import matplotlib.mlab as mlab
@@ -11,15 +13,13 @@ import numpy as np
 
 
 crowdflower_output_directory = 'crowdflower_output_data'
-mechanical_turks_output_directory = 'mechanical_turks_output_data'
-batch = 'Batch_3108852_batch_results.csv'
-
+mechanical_turks_output_directory = 'multi_question_hit'
+# mechanical_turks_output_directory = 'single_question_hit'
 
 def read_csv():
     directory = mechanical_turks_output_directory
 
     csv_list_of_dicts = []
-    #TODO ensure that different header information does not break functionality down the line
     for filename in glob.glob(path.join(directory, '*.csv')):
         with open(filename, 'rb') as csv_file:
             reader = csv.reader(csv_file, delimiter=',')
@@ -32,10 +32,26 @@ def read_csv():
                     for j, result in enumerate(row_list):
                         result_obj[header[j]] = row_list[j]
                     csv_list_of_dicts.append(result_obj)
+
+    print header
     return csv_list_of_dicts
+
+def test_csv_sample():
+
+    with open(path, 'rb') as csvfile:
+        reader = csv.DictReader(csvfile)
+        for i, row in enumerate(reader):
+
+            # Multiple questions per HIT
+            for i in range(1, 10):
+                incoherent_sample_key = 'Sample' + str(i) + "_" + row['Incoherent_Sample' + str(i)]
+                print ('The incoherent sample is: ' + incoherent_sample_key)
+                print "1. " + row['Sample' + str(i) + "_" + str(1)]
+                print "2. " + row['Sample' + str(i) + "_" + str(2)]
 
 
 def get_sentence_length_based_results(csv_data, agreement_threshold, length_type='word', aggregate = False):
+    #TODO will need to fix this up to run with new CSV presentations
 
     # Adds the lengths of each sample to the dictionary according to the length_type considered
     for row_dict in csv_data:
@@ -76,7 +92,13 @@ def get_sentence_length_based_results(csv_data, agreement_threshold, length_type
     print(cluster_matching_datasets(list(categories_list), result_list, agreement_threshold=agreement_threshold))
 
 def cluster_matching_datasets(categories_list, result_list, agreement_threshold=None):
-    # Clusters matching dataset labels
+    """
+    This clusters different bin results based on the dataset the result belongs to
+    :param categories_list:
+    :param result_list:
+    :param agreement_threshold:
+    :return:
+    """
     output = ""
     if agreement_threshold:
         output = "Agreement required for passing result: " + str(agreement_threshold)
@@ -92,11 +114,24 @@ def cluster_matching_datasets(categories_list, result_list, agreement_threshold=
 
 
 def output_percent_incoherence(dict, to_check):
+    """
+    Output function for the basic percent incoherence
+    :param dict:
+    :param to_check:
+    :return:
+    """
     return ("Percent Incoherent: " + str(
                 dict[to_check]['bin_incoherence_freq'] / dict[to_check]['total_size'] * 100)
                + '\n')
 
 def output_percent_incoherence_with_annotator_agreement(dict, to_check, agreement_threshold):
+    """
+    Output function for the percent incoherence based on annotator agreement
+    :param dict:
+    :param to_check:
+    :param agreement_threshold:
+    :return:
+    """
     return ("Percent Incoherent at " + str(agreement_threshold) + " agreement: " +  str(
                 dict[to_check]['incoherence_agreement'][0] / dict[to_check]['incoherence_agreement'][1] * 100)
             + " (" + str(dict[to_check]['incoherence_agreement'][0]) + " labelled incoherent at agreement rate out of "
@@ -111,16 +146,19 @@ def get_bin_data(_bin, categories_list, agreement_threshold, aggregate=False):
     """
 
     result = {}
+    # Aggregation option that collapses all results
+    # TODO update logic if aggregation is used
     if aggregate:
         bin_incoherence_freq = 0
         for i, dict in enumerate(_bin):
             if dict['correct_response']:
                 bin_incoherence_freq += 1
-
         print('Percent evaluated as incoherent: ' + str(bin_incoherence_freq / len(_bin) * 100))
+    # Separates results based on the category selected. This is often going to be the sample's dataset
     else:
         while categories_list:
             to_check = categories_list.pop()
+            # Temporary list containing the results in the correct category
             temp_list = []
             for i, dict in enumerate(_bin):
                 if dict['Input.Dataset'] == to_check:
@@ -139,6 +177,8 @@ def count_incoherence_agreement(agreement_threshold, temp_list):
     # ensure that the result is above the threshold (which will be a fraction)
     # return a fraction consisting of the samples meeting the threshold over the ones that did not
 
+    # Sorts the list so that questions for the same sample pairs will appear in sequence
+    temp_list = sorted(temp_list, key=lambda k: (k['Input.Sample1'], k['Input.Sample2']))
 
     coherent_counter = 0
     incoherent_counter = 0
@@ -147,9 +187,9 @@ def count_incoherence_agreement(agreement_threshold, temp_list):
 
     testing_sample = (temp_list[0]['Input.Sample1'], temp_list[0]['Input.Sample2'])
 
-    for dict in temp_list:
-        if (dict['Input.Sample1'], dict['Input.Sample2']) == testing_sample:
-            if dict['correct_answer']:
+    for row in temp_list:
+        if (row['Input.Sample1'], row['Input.Sample2']) == testing_sample:
+            if row['correct_answer']:
                 incoherent_counter += 1
             else:
                 coherent_counter += 1
@@ -164,8 +204,8 @@ def count_incoherence_agreement(agreement_threshold, temp_list):
             incoherent_counter = 0
 
             # Set to next testing sample
-            testing_sample = (dict['Input.Sample1'], dict['Input.Sample2'])
-            if dict['correct_answer']:
+            testing_sample = (row['Input.Sample1'], row['Input.Sample2'])
+            if row['correct_answer']:
                 incoherent_counter += 1
             else:
                 coherent_counter += 1
@@ -266,18 +306,16 @@ def update_correct_answers(csv_data):
 
     correct_counter = 0
     incorrect_counter = 0
+
     for line in csv_data:
         correct_answer = int(line['Input.Incoherent_Sample'].strip())
         answer_given = line['Answer.Answer'].strip()
-        # print line['WorkerId']
-        # print correct_answer
-        # print answer_given
 
         #TODO handle empty submission
-        if (answer_given == 'SampleText1' and correct_answer == 1) or (answer_given == 'SampleText2' and correct_answer == 2):
+        if (answer_given == '1' and correct_answer == 1) or (answer_given == '2' and correct_answer == 2):
             correct_counter += 1
             line['correct_answer'] = True
-        elif (answer_given == 'SampleText1' and correct_answer != 1) or (answer_given == 'SampleText2' and correct_answer != 2):
+        elif (answer_given == '1' and correct_answer != 1) or (answer_given == '2' and correct_answer != 2):
             incorrect_counter += 1
             line['correct_answer'] = False
         else:
@@ -291,19 +329,126 @@ def update_correct_answers(csv_data):
 
 
 def get_results_with_agreement(csv_data, agreement_threshold, categories_list, bins = None, aggregate = False):
+    """
+    Gets the results based meeting the agreement threshold
+    :param csv_data: All loaded data from the csv
+    :param agreement_threshold: Fraction criteria that must be met for passing result
+    :param categories_list: The different datasets the incoherent_sentences were initial drawn from
+    :param bins: Pre-binned data from the csv_data. This can be used to group data by word length, for instance
+    :param aggregate: Option aggregate results
+    :return:
+    """
+    # Sets all csv_data to a single bin when it is not already set
     if not bins:
         bins = [csv_data]
+
+    # Gets result lists from each bin
     result_list = []
     for _bin in bins:
         result_list.append(
             get_bin_data(_bin, list(categories_list), agreement_threshold, aggregate=aggregate))
+
     return result_list
 
+def get_number_of_questions(csv_data):
+    """
+    Gets the largest sample number to determine the number of questions assigned per row (or per HIT)
+    :param csv_data:
+    :return:
+    """
+    largest_question_number = 1
+    for key in csv_data[0]:
+        if 'Dataset' in key and 'Sample' in key:
+            lst = key.split('Sample')
+            sample_number = int(lst[1].split('Dataset')[0])
+            if sample_number > largest_question_number:
+                largest_question_number = sample_number
+    return largest_question_number
+
+def expand_csv_data(csv_data, length_of_questionnaire):
+    """
+    Adapter
+    Transforms imported CSV data to the previous structure in order to simplify parsing and reuse existing functionality
+    :return:
+    """
+    new_csv_data = []
+    for row in csv_data:
+        print(length_of_questionnaire)
+        for i in range(1,length_of_questionnaire+1):
+            new_csv_row = {'WorkerId': row['WorkerId'],
+                           'CreationTime': row['CreationTime'],
+                           'Input.Sample1': row['Input.Sample' + str(i) + '_' + str(1)],
+                           'Input.Sample2': row['Input.Sample' + str(i) + '_' + str(2)],
+                           'Input.Incoherent_Sample': row['Input.Incoherent_Sample' + str(i)],
+                           'Answer.FollowupAnswer': row['Answer.FollowupAnswer' + str(i)],
+                           'Answer.Answer': row['Answer.Answer' + str(i)],
+                           'Input.Dataset': row['Input.Sample' + str(i) + 'Dataset'],
+                           'AcceptTime': row['AcceptTime'],
+                           'SubmitTime': row['SubmitTime'],
+                           'RequesterFeedback': row['RequesterFeedback'],
+                           'HITId': row['HITId']
+
+                           }
+            new_csv_data.append(new_csv_row)
+
+    return new_csv_data
+
+
+def set_time_elapsed(csv_data):
+    """
+    Gets the time delta between the AcceptTime and SubmitTime of a job
+    :param csv_data:
+    :return:
+    """
+    for row in csv_data:
+        s1 = row['AcceptTime'].split()[3]
+        s2 = row['SubmitTime'].split()[3]
+        FMT = '%H:%M:%S'
+        tdelta = datetime.strptime(s2, FMT) - datetime.strptime(s1, FMT)
+        row['TimeElapsed'] = str(tdelta)
+
+def count_instances_multiquestion_hit(csv_data, value):
+    """
+    Counts the number of occurrences of a given value
+    :param csv_data:
+    :param key:
+    :return:
+    """
+    counter = 0
+    for row in csv_data:
+        for key in row:
+            if row[key] == value:
+                counter += 1
+    print('Instances of ' + value + ': ' + str(counter))
+
+
+def count_instances(csv_data, key):
+    """
+    Counts the number of occurrences of a value given a specified key
+    :param csv_data:
+    :param key:
+    :return:
+    """
+    occurence_dict = {}
+    for row in csv_data:
+        if row[key] not in occurence_dict:
+            occurence_dict[row[key]] = 1
+        else:
+            occurence_dict[row[key]] += 1
+    print(occurence_dict)
 
 if __name__ == '__main__':
 
     csv_data = read_csv()
-    # csv_data = remove_dataset(csv_data, 'incoherent_sentences_randomized_words.txt')
+    # count_instances_multiquestion_hit(csv_data, 'incoherent_sentences_arg2_random.json')
+    # count_instances_multiquestion_hit(csv_data, 'incoherent_sentences_arg2_diff_sense.json')
+
+    length_of_questionnaire = get_number_of_questions(csv_data)
+    if length_of_questionnaire > 1:
+        csv_data = expand_csv_data(csv_data, length_of_questionnaire)
+
+    set_time_elapsed(csv_data)
+    count_instances(csv_data, 'Input.Dataset')
 
     #csv_data = include_only_this_dataset(csv_data, '.txt')
 
@@ -313,8 +458,11 @@ if __name__ == '__main__':
     # sample_threshold = 4
     # remove_infrequent_samples(csv_data, sample_threshold)
 
-    agreement_threshold =3 / 4
+    agreement_threshold = 2/3
     update_correct_answers(csv_data)
+
+    for row in csv_data:
+        print(row['TimeElapsed'],row['correct_answer'], row['WorkerId'], row['Answer.FollowupAnswer'], row['HITId'], row['Input.Incoherent_Sample'], row['Input.Sample1'], row['Input.Sample2'])
 
     #Gets the different corruption method datasets
     categories_list = get_diff_values_from_category(csv_data, 'Input.Dataset')

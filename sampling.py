@@ -116,8 +116,17 @@ def get_original_sentence(coherent_data, incoherent_data_line):
     print connect_sentence(coherent_data[incoherent_data_line['OriginalSentenceIndex']])
     return connect_sentence(coherent_data[incoherent_data_line['OriginalSentenceIndex']])
 
-def remove_long_sentence_pairs(length):
-    pass
+def is_longer_than_length_limit(sentence, length_limit, length_type):
+    # Gets sample length based on the length type considered
+    if length_type == 'char':
+        sample_length = len(sentence)
+    elif length_type == 'word':
+        sample_length = len(sentence.split())
+
+    if sample_length >= length_limit:
+        return True
+    return False
+
 
 def generate_random_sentence_pairs(sample_size, coherent_data, incoherent_data, filename):
     # Insert from sampling module
@@ -128,7 +137,10 @@ def generate_random_sentence_pairs(sample_size, coherent_data, incoherent_data, 
     for i, line in enumerate(incoherent_data):
         if i in sample_list:
             incoherent_sentence = connect_sentence(line).encode('ascii', 'ignore')
+            print len(incoherent_sentence.split()) >= 35
             coherent_sentence = get_original_sentence(coherent_data, line).encode('ascii', 'ignore')
+            print len(coherent_sentence.split()) >= 35
+
             incoherent_selection = random.randint(0, 1)
             if incoherent_selection:
                 sample_pair_list.append([filename, coherent_sentence, incoherent_sentence, incoherent_selection + 1])
@@ -172,7 +184,7 @@ def write_csv_data_multi_question_hit(sample_name, sample_directory, questions_p
         counter += 1
 
 
-def prepare_coherent_incoherent_pair_sample(sample_name, sample_directory, sample_size, questions_per_hit = 1):
+def prepare_coherent_incoherent_pair_sample(sample_name, sample_directory, sample_size, questions_per_hit = 1, length_limit = None , length_type = 'word', specify_datasets = None):
 
     # Loads data for the uncorrupted sentences
     coherent_data = []
@@ -180,8 +192,13 @@ def prepare_coherent_incoherent_pair_sample(sample_name, sample_directory, sampl
     for line in open(os.path.join("data/json/",coherent_json_filename), 'r'):
         coherent_data.append(json.loads(line))
 
+    if not specify_datasets:
+        datasets = os.listdir(os.getcwd() + "/data/json")
+    else:
+        datasets = specify_datasets
+
     sample_pair_list = []
-    for filename in os.listdir(os.getcwd() + "/data/json"):
+    for filename in datasets:
         # Variables for file-specific data
         if filename in [".keep", coherent_json_filename]:
             continue
@@ -190,6 +207,15 @@ def prepare_coherent_incoherent_pair_sample(sample_name, sample_directory, sampl
         incoherent_data = []
         for line in open(os.path.join("data/json/",filename), 'r'):
             incoherent_data.append(json.loads(line))
+            if length_limit:
+                line = incoherent_data.pop()
+                # ensures that neither the incoherent or coherent sentence will be too long
+                incoherent_sentence = connect_sentence(line).encode('ascii', 'ignore')
+                coherent_sentence = get_original_sentence(coherent_data, line).encode('ascii', 'ignore')
+                one_of_pair_too_long = is_longer_than_length_limit(incoherent_sentence, length_limit, length_type) or \
+                                       is_longer_than_length_limit(coherent_sentence, length_limit, length_type)
+                if not one_of_pair_too_long:
+                    incoherent_data.append(line)
 
         sample_pair_list = sample_pair_list + generate_random_sentence_pairs(sample_size, coherent_data, incoherent_data, filename)
 
@@ -199,10 +225,63 @@ def prepare_coherent_incoherent_pair_sample(sample_name, sample_directory, sampl
     else:
         write_csv_data_multi_question_hit(sample_name, sample_directory, questions_per_hit, sample_pair_list)
 
-            
+def ensure_correct_sample_size_to_questions_per_hit_ratio(sample_size_per_dataset, questions_per_hit, specify_datasets=None):
+    """
+    The number of questions_per_HIT must be a factor of the number of samples drawn from all datasets.
+    Otherwise, there will be one incomplete HIT. The samples CSV was not generated.. Not including this questionnaire
+    (another possible solution) would mean potentially uneven sampling from each dataset as these are being presented
+    throughout the questionnaires randomly
+    """
+
+    if not specify_datasets:
+        datasets = os.listdir(os.getcwd() + "/data/json")
+    else:
+        datasets = specify_datasets
+
+    error_message = "The number of questions_per_HIT must be a factor of the number of samples drawn from all datasets. " \
+                    "Otherwise, there will be one incomplete HIT. The samples CSV was not generated."
+    if not (len(datasets) * sample_size_per_dataset) % questions_per_hit == 0:
+        print error_message
+        exit(0)
+
+def test_csv_sample():
+    path = 'mechanical_turks_input_data/samples.csv'
+
+    with open(path, 'rb') as csvfile:
+        reader = csv.DictReader(csvfile)
+        for i, row in enumerate(reader):
+            # print row
+            # for keys in row:
+            #     print keys
+            # break
+
+            # Single question per HIT
+            # if row['Sample1'] == row['Sample2']:
+            #     print 'duplicate'
+
+            # Multiple questions per HIT
+            for i in range(1, 10):
+                if row['Sample' + str(i) + "_" + str(1)] == row['Sample' + str(i) + "_" + str(2)]:
+                    print 'DUPLICATE!!'
+                    exit(0)
+
+                incoherent_sample_key = 'Sample' + str(i) + "_" + row['Incoherent_Sample' + str(i)]
+                print ('The incoherent sample is: ' + incoherent_sample_key)
+                print "1. " + row['Sample' + str(i) + "_" + str(1)]
+                print "2. " + row['Sample' + str(i) + "_" + str(2)]
+
+
 if __name__ == '__main__':
     sample_name = "samples.csv"
     sample_directory = MECHANICAL_TURKS_DIR
-    sample_size = 10
+    sample_size_per_dataset = 40
     questions_per_hit = 10
-    prepare_coherent_incoherent_pair_sample(sample_name, sample_directory, sample_size, questions_per_hit)
+
+    length_limit = 35
+    length_type = 'word'
+    # specify_datasets = ['incoherent_sentences_arg2_diff_sense.json', 'incoherent_sentences_arg2_random.json']
+    # ensure_correct_sample_size_to_questions_per_hit_ratio(sample_size_per_dataset, questions_per_hit, specify_datasets)
+    # prepare_coherent_incoherent_pair_sample(sample_name, sample_directory, sample_size_per_dataset, questions_per_hit, specify_datasets)
+
+    ensure_correct_sample_size_to_questions_per_hit_ratio(sample_size_per_dataset, questions_per_hit)
+    prepare_coherent_incoherent_pair_sample(sample_name, sample_directory, sample_size_per_dataset, questions_per_hit, length_limit = length_limit, length_type = 'word')
