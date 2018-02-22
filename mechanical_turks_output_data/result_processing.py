@@ -401,7 +401,7 @@ def expand_csv_data(csv_data, length_of_questionnaire):
     """
     new_csv_data = []
     for row in csv_data:
-        if row['RejectionTime'] != 'None':
+        if not row['RejectionTime']:
             for i in range(1,length_of_questionnaire+1):
                 new_csv_row = {'WorkerId': row['WorkerId'],
                                'CreationTime': row['CreationTime'],
@@ -469,8 +469,8 @@ if __name__ == '__main__':
 
     original_csv_data = read_csv()
     count_instances(original_csv_data, 'WorkerId')
-    # count_instances_multiquestion_hit(original_csv_data, 'incoherent_sentences_arg2_random.json')
-    # count_instances_multiquestion_hit(original_csv_data, 'incoherent_sentences_arg2_diff_sense.json')
+
+    # Distributes CSV rows to columns
     length_of_questionnaire = get_number_of_questions(original_csv_data)
     if length_of_questionnaire > 1:
         csv_data = expand_csv_data(original_csv_data, length_of_questionnaire)
@@ -491,8 +491,8 @@ if __name__ == '__main__':
     agreement_threshold = 2/3
     update_correct_answers(csv_data)
 
-    for row in csv_data:
-        print(row['TimeElapsed'],row['correct_answer'], row['WorkerId'], row['Answer.FollowupAnswer'], row['HITId'], row['Input.Incoherent_Sample'], row['Input.Sample1'], row['Input.Sample2'])
+    # for row in csv_data:
+    #     print(row['TimeElapsed'],row['correct_answer'], row['WorkerId'], row['Answer.FollowupAnswer'], row['HITId'], row['Input.Incoherent_Sample'], row['Input.Sample1'], row['Input.Sample2'])
 
     #Gets the different corruption method datasets
     categories_list = get_diff_values_from_category(csv_data, 'Input.Dataset')

@@ -323,7 +323,9 @@ if __name__ == '__main__':
 
 
     elif exlusive_connective_type == 'Explicit':
+        #TODO implement parsing for individual setences to try training a larger dataset
         coherent_sentences = prepare_coherent_sentences()
+
 
 
 

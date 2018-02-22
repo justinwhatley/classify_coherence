@@ -1,0 +1,568 @@
+"HITId","HITTypeId","Title","Description","Keywords","Reward","CreationTime","MaxAssignments","RequesterAnnotation","AssignmentDurationInSeconds","AutoApprovalDelayInSeconds","Expiration","NumberOfSimilarHITs","LifetimeInSeconds","AssignmentId","WorkerId","AssignmentStatus","AcceptTime","SubmitTime","AutoApprovalTime","ApprovalTime","RejectionTime","RequesterFeedback","WorkTimeInSeconds","LifetimeApprovalRate","Last30DaysApprovalRate","Last7DaysApprovalRate","Input.Sample1Dataset","Input.Sample1_1","Input.Sample1_2","Input.Incoherent_Sample1","Input.Sample2Dataset","Input.Sample2_1","Input.Sample2_2","Input.Incoherent_Sample2","Input.Sample3Dataset","Input.Sample3_1","Input.Sample3_2","Input.Incoherent_Sample3","Input.Sample4Dataset","Input.Sample4_1","Input.Sample4_2","Input.Incoherent_Sample4","Input.Sample5Dataset","Input.Sample5_1","Input.Sample5_2","Input.Incoherent_Sample5","Input.Sample6Dataset","Input.Sample6_1","Input.Sample6_2","Input.Incoherent_Sample6","Input.Sample7Dataset","Input.Sample7_1","Input.Sample7_2","Input.Incoherent_Sample7","Input.Sample8Dataset","Input.Sample8_1","Input.Sample8_2","Input.Incoherent_Sample8","Input.Sample9Dataset","Input.Sample9_1","Input.Sample9_2","Input.Incoherent_Sample9","Input.Sample10Dataset","Input.Sample10_1","Input.Sample10_2","Input.Incoherent_Sample10","Answer.Answer1","Answer.Answer10","Answer.Answer2","Answer.Answer3","Answer.Answer4","Answer.Answer5","Answer.Answer6","Answer.Answer7","Answer.Answer8","Answer.Answer9","Answer.FollowupAnswer1","Answer.FollowupAnswer10","Answer.FollowupAnswer2","Answer.FollowupAnswer3","Answer.FollowupAnswer4","Answer.FollowupAnswer5","Answer.FollowupAnswer6","Answer.FollowupAnswer7","Answer.FollowupAnswer8","Answer.FollowupAnswer9","Approve","Reject"
+"38XPGNCKHTXCCU6LOJPY0R5IW364V6","3VWCB4I0H931F016YBYBHWJC8X3Q7J","Coherent vs Incoherent sentences","The assignment is to select the incoherent text from a coherent/incoherent pair of texts and indicate how incoherent the selected text is relative to the other.","Reading, Text, Coherence, Incoherence","$0.40","Fri Feb 16 14:04:22 PST 2018","3","BatchId:3118690;OriginalHitTemplateId:920937336;","1800","259200","Fri Feb 23 14:04:22 PST 2018","","","345LHZDEDYPU33WB9IFCIK7DMZ5U3R","A2LU259QPV1I4V","Approved","Fri Feb 16 14:13:41 PST 2018","Fri Feb 16 14:36:05 PST 2018","Mon Feb 19 14:36:05 PST 2018","2018-02-19 22:36:42 UTC","","","1344","100% (4/4)","100% (4/4)","100% (4/4)","incoherent_sentences_arg2_diff_sense.json","Why should I bother with something that's an unknown for a very small pickup in yield. So i'm not going to jump on them the first day they come out. 
+","Why should I bother with something that's an unknown for a very small pickup in yield. So he is putting money in Dress Barn, Circuit City Stores, Bruno's, and Rubbermaid. 
+","2","incoherent_sentences_arg2_random.json","Real-estate interests, for example, are protesting an omission in President Bush's capital-gains proposal. Specifically it doesn't include real-estate gains. 
+","Real-estate interests, for example, are protesting an omission in President Bush's capital-gains proposal. Specifically avondale asked Travelers to defend it in the state proceeding, but the insurer didn't respond. 
+","2","incoherent_sentences_arg2_diff_sense.json","Her sister, Cynthia, wishes Toni had a different job. Because we worry about her out there. 
+","Her sister, Cynthia, wishes Toni had a different job. Because it was a healthy cleansing. 
+","2","incoherent_sentences_arg2_diff_sense.json","The most obvious pitch, of course, is the lure of big returns. Because we're all a little greedy. 
+","The most obvious pitch, of course, is the lure of big returns. Because the increased demand would normalize trading and stabilize prices. 
+","1","incoherent_sentences_arg2_random.json","Elsewhere in Europe, share prices closed higher in Stockholm, Brussels and Milan. While prices were lower in Frankfurt, Zurich, Paris and Amsterdam. 
+","Elsewhere in Europe, share prices closed higher in Stockholm, Brussels and Milan. While a congressional subcommitee has been investigating the potential abuse from researchers holding stock in companies exploiting their research. 
+","1","incoherent_sentences_arg2_random.json","But the strategy isn't helping much this time. Because both sectors of imports and exports look just as bad. 
+","But the strategy isn't helping much this time. Because tomorrow, the October purchasing managers report is due. 
+","2","incoherent_sentences_arg2_diff_sense.json","In my freshman year, my roommate was known as a party animal. So she thought I wasn't getting my practicing done. 
+","In my freshman year, my roommate was known as a party animal. So in the neighborhoods with the highest crime rates, small business generally relies on the public police force for protection. 
+","1","incoherent_sentences_arg2_diff_sense.json","It turned out to be lucky for us. Because if the whole market thinks what you're doing is crazy you don't have much competition. 
+","It turned out to be lucky for us. Because the Red Cross has opened 30 shelters in the Bay area, serving 5,000 people. 
+","2","incoherent_sentences_arg2_random.json","The only people who are flying are those who have to. Also how is a travel agent going to sell a holiday when he cannot guarantee a return flight. 
+","The only people who are flying are those who have to. Also the company, citing market conditions, postponed a $200 million debt offer. 
+","1","incoherent_sentences_arg2_random.json","But advertising revenue is inadequate. As a result periodically, there are threats that the program will fold. 
+","But advertising revenue is inadequate. As a result those ""people"" to whom I refer are not some heroic, indecipherable quantity. 
+","2","2","2","2","2","2","2","2","2","1","2","2","3","3","3","2","2","2","3","1","3"
+"38XPGNCKHTXCCU6LOJPY0R5IW364V6","3VWCB4I0H931F016YBYBHWJC8X3Q7J","Coherent vs Incoherent sentences","The assignment is to select the incoherent text from a coherent/incoherent pair of texts and indicate how incoherent the selected text is relative to the other.","Reading, Text, Coherence, Incoherence","$0.40","Fri Feb 16 14:04:22 PST 2018","3","BatchId:3118690;OriginalHitTemplateId:920937336;","1800","259200","Fri Feb 23 14:04:22 PST 2018","","","3GDTJDAPVV8XRSX8CXJMIRYUPZU8M5","A3N7R7P9HP2YB6","Approved","Fri Feb 16 14:09:00 PST 2018","Fri Feb 16 14:11:41 PST 2018","Mon Feb 19 14:11:41 PST 2018","2018-02-19 22:11:42 UTC","","","161","75% (3/4)","75% (3/4)","75% (3/4)","incoherent_sentences_arg2_diff_sense.json","Why should I bother with something that's an unknown for a very small pickup in yield. So i'm not going to jump on them the first day they come out. 
+","Why should I bother with something that's an unknown for a very small pickup in yield. So he is putting money in Dress Barn, Circuit City Stores, Bruno's, and Rubbermaid. 
+","2","incoherent_sentences_arg2_random.json","Real-estate interests, for example, are protesting an omission in President Bush's capital-gains proposal. Specifically it doesn't include real-estate gains. 
+","Real-estate interests, for example, are protesting an omission in President Bush's capital-gains proposal. Specifically avondale asked Travelers to defend it in the state proceeding, but the insurer didn't respond. 
+","2","incoherent_sentences_arg2_diff_sense.json","Her sister, Cynthia, wishes Toni had a different job. Because we worry about her out there. 
+","Her sister, Cynthia, wishes Toni had a different job. Because it was a healthy cleansing. 
+","2","incoherent_sentences_arg2_diff_sense.json","The most obvious pitch, of course, is the lure of big returns. Because we're all a little greedy. 
+","The most obvious pitch, of course, is the lure of big returns. Because the increased demand would normalize trading and stabilize prices. 
+","1","incoherent_sentences_arg2_random.json","Elsewhere in Europe, share prices closed higher in Stockholm, Brussels and Milan. While prices were lower in Frankfurt, Zurich, Paris and Amsterdam. 
+","Elsewhere in Europe, share prices closed higher in Stockholm, Brussels and Milan. While a congressional subcommitee has been investigating the potential abuse from researchers holding stock in companies exploiting their research. 
+","1","incoherent_sentences_arg2_random.json","But the strategy isn't helping much this time. Because both sectors of imports and exports look just as bad. 
+","But the strategy isn't helping much this time. Because tomorrow, the October purchasing managers report is due. 
+","2","incoherent_sentences_arg2_diff_sense.json","In my freshman year, my roommate was known as a party animal. So she thought I wasn't getting my practicing done. 
+","In my freshman year, my roommate was known as a party animal. So in the neighborhoods with the highest crime rates, small business generally relies on the public police force for protection. 
+","1","incoherent_sentences_arg2_diff_sense.json","It turned out to be lucky for us. Because if the whole market thinks what you're doing is crazy you don't have much competition. 
+","It turned out to be lucky for us. Because the Red Cross has opened 30 shelters in the Bay area, serving 5,000 people. 
+","2","incoherent_sentences_arg2_random.json","The only people who are flying are those who have to. Also how is a travel agent going to sell a holiday when he cannot guarantee a return flight. 
+","The only people who are flying are those who have to. Also the company, citing market conditions, postponed a $200 million debt offer. 
+","1","incoherent_sentences_arg2_random.json","But advertising revenue is inadequate. As a result periodically, there are threats that the program will fold. 
+","But advertising revenue is inadequate. As a result those ""people"" to whom I refer are not some heroic, indecipherable quantity. 
+","2","1","2","2","2","1","2","2","2","2","2","1","3","0","3","1","1","2","2","0","2"
+"38XPGNCKHTXCCU6LOJPY0R5IW364V6","3VWCB4I0H931F016YBYBHWJC8X3Q7J","Coherent vs Incoherent sentences","The assignment is to select the incoherent text from a coherent/incoherent pair of texts and indicate how incoherent the selected text is relative to the other.","Reading, Text, Coherence, Incoherence","$0.40","Fri Feb 16 14:04:22 PST 2018","3","BatchId:3118690;OriginalHitTemplateId:920937336;","1800","259200","Fri Feb 23 14:04:22 PST 2018","","","3LOZAJ85YEAXZPUNANCUJH1PA3LX2A","ATHS9CW2FLYUY","Approved","Fri Feb 16 14:05:39 PST 2018","Fri Feb 16 14:29:55 PST 2018","Mon Feb 19 14:29:55 PST 2018","2018-02-19 22:30:42 UTC","","","1456","88% (7/8)","88% (7/8)","88% (7/8)","incoherent_sentences_arg2_diff_sense.json","Why should I bother with something that's an unknown for a very small pickup in yield. So i'm not going to jump on them the first day they come out. 
+","Why should I bother with something that's an unknown for a very small pickup in yield. So he is putting money in Dress Barn, Circuit City Stores, Bruno's, and Rubbermaid. 
+","2","incoherent_sentences_arg2_random.json","Real-estate interests, for example, are protesting an omission in President Bush's capital-gains proposal. Specifically it doesn't include real-estate gains. 
+","Real-estate interests, for example, are protesting an omission in President Bush's capital-gains proposal. Specifically avondale asked Travelers to defend it in the state proceeding, but the insurer didn't respond. 
+","2","incoherent_sentences_arg2_diff_sense.json","Her sister, Cynthia, wishes Toni had a different job. Because we worry about her out there. 
+","Her sister, Cynthia, wishes Toni had a different job. Because it was a healthy cleansing. 
+","2","incoherent_sentences_arg2_diff_sense.json","The most obvious pitch, of course, is the lure of big returns. Because we're all a little greedy. 
+","The most obvious pitch, of course, is the lure of big returns. Because the increased demand would normalize trading and stabilize prices. 
+","1","incoherent_sentences_arg2_random.json","Elsewhere in Europe, share prices closed higher in Stockholm, Brussels and Milan. While prices were lower in Frankfurt, Zurich, Paris and Amsterdam. 
+","Elsewhere in Europe, share prices closed higher in Stockholm, Brussels and Milan. While a congressional subcommitee has been investigating the potential abuse from researchers holding stock in companies exploiting their research. 
+","1","incoherent_sentences_arg2_random.json","But the strategy isn't helping much this time. Because both sectors of imports and exports look just as bad. 
+","But the strategy isn't helping much this time. Because tomorrow, the October purchasing managers report is due. 
+","2","incoherent_sentences_arg2_diff_sense.json","In my freshman year, my roommate was known as a party animal. So she thought I wasn't getting my practicing done. 
+","In my freshman year, my roommate was known as a party animal. So in the neighborhoods with the highest crime rates, small business generally relies on the public police force for protection. 
+","1","incoherent_sentences_arg2_diff_sense.json","It turned out to be lucky for us. Because if the whole market thinks what you're doing is crazy you don't have much competition. 
+","It turned out to be lucky for us. Because the Red Cross has opened 30 shelters in the Bay area, serving 5,000 people. 
+","2","incoherent_sentences_arg2_random.json","The only people who are flying are those who have to. Also how is a travel agent going to sell a holiday when he cannot guarantee a return flight. 
+","The only people who are flying are those who have to. Also the company, citing market conditions, postponed a $200 million debt offer. 
+","1","incoherent_sentences_arg2_random.json","But advertising revenue is inadequate. As a result periodically, there are threats that the program will fold. 
+","But advertising revenue is inadequate. As a result those ""people"" to whom I refer are not some heroic, indecipherable quantity. 
+","2","1","1","1","1","2","1","1","2","1","2","0","1","1","1","1","1","0","0","0","0"
+"3VADEH0UHCUI9VB0S8CHS2W6OV7SPF","3VWCB4I0H931F016YBYBHWJC8X3Q7J","Coherent vs Incoherent sentences","The assignment is to select the incoherent text from a coherent/incoherent pair of texts and indicate how incoherent the selected text is relative to the other.","Reading, Text, Coherence, Incoherence","$0.40","Fri Feb 16 14:04:22 PST 2018","3","BatchId:3118690;OriginalHitTemplateId:920937336;","1800","259200","Fri Feb 23 14:04:22 PST 2018","","","3G2UL9A02EBR2B7XFCKZFV5DOF9767","ATHS9CW2FLYUY","Approved","Fri Feb 16 14:05:40 PST 2018","Fri Feb 16 14:30:05 PST 2018","Mon Feb 19 14:30:05 PST 2018","2018-02-19 22:30:42 UTC","","","1465","88% (7/8)","88% (7/8)","88% (7/8)","incoherent_sentences_arg2_random.json","Still, analysts don't expect the buy-back to significantly affect per-share earnings in the short term. For example the impact won't be that great,"" said Graeme Lidgerwood of First Boston Corp. 
+","Still, analysts don't expect the buy-back to significantly affect per-share earnings in the short term. For example in our formula, we don't have any losers except the competition. 
+","1","incoherent_sentences_arg2_diff_sense.json","Borrowers' incentives are equally skewed. Because since the government has a dismal record of collecting bad debts, the costs to the borrower of defaulting are usually low. 
+","Borrowers' incentives are equally skewed. Because mcCaw, which dropped 2 1/2 to 37 3/4, has offered $125 a share for a majority of LIN's shares. 
+","2","incoherent_sentences_arg2_diff_sense.json","It was all over the place. So if you bought, you wish you hadn't, and if you sold, you wish you hadn't. 
+","It was all over the place. So everybody was rubber-necking. 
+","2","incoherent_sentences_arg2_diff_sense.json","It is a peaceful time in this part of western India. Because the summer crop is harvested, winter sowing has yet to begin. 
+","It is a peaceful time in this part of western India. Because no one ever eats in their books and look at them. 
+","2","incoherent_sentences_arg2_diff_sense.json","American Brands ""just had a different approach. However their approach didn't work. 
+","American Brands ""just had a different approach. However this year, the older someone is the bigger the discount. 
+","2","incoherent_sentences_arg2_diff_sense.json","It's all anybody wants to talk about. As people wonder what's going to happen next. 
+","It's all anybody wants to talk about. As it's an activity she feels she can do for life, and by pulling a golf cart, she still gets a good workout. 
+","1","incoherent_sentences_arg2_diff_sense.json","Campbell-Mithun also would be a sizable addition to an agency network. Because it has billings of about $850 million and blue-chip clients including General Mills, Jeep/Eagle and Dow Brands. 
+","Campbell-Mithun also would be a sizable addition to an agency network. Because we trust LIN will take no further actions that favor BellSouth. 
+","1","incoherent_sentences_arg2_random.json","And he questions the White House dedication. For example i don't think the Bush administration has done anything,"" he says. 
+","And he questions the White House dedication. For example mobil dropped 5/8 to 56 1/8. 
+","2","incoherent_sentences_arg2_diff_sense.json","Now many Republicans are listening. Because they're frightened by what they see in New Jersey, and especially Virginia, where pro-life GOP candidates for governor are being pummeled on abortion. 
+","Now many Republicans are listening. Because they are economists and financial reporters. 
+","2","incoherent_sentences_arg2_diff_sense.json","We've been putting in long hours -- six-day weeks and 13-hour days for the last two months. By contrast a year ago you'd spend two days working and two days in the yard. 
+","We've been putting in long hours -- six-day weeks and 13-hour days for the last two months. By contrast it's a nuisance tax on mergers. 
+","1","1","2","1","1","1","1","2","2","1","2","0","0","0","0","0","1","1","0","1","0"
+"3VADEH0UHCUI9VB0S8CHS2W6OV7SPF","3VWCB4I0H931F016YBYBHWJC8X3Q7J","Coherent vs Incoherent sentences","The assignment is to select the incoherent text from a coherent/incoherent pair of texts and indicate how incoherent the selected text is relative to the other.","Reading, Text, Coherence, Incoherence","$0.40","Fri Feb 16 14:04:22 PST 2018","3","BatchId:3118690;OriginalHitTemplateId:920937336;","1800","259200","Fri Feb 23 14:04:22 PST 2018","","","3HYA4D452SGGZ332AT68DA1I6YQ2FP","A3PJ51GS2AKBO6","Approved","Fri Feb 16 14:08:27 PST 2018","Fri Feb 16 14:34:35 PST 2018","Mon Feb 19 14:34:35 PST 2018","2018-02-19 22:34:42 UTC","","","1568","100% (1/1)","100% (1/1)","100% (1/1)","incoherent_sentences_arg2_random.json","Still, analysts don't expect the buy-back to significantly affect per-share earnings in the short term. For example the impact won't be that great,"" said Graeme Lidgerwood of First Boston Corp. 
+","Still, analysts don't expect the buy-back to significantly affect per-share earnings in the short term. For example in our formula, we don't have any losers except the competition. 
+","1","incoherent_sentences_arg2_diff_sense.json","Borrowers' incentives are equally skewed. Because since the government has a dismal record of collecting bad debts, the costs to the borrower of defaulting are usually low. 
+","Borrowers' incentives are equally skewed. Because mcCaw, which dropped 2 1/2 to 37 3/4, has offered $125 a share for a majority of LIN's shares. 
+","2","incoherent_sentences_arg2_diff_sense.json","It was all over the place. So if you bought, you wish you hadn't, and if you sold, you wish you hadn't. 
+","It was all over the place. So everybody was rubber-necking. 
+","2","incoherent_sentences_arg2_diff_sense.json","It is a peaceful time in this part of western India. Because the summer crop is harvested, winter sowing has yet to begin. 
+","It is a peaceful time in this part of western India. Because no one ever eats in their books and look at them. 
+","2","incoherent_sentences_arg2_diff_sense.json","American Brands ""just had a different approach. However their approach didn't work. 
+","American Brands ""just had a different approach. However this year, the older someone is the bigger the discount. 
+","2","incoherent_sentences_arg2_diff_sense.json","It's all anybody wants to talk about. As people wonder what's going to happen next. 
+","It's all anybody wants to talk about. As it's an activity she feels she can do for life, and by pulling a golf cart, she still gets a good workout. 
+","1","incoherent_sentences_arg2_diff_sense.json","Campbell-Mithun also would be a sizable addition to an agency network. Because it has billings of about $850 million and blue-chip clients including General Mills, Jeep/Eagle and Dow Brands. 
+","Campbell-Mithun also would be a sizable addition to an agency network. Because we trust LIN will take no further actions that favor BellSouth. 
+","1","incoherent_sentences_arg2_random.json","And he questions the White House dedication. For example i don't think the Bush administration has done anything,"" he says. 
+","And he questions the White House dedication. For example mobil dropped 5/8 to 56 1/8. 
+","2","incoherent_sentences_arg2_diff_sense.json","Now many Republicans are listening. Because they're frightened by what they see in New Jersey, and especially Virginia, where pro-life GOP candidates for governor are being pummeled on abortion. 
+","Now many Republicans are listening. Because they are economists and financial reporters. 
+","2","incoherent_sentences_arg2_diff_sense.json","We've been putting in long hours -- six-day weeks and 13-hour days for the last two months. By contrast a year ago you'd spend two days working and two days in the yard. 
+","We've been putting in long hours -- six-day weeks and 13-hour days for the last two months. By contrast it's a nuisance tax on mergers. 
+","1","1","2","2","2","2","2","2","2","2","1","1","2","0","2","2","2","2","0","3","0"
+"3VADEH0UHCUI9VB0S8CHS2W6OV7SPF","3VWCB4I0H931F016YBYBHWJC8X3Q7J","Coherent vs Incoherent sentences","The assignment is to select the incoherent text from a coherent/incoherent pair of texts and indicate how incoherent the selected text is relative to the other.","Reading, Text, Coherence, Incoherence","$0.40","Fri Feb 16 14:04:22 PST 2018","3","BatchId:3118690;OriginalHitTemplateId:920937336;","1800","259200","Fri Feb 23 14:04:22 PST 2018","","","3Y5140Z9DYDW116YDZN5CKM3X0APIQ","A2LU259QPV1I4V","Approved","Fri Feb 16 14:13:39 PST 2018","Fri Feb 16 14:28:06 PST 2018","Mon Feb 19 14:28:06 PST 2018","2018-02-19 22:28:42 UTC","","","867","100% (4/4)","100% (4/4)","100% (4/4)","incoherent_sentences_arg2_random.json","Still, analysts don't expect the buy-back to significantly affect per-share earnings in the short term. For example the impact won't be that great,"" said Graeme Lidgerwood of First Boston Corp. 
+","Still, analysts don't expect the buy-back to significantly affect per-share earnings in the short term. For example in our formula, we don't have any losers except the competition. 
+","1","incoherent_sentences_arg2_diff_sense.json","Borrowers' incentives are equally skewed. Because since the government has a dismal record of collecting bad debts, the costs to the borrower of defaulting are usually low. 
+","Borrowers' incentives are equally skewed. Because mcCaw, which dropped 2 1/2 to 37 3/4, has offered $125 a share for a majority of LIN's shares. 
+","2","incoherent_sentences_arg2_diff_sense.json","It was all over the place. So if you bought, you wish you hadn't, and if you sold, you wish you hadn't. 
+","It was all over the place. So everybody was rubber-necking. 
+","2","incoherent_sentences_arg2_diff_sense.json","It is a peaceful time in this part of western India. Because the summer crop is harvested, winter sowing has yet to begin. 
+","It is a peaceful time in this part of western India. Because no one ever eats in their books and look at them. 
+","2","incoherent_sentences_arg2_diff_sense.json","American Brands ""just had a different approach. However their approach didn't work. 
+","American Brands ""just had a different approach. However this year, the older someone is the bigger the discount. 
+","2","incoherent_sentences_arg2_diff_sense.json","It's all anybody wants to talk about. As people wonder what's going to happen next. 
+","It's all anybody wants to talk about. As it's an activity she feels she can do for life, and by pulling a golf cart, she still gets a good workout. 
+","1","incoherent_sentences_arg2_diff_sense.json","Campbell-Mithun also would be a sizable addition to an agency network. Because it has billings of about $850 million and blue-chip clients including General Mills, Jeep/Eagle and Dow Brands. 
+","Campbell-Mithun also would be a sizable addition to an agency network. Because we trust LIN will take no further actions that favor BellSouth. 
+","1","incoherent_sentences_arg2_random.json","And he questions the White House dedication. For example i don't think the Bush administration has done anything,"" he says. 
+","And he questions the White House dedication. For example mobil dropped 5/8 to 56 1/8. 
+","2","incoherent_sentences_arg2_diff_sense.json","Now many Republicans are listening. Because they're frightened by what they see in New Jersey, and especially Virginia, where pro-life GOP candidates for governor are being pummeled on abortion. 
+","Now many Republicans are listening. Because they are economists and financial reporters. 
+","2","incoherent_sentences_arg2_diff_sense.json","We've been putting in long hours -- six-day weeks and 13-hour days for the last two months. By contrast a year ago you'd spend two days working and two days in the yard. 
+","We've been putting in long hours -- six-day weeks and 13-hour days for the last two months. By contrast it's a nuisance tax on mergers. 
+","1","2","2","2","2","2","2","2","2","2","2","1","3","3","2","3","2","3","3","3","2"
+"31ODACBENUC397CFSLR6S7MGTRTSQ6","3VWCB4I0H931F016YBYBHWJC8X3Q7J","Coherent vs Incoherent sentences","The assignment is to select the incoherent text from a coherent/incoherent pair of texts and indicate how incoherent the selected text is relative to the other.","Reading, Text, Coherence, Incoherence","$0.40","Fri Feb 16 14:04:22 PST 2018","3","BatchId:3118690;OriginalHitTemplateId:920937336;","1800","259200","Fri Feb 23 14:04:22 PST 2018","","","30MVJZJNHNA74PAXESC82V1O5BHJ91","A3N7R7P9HP2YB6","Approved","Fri Feb 16 14:11:41 PST 2018","Fri Feb 16 14:14:01 PST 2018","Mon Feb 19 14:14:01 PST 2018","2018-02-19 22:14:42 UTC","","","140","75% (3/4)","75% (3/4)","75% (3/4)","incoherent_sentences_arg2_random.json","This is virgin territory, unclaimed, and it's going to be nasty. Because neither is going to back down easily. 
+","This is virgin territory, unclaimed, and it's going to be nasty. Because this is a change in the social fabric of medicine. 
+","1","incoherent_sentences_arg2_random.json","I love this business. While most of the LBO guys don't know how to run a business anyway. 
+","I love this business. While the anthers in these plants are difficult to clip off. 
+","2","incoherent_sentences_arg2_diff_sense.json","I don't see this as a debt reduction exercise. Rather it's focused on streamlining"" PWA's fleet in a bid to cut training and aircraft servicing costs. 
+","I don't see this as a debt reduction exercise. Rather iBM has a near-monopoly on mainframes, with an estimated 70% share of the market. 
+","1","incoherent_sentences_arg2_random.json","Much of HUD's spending actually is disguised welfare for developers or the middle class. For instance that includes the CDBG funds and the Federal Housing Administration. 
+","Much of HUD's spending actually is disguised welfare for developers or the middle class. For instance he expects the company's trading business to drop as much as 40% this year. 
+","1","incoherent_sentences_arg2_random.json","Distribution centers are bombed, and advertisers are intimidated. In short censorship is imposed by terrorism. 
+","Distribution centers are bombed, and advertisers are intimidated. In short though it collects such data daily, its monthly reports on program trading usually come out about three weeks after each month ends. 
+","2","incoherent_sentences_arg2_diff_sense.json","BEWARE OF HEAVY DEBT. Because the companies apt to run into earnings problems soonest are the ones with heavy debt loads. 
+","BEWARE OF HEAVY DEBT. Because step 1 cleans up our books. 
+","2","incoherent_sentences_arg2_random.json","The construction industry is sure to feel increased demand. Indeed there will be a big influx of federal dollars and gains in state, federal and local employment. 
+","The construction industry is sure to feel increased demand. Indeed the decision to distribute machetes at this time, which could be used as weapons, is under review. 
+","2","incoherent_sentences_arg2_diff_sense.json","He has a great ability to hire terrific people and delegate authority. So it's no accident that they've been able to develop such successful material. 
+","He has a great ability to hire terrific people and delegate authority. So there are states that have asked for additional information, which we are providing to them. 
+","2","incoherent_sentences_arg2_random.json","But short-term bonds can't rise too much. By contrast long-term bonds swing more widely in price. 
+","But short-term bonds can't rise too much. By contrast the farmers ran a boycott. 
+","1","incoherent_sentences_arg2_diff_sense.json","The result is that those rich enough to own any real estate at all have boosted their holdings substantially. However for those with no holdings, the prospects of buying a home are ever slimmer. 
+","The result is that those rich enough to own any real estate at all have boosted their holdings substantially. However the Congress government is taking the farmers' bread and not giving us any support. 
+","2","1","2","2","1","2","2","2","2","2","2","1","3","3","0","2","3","2","3","2","3"
+"31ODACBENUC397CFSLR6S7MGTRTSQ6","3VWCB4I0H931F016YBYBHWJC8X3Q7J","Coherent vs Incoherent sentences","The assignment is to select the incoherent text from a coherent/incoherent pair of texts and indicate how incoherent the selected text is relative to the other.","Reading, Text, Coherence, Incoherence","$0.40","Fri Feb 16 14:04:22 PST 2018","3","BatchId:3118690;OriginalHitTemplateId:920937336;","1800","259200","Fri Feb 23 14:04:22 PST 2018","","","37UQDCYH6YSCH1MYGKS7RNLC58EV70","A1ZRK6K5JUPJAV","Approved","Fri Feb 16 15:29:41 PST 2018","Fri Feb 16 15:32:33 PST 2018","Mon Feb 19 15:32:33 PST 2018","2018-02-19 23:32:42 UTC","","","172","50% (1/2)","50% (1/2)","50% (1/2)","incoherent_sentences_arg2_random.json","This is virgin territory, unclaimed, and it's going to be nasty. Because neither is going to back down easily. 
+","This is virgin territory, unclaimed, and it's going to be nasty. Because this is a change in the social fabric of medicine. 
+","1","incoherent_sentences_arg2_random.json","I love this business. While most of the LBO guys don't know how to run a business anyway. 
+","I love this business. While the anthers in these plants are difficult to clip off. 
+","2","incoherent_sentences_arg2_diff_sense.json","I don't see this as a debt reduction exercise. Rather it's focused on streamlining"" PWA's fleet in a bid to cut training and aircraft servicing costs. 
+","I don't see this as a debt reduction exercise. Rather iBM has a near-monopoly on mainframes, with an estimated 70% share of the market. 
+","1","incoherent_sentences_arg2_random.json","Much of HUD's spending actually is disguised welfare for developers or the middle class. For instance that includes the CDBG funds and the Federal Housing Administration. 
+","Much of HUD's spending actually is disguised welfare for developers or the middle class. For instance he expects the company's trading business to drop as much as 40% this year. 
+","1","incoherent_sentences_arg2_random.json","Distribution centers are bombed, and advertisers are intimidated. In short censorship is imposed by terrorism. 
+","Distribution centers are bombed, and advertisers are intimidated. In short though it collects such data daily, its monthly reports on program trading usually come out about three weeks after each month ends. 
+","2","incoherent_sentences_arg2_diff_sense.json","BEWARE OF HEAVY DEBT. Because the companies apt to run into earnings problems soonest are the ones with heavy debt loads. 
+","BEWARE OF HEAVY DEBT. Because step 1 cleans up our books. 
+","2","incoherent_sentences_arg2_random.json","The construction industry is sure to feel increased demand. Indeed there will be a big influx of federal dollars and gains in state, federal and local employment. 
+","The construction industry is sure to feel increased demand. Indeed the decision to distribute machetes at this time, which could be used as weapons, is under review. 
+","2","incoherent_sentences_arg2_diff_sense.json","He has a great ability to hire terrific people and delegate authority. So it's no accident that they've been able to develop such successful material. 
+","He has a great ability to hire terrific people and delegate authority. So there are states that have asked for additional information, which we are providing to them. 
+","2","incoherent_sentences_arg2_random.json","But short-term bonds can't rise too much. By contrast long-term bonds swing more widely in price. 
+","But short-term bonds can't rise too much. By contrast the farmers ran a boycott. 
+","1","incoherent_sentences_arg2_diff_sense.json","The result is that those rich enough to own any real estate at all have boosted their holdings substantially. However for those with no holdings, the prospects of buying a home are ever slimmer. 
+","The result is that those rich enough to own any real estate at all have boosted their holdings substantially. However the Congress government is taking the farmers' bread and not giving us any support. 
+","2","2","2","2","2","2","1","2","2","2","2","1","2","3","1","2","2","3","3","2","3"
+"31ODACBENUC397CFSLR6S7MGTRTSQ6","3VWCB4I0H931F016YBYBHWJC8X3Q7J","Coherent vs Incoherent sentences","The assignment is to select the incoherent text from a coherent/incoherent pair of texts and indicate how incoherent the selected text is relative to the other.","Reading, Text, Coherence, Incoherence","$0.40","Fri Feb 16 14:04:22 PST 2018","3","BatchId:3118690;OriginalHitTemplateId:920937336;","1800","259200","Fri Feb 23 14:04:22 PST 2018","","","3KGTPGBS6YI5IL0S5I17ZA2LGL4U2F","ATHS9CW2FLYUY","Approved","Fri Feb 16 14:05:38 PST 2018","Fri Feb 16 14:29:45 PST 2018","Mon Feb 19 14:29:45 PST 2018","2018-02-19 22:30:42 UTC","","","1447","88% (7/8)","88% (7/8)","88% (7/8)","incoherent_sentences_arg2_random.json","This is virgin territory, unclaimed, and it's going to be nasty. Because neither is going to back down easily. 
+","This is virgin territory, unclaimed, and it's going to be nasty. Because this is a change in the social fabric of medicine. 
+","1","incoherent_sentences_arg2_random.json","I love this business. While most of the LBO guys don't know how to run a business anyway. 
+","I love this business. While the anthers in these plants are difficult to clip off. 
+","2","incoherent_sentences_arg2_diff_sense.json","I don't see this as a debt reduction exercise. Rather it's focused on streamlining"" PWA's fleet in a bid to cut training and aircraft servicing costs. 
+","I don't see this as a debt reduction exercise. Rather iBM has a near-monopoly on mainframes, with an estimated 70% share of the market. 
+","1","incoherent_sentences_arg2_random.json","Much of HUD's spending actually is disguised welfare for developers or the middle class. For instance that includes the CDBG funds and the Federal Housing Administration. 
+","Much of HUD's spending actually is disguised welfare for developers or the middle class. For instance he expects the company's trading business to drop as much as 40% this year. 
+","1","incoherent_sentences_arg2_random.json","Distribution centers are bombed, and advertisers are intimidated. In short censorship is imposed by terrorism. 
+","Distribution centers are bombed, and advertisers are intimidated. In short though it collects such data daily, its monthly reports on program trading usually come out about three weeks after each month ends. 
+","2","incoherent_sentences_arg2_diff_sense.json","BEWARE OF HEAVY DEBT. Because the companies apt to run into earnings problems soonest are the ones with heavy debt loads. 
+","BEWARE OF HEAVY DEBT. Because step 1 cleans up our books. 
+","2","incoherent_sentences_arg2_random.json","The construction industry is sure to feel increased demand. Indeed there will be a big influx of federal dollars and gains in state, federal and local employment. 
+","The construction industry is sure to feel increased demand. Indeed the decision to distribute machetes at this time, which could be used as weapons, is under review. 
+","2","incoherent_sentences_arg2_diff_sense.json","He has a great ability to hire terrific people and delegate authority. So it's no accident that they've been able to develop such successful material. 
+","He has a great ability to hire terrific people and delegate authority. So there are states that have asked for additional information, which we are providing to them. 
+","2","incoherent_sentences_arg2_random.json","But short-term bonds can't rise too much. By contrast long-term bonds swing more widely in price. 
+","But short-term bonds can't rise too much. By contrast the farmers ran a boycott. 
+","1","incoherent_sentences_arg2_diff_sense.json","The result is that those rich enough to own any real estate at all have boosted their holdings substantially. However for those with no holdings, the prospects of buying a home are ever slimmer. 
+","The result is that those rich enough to own any real estate at all have boosted their holdings substantially. However the Congress government is taking the farmers' bread and not giving us any support. 
+","2","1","1","1","1","2","1","2","1","1","2","0","2","0","1","1","1","1","0","1","1"
+"39KMGHJ4RZ7FK5N42LE73VPFLVD00U","3VWCB4I0H931F016YBYBHWJC8X3Q7J","Coherent vs Incoherent sentences","The assignment is to select the incoherent text from a coherent/incoherent pair of texts and indicate how incoherent the selected text is relative to the other.","Reading, Text, Coherence, Incoherence","$0.40","Fri Feb 16 14:04:22 PST 2018","3","BatchId:3118690;OriginalHitTemplateId:920937336;","1800","259200","Fri Feb 23 14:04:22 PST 2018","","","34Z02EIMITAJMYIPQQ7JBQN409E0TB","A110KENBXU7SUJ","Approved","Fri Feb 16 14:04:34 PST 2018","Fri Feb 16 14:07:25 PST 2018","Mon Feb 19 14:07:25 PST 2018","2018-02-19 22:07:42 UTC","","","171","100% (4/4)","100% (4/4)","100% (4/4)","incoherent_sentences_arg2_diff_sense.json","But that won't suffice. Since it's no longer enough to beat the guy down the street. 
+","But that won't suffice. Since city dwellers love them because they shift smoothly in traffic, bounce easily over curbs and roll through road glass with far fewer flat tires than racing bikes. 
+","1","incoherent_sentences_arg2_random.json","LIMITED RISK FUNDS. Specifically these guarantee protection against stock market declines while still passing along most gains. 
+","LIMITED RISK FUNDS. Specifically supporting banks will sign a ""Texas Declaration of Independents. 
+","2","incoherent_sentences_arg2_random.json","Indeed, the insurance adjusters had already bolted out of the courtroom. But the lawyers went to work anyway, duly noting that the proceeding was taking place during a major earthquake. 
+","Indeed, the insurance adjusters had already bolted out of the courtroom. But that's helping put pressure on both the market's winners and its losers. 
+","1","incoherent_sentences_arg2_diff_sense.json","It would also help us in our search for equity partners. Since to make an LBO work, now we are going to need more than just junk bonds. 
+","It would also help us in our search for equity partners. Since last week's discerning audience gave a bigger hand to a greenhouse than to the tenor Neil Shicoff. 
+","2","incoherent_sentences_arg2_random.json","No sophisticated professional expects economists to be right all the time. While some smaller clients don't seem to notice his switch. 
+","No sophisticated professional expects economists to be right all the time. While balmy temperatures are forecast for next week. 
+","1","incoherent_sentences_arg2_random.json","There's no huge buying. Indeed really brave views right now would be foolhardy. 
+","There's no huge buying. Indeed even print-shop operator Clay Smith of Naperville won't discard his old supply. 
+","2","incoherent_sentences_arg2_random.json","Some couples continue to try. But such determination may translate into extreme physical, emotional and financial costs. 
+","Some couples continue to try. But the opposite is true: It's the product of many meetings with administration officials, Senate staffers, advocates, and business and transportation officials. 
+","1","incoherent_sentences_arg2_diff_sense.json","But a medical clinic with about 20 employees wrongly listed all of them -- including physicians and receptionists -- as independent contractors. Subsequently the IRS assessed the clinic $350,000 in back payroll taxes. 
+","But a medical clinic with about 20 employees wrongly listed all of them -- including physicians and receptionists -- as independent contractors. Subsequently the secretary is the world's biggest borrower of money. 
+","2","incoherent_sentences_arg2_random.json","President Reagan was simply doing what he had always done before his election. In other words he was performing for pay. 
+","President Reagan was simply doing what he had always done before his election. In other words issues typically are sold in minimum denominations of $1,000. 
+","2","incoherent_sentences_arg2_diff_sense.json","We see coal's piece of the action growing. Consequently coal prices, while not skyrocketing, will grow modestly in real terms. 
+","We see coal's piece of the action growing. Consequently since the late 1970s, California property owners have benefited from a tax rollback as a result of a state ballot initiative known as Proposition 13. 
+","1","1","2","2","2","2","2","1","2","2","2","1","3","2","2","3","3","1","2","1","3"
+"39KMGHJ4RZ7FK5N42LE73VPFLVD00U","3VWCB4I0H931F016YBYBHWJC8X3Q7J","Coherent vs Incoherent sentences","The assignment is to select the incoherent text from a coherent/incoherent pair of texts and indicate how incoherent the selected text is relative to the other.","Reading, Text, Coherence, Incoherence","$0.40","Fri Feb 16 14:04:22 PST 2018","3","BatchId:3118690;OriginalHitTemplateId:920937336;","1800","259200","Fri Feb 23 14:04:22 PST 2018","","","3DH6GAKTYZMC55N94Q7AP6I5XIEYZP","ATHS9CW2FLYUY","Approved","Fri Feb 16 14:05:34 PST 2018","Fri Feb 16 14:16:58 PST 2018","Mon Feb 19 14:16:58 PST 2018","2018-02-19 22:17:42 UTC","","","684","88% (7/8)","88% (7/8)","88% (7/8)","incoherent_sentences_arg2_diff_sense.json","But that won't suffice. Since it's no longer enough to beat the guy down the street. 
+","But that won't suffice. Since city dwellers love them because they shift smoothly in traffic, bounce easily over curbs and roll through road glass with far fewer flat tires than racing bikes. 
+","1","incoherent_sentences_arg2_random.json","LIMITED RISK FUNDS. Specifically these guarantee protection against stock market declines while still passing along most gains. 
+","LIMITED RISK FUNDS. Specifically supporting banks will sign a ""Texas Declaration of Independents. 
+","2","incoherent_sentences_arg2_random.json","Indeed, the insurance adjusters had already bolted out of the courtroom. But the lawyers went to work anyway, duly noting that the proceeding was taking place during a major earthquake. 
+","Indeed, the insurance adjusters had already bolted out of the courtroom. But that's helping put pressure on both the market's winners and its losers. 
+","1","incoherent_sentences_arg2_diff_sense.json","It would also help us in our search for equity partners. Since to make an LBO work, now we are going to need more than just junk bonds. 
+","It would also help us in our search for equity partners. Since last week's discerning audience gave a bigger hand to a greenhouse than to the tenor Neil Shicoff. 
+","2","incoherent_sentences_arg2_random.json","No sophisticated professional expects economists to be right all the time. While some smaller clients don't seem to notice his switch. 
+","No sophisticated professional expects economists to be right all the time. While balmy temperatures are forecast for next week. 
+","1","incoherent_sentences_arg2_random.json","There's no huge buying. Indeed really brave views right now would be foolhardy. 
+","There's no huge buying. Indeed even print-shop operator Clay Smith of Naperville won't discard his old supply. 
+","2","incoherent_sentences_arg2_random.json","Some couples continue to try. But such determination may translate into extreme physical, emotional and financial costs. 
+","Some couples continue to try. But the opposite is true: It's the product of many meetings with administration officials, Senate staffers, advocates, and business and transportation officials. 
+","1","incoherent_sentences_arg2_diff_sense.json","But a medical clinic with about 20 employees wrongly listed all of them -- including physicians and receptionists -- as independent contractors. Subsequently the IRS assessed the clinic $350,000 in back payroll taxes. 
+","But a medical clinic with about 20 employees wrongly listed all of them -- including physicians and receptionists -- as independent contractors. Subsequently the secretary is the world's biggest borrower of money. 
+","2","incoherent_sentences_arg2_random.json","President Reagan was simply doing what he had always done before his election. In other words he was performing for pay. 
+","President Reagan was simply doing what he had always done before his election. In other words issues typically are sold in minimum denominations of $1,000. 
+","2","incoherent_sentences_arg2_diff_sense.json","We see coal's piece of the action growing. Consequently coal prices, while not skyrocketing, will grow modestly in real terms. 
+","We see coal's piece of the action growing. Consequently since the late 1970s, California property owners have benefited from a tax rollback as a result of a state ballot initiative known as Proposition 13. 
+","1","1","2","2","1","2","1","2","1","2","2","1","1","1","0","1","0","1","1","0","2"
+"39KMGHJ4RZ7FK5N42LE73VPFLVD00U","3VWCB4I0H931F016YBYBHWJC8X3Q7J","Coherent vs Incoherent sentences","The assignment is to select the incoherent text from a coherent/incoherent pair of texts and indicate how incoherent the selected text is relative to the other.","Reading, Text, Coherence, Incoherence","$0.40","Fri Feb 16 14:04:22 PST 2018","3","BatchId:3118690;OriginalHitTemplateId:920937336;","1800","259200","Fri Feb 23 14:04:22 PST 2018","","","3G5F9DBFOQU9AQSATTEJI0A6JBWHVA","A3IR7DFEKLLLO","Approved","Fri Feb 16 14:08:46 PST 2018","Fri Feb 16 14:11:40 PST 2018","Mon Feb 19 14:11:40 PST 2018","2018-02-19 22:11:42 UTC","","","174","100% (1/1)","100% (1/1)","100% (1/1)","incoherent_sentences_arg2_diff_sense.json","But that won't suffice. Since it's no longer enough to beat the guy down the street. 
+","But that won't suffice. Since city dwellers love them because they shift smoothly in traffic, bounce easily over curbs and roll through road glass with far fewer flat tires than racing bikes. 
+","1","incoherent_sentences_arg2_random.json","LIMITED RISK FUNDS. Specifically these guarantee protection against stock market declines while still passing along most gains. 
+","LIMITED RISK FUNDS. Specifically supporting banks will sign a ""Texas Declaration of Independents. 
+","2","incoherent_sentences_arg2_random.json","Indeed, the insurance adjusters had already bolted out of the courtroom. But the lawyers went to work anyway, duly noting that the proceeding was taking place during a major earthquake. 
+","Indeed, the insurance adjusters had already bolted out of the courtroom. But that's helping put pressure on both the market's winners and its losers. 
+","1","incoherent_sentences_arg2_diff_sense.json","It would also help us in our search for equity partners. Since to make an LBO work, now we are going to need more than just junk bonds. 
+","It would also help us in our search for equity partners. Since last week's discerning audience gave a bigger hand to a greenhouse than to the tenor Neil Shicoff. 
+","2","incoherent_sentences_arg2_random.json","No sophisticated professional expects economists to be right all the time. While some smaller clients don't seem to notice his switch. 
+","No sophisticated professional expects economists to be right all the time. While balmy temperatures are forecast for next week. 
+","1","incoherent_sentences_arg2_random.json","There's no huge buying. Indeed really brave views right now would be foolhardy. 
+","There's no huge buying. Indeed even print-shop operator Clay Smith of Naperville won't discard his old supply. 
+","2","incoherent_sentences_arg2_random.json","Some couples continue to try. But such determination may translate into extreme physical, emotional and financial costs. 
+","Some couples continue to try. But the opposite is true: It's the product of many meetings with administration officials, Senate staffers, advocates, and business and transportation officials. 
+","1","incoherent_sentences_arg2_diff_sense.json","But a medical clinic with about 20 employees wrongly listed all of them -- including physicians and receptionists -- as independent contractors. Subsequently the IRS assessed the clinic $350,000 in back payroll taxes. 
+","But a medical clinic with about 20 employees wrongly listed all of them -- including physicians and receptionists -- as independent contractors. Subsequently the secretary is the world's biggest borrower of money. 
+","2","incoherent_sentences_arg2_random.json","President Reagan was simply doing what he had always done before his election. In other words he was performing for pay. 
+","President Reagan was simply doing what he had always done before his election. In other words issues typically are sold in minimum denominations of $1,000. 
+","2","incoherent_sentences_arg2_diff_sense.json","We see coal's piece of the action growing. Consequently coal prices, while not skyrocketing, will grow modestly in real terms. 
+","We see coal's piece of the action growing. Consequently since the late 1970s, California property owners have benefited from a tax rollback as a result of a state ballot initiative known as Proposition 13. 
+","1","2","2","2","2","2","2","1","2","2","2","1","1","2","3","1","3","1","1","1","3"
+"3W9XHF7WGKSID4RZ4GCZ6Q6TW4FKTV","3VWCB4I0H931F016YBYBHWJC8X3Q7J","Coherent vs Incoherent sentences","The assignment is to select the incoherent text from a coherent/incoherent pair of texts and indicate how incoherent the selected text is relative to the other.","Reading, Text, Coherence, Incoherence","$0.40","Fri Feb 16 14:04:22 PST 2018","3","BatchId:3118690;OriginalHitTemplateId:920937336;","1800","259200","Fri Feb 23 14:04:22 PST 2018","","","35GCEFQ6I6LBP2QLF5EKZCMSOHJZ3K","ATHS9CW2FLYUY","Approved","Fri Feb 16 14:05:37 PST 2018","Fri Feb 16 14:29:36 PST 2018","Mon Feb 19 14:29:36 PST 2018","2018-02-19 22:29:42 UTC","","","1439","88% (7/8)","88% (7/8)","88% (7/8)","incoherent_sentences_arg2_diff_sense.json","The subsidiary isn't expected to be profitable for at least one year. But if Integrated regains the unit, it would receive any profit the unit reports, even while the unit is independent. 
+","The subsidiary isn't expected to be profitable for at least one year. But to land customers for their well-paying stock custodial business, big banks sometimes will throw in basic indexing services for free. 
+","1","incoherent_sentences_arg2_random.json","We reinvented it. In fact we are the producers of that movie. 
+","We reinvented it. In fact they motivate sales people with commissions. 
+","1","incoherent_sentences_arg2_diff_sense.json","Bond investors were hoping that stock prices would continue to fall. So when stocks stabilized, that was a disappointment. 
+","Bond investors were hoping that stock prices would continue to fall. So the suspension of foreign loans has weakened the buying power of China's national trading companies, which are among the country's biggest importers. 
+","1","incoherent_sentences_arg2_random.json","They didn't. Instead their visa came in relatively short order, and they moved to Los Angeles. 
+","They didn't. Instead congress still is struggling to dismantle the unpopular Catastrophic Care Act of 1988, which boosted benefits for the elderly and taxed them to pay for the new coverage. 
+","1","incoherent_sentences_arg2_diff_sense.json","Instead, Chrysler officials in late May slapped $1,000 cash rebates on the vehicles. As a result the incentives boosted sales for a while. 
+","Instead, Chrysler officials in late May slapped $1,000 cash rebates on the vehicles. As a result the shareholders effectively will support the share price by clearing the share buy-back. 
+","1","incoherent_sentences_arg2_random.json","Their opinion is devoid of the wisdom of the forefathers' teaching regarding impeachment. In addition for the future he would run for governor of Florida. 
+","Their opinion is devoid of the wisdom of the forefathers' teaching regarding impeachment. In addition after NBC weather man Willard Scott broadcast the hot-line number, it was flooded with 10,000 calls. 
+","2","incoherent_sentences_arg2_random.json","Logic plays a minimal role here. Instead more important are what LSI calls ""psychological anchors"" -- a few focal points calculated to appeal to the jury on a gut level. 
+","Logic plays a minimal role here. Instead i'm not going to jump on them the first day they come out. 
+","2","incoherent_sentences_arg2_diff_sense.json","It is interested in making some money advising industry on how to convert to a world without CFCs. Because there is, after all, big money in environmentalism. 
+","It is interested in making some money advising industry on how to convert to a world without CFCs. Because this is only a further step in a lengthy investigation. 
+","1","incoherent_sentences_arg2_random.json","Discouragement feeds on itself. Indeed the problem is, if people get down in the dumps, they stop selling. 
+","Discouragement feeds on itself. Indeed high cash positions help buffer a fund when the market falls. 
+","2","incoherent_sentences_arg2_random.json","Assume that someone caught in the jam has a heart attack. But there is no way to get an ambulance in quickly to move him to a hospital. 
+","Assume that someone caught in the jam has a heart attack. But tokyu Department Store advanced 260 to 2410. 
+","1","2","2","1","2","2","2","2","2","2","1","0","1","0","0","1","0","1","0","0","0"
+"3W9XHF7WGKSID4RZ4GCZ6Q6TW4FKTV","3VWCB4I0H931F016YBYBHWJC8X3Q7J","Coherent vs Incoherent sentences","The assignment is to select the incoherent text from a coherent/incoherent pair of texts and indicate how incoherent the selected text is relative to the other.","Reading, Text, Coherence, Incoherence","$0.40","Fri Feb 16 14:04:22 PST 2018","3","BatchId:3118690;OriginalHitTemplateId:920937336;","1800","259200","Fri Feb 23 14:04:22 PST 2018","","","3IJXV6UZ1YGHDEMDQRRUHFMIYIYRIK","A2LU259QPV1I4V","Approved","Fri Feb 16 14:13:43 PST 2018","Fri Feb 16 14:43:33 PST 2018","Mon Feb 19 14:43:33 PST 2018","2018-02-19 22:43:42 UTC","","","1790","100% (4/4)","100% (4/4)","100% (4/4)","incoherent_sentences_arg2_diff_sense.json","The subsidiary isn't expected to be profitable for at least one year. But if Integrated regains the unit, it would receive any profit the unit reports, even while the unit is independent. 
+","The subsidiary isn't expected to be profitable for at least one year. But to land customers for their well-paying stock custodial business, big banks sometimes will throw in basic indexing services for free. 
+","1","incoherent_sentences_arg2_random.json","We reinvented it. In fact we are the producers of that movie. 
+","We reinvented it. In fact they motivate sales people with commissions. 
+","1","incoherent_sentences_arg2_diff_sense.json","Bond investors were hoping that stock prices would continue to fall. So when stocks stabilized, that was a disappointment. 
+","Bond investors were hoping that stock prices would continue to fall. So the suspension of foreign loans has weakened the buying power of China's national trading companies, which are among the country's biggest importers. 
+","1","incoherent_sentences_arg2_random.json","They didn't. Instead their visa came in relatively short order, and they moved to Los Angeles. 
+","They didn't. Instead congress still is struggling to dismantle the unpopular Catastrophic Care Act of 1988, which boosted benefits for the elderly and taxed them to pay for the new coverage. 
+","1","incoherent_sentences_arg2_diff_sense.json","Instead, Chrysler officials in late May slapped $1,000 cash rebates on the vehicles. As a result the incentives boosted sales for a while. 
+","Instead, Chrysler officials in late May slapped $1,000 cash rebates on the vehicles. As a result the shareholders effectively will support the share price by clearing the share buy-back. 
+","1","incoherent_sentences_arg2_random.json","Their opinion is devoid of the wisdom of the forefathers' teaching regarding impeachment. In addition for the future he would run for governor of Florida. 
+","Their opinion is devoid of the wisdom of the forefathers' teaching regarding impeachment. In addition after NBC weather man Willard Scott broadcast the hot-line number, it was flooded with 10,000 calls. 
+","2","incoherent_sentences_arg2_random.json","Logic plays a minimal role here. Instead more important are what LSI calls ""psychological anchors"" -- a few focal points calculated to appeal to the jury on a gut level. 
+","Logic plays a minimal role here. Instead i'm not going to jump on them the first day they come out. 
+","2","incoherent_sentences_arg2_diff_sense.json","It is interested in making some money advising industry on how to convert to a world without CFCs. Because there is, after all, big money in environmentalism. 
+","It is interested in making some money advising industry on how to convert to a world without CFCs. Because this is only a further step in a lengthy investigation. 
+","1","incoherent_sentences_arg2_random.json","Discouragement feeds on itself. Indeed the problem is, if people get down in the dumps, they stop selling. 
+","Discouragement feeds on itself. Indeed high cash positions help buffer a fund when the market falls. 
+","2","incoherent_sentences_arg2_random.json","Assume that someone caught in the jam has a heart attack. But there is no way to get an ambulance in quickly to move him to a hospital. 
+","Assume that someone caught in the jam has a heart attack. But tokyu Department Store advanced 260 to 2410. 
+","1","2","2","2","2","1","2","2","2","1","2","2","3","3","2","3","3","0","2","1","3"
+"3W9XHF7WGKSID4RZ4GCZ6Q6TW4FKTV","3VWCB4I0H931F016YBYBHWJC8X3Q7J","Coherent vs Incoherent sentences","The assignment is to select the incoherent text from a coherent/incoherent pair of texts and indicate how incoherent the selected text is relative to the other.","Reading, Text, Coherence, Incoherence","$0.40","Fri Feb 16 14:04:22 PST 2018","3","BatchId:3118690;OriginalHitTemplateId:920937336;","1800","259200","Fri Feb 23 14:04:22 PST 2018","","","3R2UR8A0IBDB6WJSXLARQU4SB8HOX7","A110KENBXU7SUJ","Approved","Fri Feb 16 14:05:00 PST 2018","Fri Feb 16 14:21:28 PST 2018","Mon Feb 19 14:21:28 PST 2018","2018-02-19 22:21:42 UTC","","","988","100% (4/4)","100% (4/4)","100% (4/4)","incoherent_sentences_arg2_diff_sense.json","The subsidiary isn't expected to be profitable for at least one year. But if Integrated regains the unit, it would receive any profit the unit reports, even while the unit is independent. 
+","The subsidiary isn't expected to be profitable for at least one year. But to land customers for their well-paying stock custodial business, big banks sometimes will throw in basic indexing services for free. 
+","1","incoherent_sentences_arg2_random.json","We reinvented it. In fact we are the producers of that movie. 
+","We reinvented it. In fact they motivate sales people with commissions. 
+","1","incoherent_sentences_arg2_diff_sense.json","Bond investors were hoping that stock prices would continue to fall. So when stocks stabilized, that was a disappointment. 
+","Bond investors were hoping that stock prices would continue to fall. So the suspension of foreign loans has weakened the buying power of China's national trading companies, which are among the country's biggest importers. 
+","1","incoherent_sentences_arg2_random.json","They didn't. Instead their visa came in relatively short order, and they moved to Los Angeles. 
+","They didn't. Instead congress still is struggling to dismantle the unpopular Catastrophic Care Act of 1988, which boosted benefits for the elderly and taxed them to pay for the new coverage. 
+","1","incoherent_sentences_arg2_diff_sense.json","Instead, Chrysler officials in late May slapped $1,000 cash rebates on the vehicles. As a result the incentives boosted sales for a while. 
+","Instead, Chrysler officials in late May slapped $1,000 cash rebates on the vehicles. As a result the shareholders effectively will support the share price by clearing the share buy-back. 
+","1","incoherent_sentences_arg2_random.json","Their opinion is devoid of the wisdom of the forefathers' teaching regarding impeachment. In addition for the future he would run for governor of Florida. 
+","Their opinion is devoid of the wisdom of the forefathers' teaching regarding impeachment. In addition after NBC weather man Willard Scott broadcast the hot-line number, it was flooded with 10,000 calls. 
+","2","incoherent_sentences_arg2_random.json","Logic plays a minimal role here. Instead more important are what LSI calls ""psychological anchors"" -- a few focal points calculated to appeal to the jury on a gut level. 
+","Logic plays a minimal role here. Instead i'm not going to jump on them the first day they come out. 
+","2","incoherent_sentences_arg2_diff_sense.json","It is interested in making some money advising industry on how to convert to a world without CFCs. Because there is, after all, big money in environmentalism. 
+","It is interested in making some money advising industry on how to convert to a world without CFCs. Because this is only a further step in a lengthy investigation. 
+","1","incoherent_sentences_arg2_random.json","Discouragement feeds on itself. Indeed the problem is, if people get down in the dumps, they stop selling. 
+","Discouragement feeds on itself. Indeed high cash positions help buffer a fund when the market falls. 
+","2","incoherent_sentences_arg2_random.json","Assume that someone caught in the jam has a heart attack. But there is no way to get an ambulance in quickly to move him to a hospital. 
+","Assume that someone caught in the jam has a heart attack. But tokyu Department Store advanced 260 to 2410. 
+","1","2","2","2","2","1","2","2","2","2","2","2","3","1","2","0","0","0","1","1","1"
+"3TFJJUELSHM6A7LYTOB5HKKVRIU2C9","3VWCB4I0H931F016YBYBHWJC8X3Q7J","Coherent vs Incoherent sentences","The assignment is to select the incoherent text from a coherent/incoherent pair of texts and indicate how incoherent the selected text is relative to the other.","Reading, Text, Coherence, Incoherence","$0.40","Fri Feb 16 14:04:22 PST 2018","6","BatchId:3118690;OriginalHitTemplateId:920937336;","1800","259200","Mon Feb 26 12:32:12 PST 2018","","","36DSNE9QZ6VABCE3GHVQZLWD0UKOJ5","A20NITCOBY4775","Submitted","Mon Feb 19 17:27:52 PST 2018","Mon Feb 19 17:33:06 PST 2018","Thu Feb 22 17:33:06 PST 2018","","","","314","0% (0/0)","0% (0/0)","0% (0/0)","incoherent_sentences_arg2_diff_sense.json","The inquiry soon focused on the judge. Since even his routine business transactions caused trouble, according to the grand jury report. 
+","The inquiry soon focused on the judge. Since if that takes money, take it away from this discredited federal department. 
+","2","incoherent_sentences_arg2_random.json","This has been a major disruption for the Bay area economy. So obviously, things are going to have to go on hold for many companies. 
+","This has been a major disruption for the Bay area economy. So as Ruth, Moira Harris begins almost immediately to overpower each of the men. 
+","1","incoherent_sentences_arg2_random.json","I'm not so young anymore. So i won't be throwing 90 mph. 
+","I'm not so young anymore. So mortgage-backed securities were up less than 1/8 point. 
+","1","incoherent_sentences_arg2_random.json","One concerns Japanese investors. Specifically barely visible on Hong Kong's property scene in 1985, by last year Japan had become the top foreign investor, spending $602 million. 
+","One concerns Japanese investors. Specifically no wonder the competition's green with envy,"" the announcer says. 
+","2","incoherent_sentences_arg2_random.json","You built your career on prejudice and hate. So the scars will be here years after the polls close. 
+","You built your career on prejudice and hate. So they want a 24-hour library. 
+","1","incoherent_sentences_arg2_diff_sense.json","Even the boon to affiliate relations may be limited. Because the sports lineup may add only 1% to 5% to a station's annual profits. 
+","Even the boon to affiliate relations may be limited. Because without Moscow's military and party behind it, East Germany runs the risk of disintegrating. 
+","1","incoherent_sentences_arg2_random.json","Taco Bell has turned around declining customer counts by permanently lowering the price of its tacos. Meanwhile same store-sales for Kentucky Fried Chicken rose only 1%. 
+","Taco Bell has turned around declining customer counts by permanently lowering the price of its tacos. Meanwhile i said, `NOW?. 
+","2","incoherent_sentences_arg2_diff_sense.json","Everyone falls in love with everyone else. But there is some pain, when Lucy has the baby and ""didn't know she would feel like this"" and wants to keep the baby. 
+","Everyone falls in love with everyone else. But recovery could be hampered if Britain's major trading partners in Europe, which are enjoying robust economic activity, cool off as expected in late 1990 and 1991. 
+","2","incoherent_sentences_arg2_random.json","The Arabs had merely oil. While these farmers may have a grip on the world's very heart. 
+","The Arabs had merely oil. While crises larger and more dangerous to the quality of life than they were 10 years ago. 
+","1","incoherent_sentences_arg2_diff_sense.json","I would say he's definitely not in need of money. Because he has good investments. 
+","I would say he's definitely not in need of money. Because we really do know all we need to know, if only we could assimilate this knowledge into our thinking. 
+","2","2","2","2","2","2","2","2","2","2","2","2","3","3","2","3","3","2","2","3","3"
+"3TFJJUELSHM6A7LYTOB5HKKVRIU2C9","3VWCB4I0H931F016YBYBHWJC8X3Q7J","Coherent vs Incoherent sentences","The assignment is to select the incoherent text from a coherent/incoherent pair of texts and indicate how incoherent the selected text is relative to the other.","Reading, Text, Coherence, Incoherence","$0.40","Fri Feb 16 14:04:22 PST 2018","6","BatchId:3118690;OriginalHitTemplateId:920937336;","1800","259200","Mon Feb 26 12:32:12 PST 2018","","","3A4TN5196LFDBHMA2CJES8MHYOJCHD","AAKL8L5X64LWD","Submitted","Mon Feb 19 15:38:41 PST 2018","Mon Feb 19 15:59:33 PST 2018","Thu Feb 22 15:59:33 PST 2018","","","","1252","0% (0/0)","0% (0/0)","0% (0/0)","incoherent_sentences_arg2_diff_sense.json","The inquiry soon focused on the judge. Since even his routine business transactions caused trouble, according to the grand jury report. 
+","The inquiry soon focused on the judge. Since if that takes money, take it away from this discredited federal department. 
+","2","incoherent_sentences_arg2_random.json","This has been a major disruption for the Bay area economy. So obviously, things are going to have to go on hold for many companies. 
+","This has been a major disruption for the Bay area economy. So as Ruth, Moira Harris begins almost immediately to overpower each of the men. 
+","1","incoherent_sentences_arg2_random.json","I'm not so young anymore. So i won't be throwing 90 mph. 
+","I'm not so young anymore. So mortgage-backed securities were up less than 1/8 point. 
+","1","incoherent_sentences_arg2_random.json","One concerns Japanese investors. Specifically barely visible on Hong Kong's property scene in 1985, by last year Japan had become the top foreign investor, spending $602 million. 
+","One concerns Japanese investors. Specifically no wonder the competition's green with envy,"" the announcer says. 
+","2","incoherent_sentences_arg2_random.json","You built your career on prejudice and hate. So the scars will be here years after the polls close. 
+","You built your career on prejudice and hate. So they want a 24-hour library. 
+","1","incoherent_sentences_arg2_diff_sense.json","Even the boon to affiliate relations may be limited. Because the sports lineup may add only 1% to 5% to a station's annual profits. 
+","Even the boon to affiliate relations may be limited. Because without Moscow's military and party behind it, East Germany runs the risk of disintegrating. 
+","1","incoherent_sentences_arg2_random.json","Taco Bell has turned around declining customer counts by permanently lowering the price of its tacos. Meanwhile same store-sales for Kentucky Fried Chicken rose only 1%. 
+","Taco Bell has turned around declining customer counts by permanently lowering the price of its tacos. Meanwhile i said, `NOW?. 
+","2","incoherent_sentences_arg2_diff_sense.json","Everyone falls in love with everyone else. But there is some pain, when Lucy has the baby and ""didn't know she would feel like this"" and wants to keep the baby. 
+","Everyone falls in love with everyone else. But recovery could be hampered if Britain's major trading partners in Europe, which are enjoying robust economic activity, cool off as expected in late 1990 and 1991. 
+","2","incoherent_sentences_arg2_random.json","The Arabs had merely oil. While these farmers may have a grip on the world's very heart. 
+","The Arabs had merely oil. While crises larger and more dangerous to the quality of life than they were 10 years ago. 
+","1","incoherent_sentences_arg2_diff_sense.json","I would say he's definitely not in need of money. Because he has good investments. 
+","I would say he's definitely not in need of money. Because we really do know all we need to know, if only we could assimilate this knowledge into our thinking. 
+","2","2","2","2","2","2","2","2","2","2","1","2","2","2","1","1","3","1","3","1","1"
+"3TFJJUELSHM6A7LYTOB5HKKVRIU2C9","3VWCB4I0H931F016YBYBHWJC8X3Q7J","Coherent vs Incoherent sentences","The assignment is to select the incoherent text from a coherent/incoherent pair of texts and indicate how incoherent the selected text is relative to the other.","Reading, Text, Coherence, Incoherence","$0.40","Fri Feb 16 14:04:22 PST 2018","6","BatchId:3118690;OriginalHitTemplateId:920937336;","1800","259200","Mon Feb 26 12:32:12 PST 2018","","","3L2IS5HSFBF177PLR1ZRRY5JRG9UNK","A1ZRK6K5JUPJAV","Rejected","Fri Feb 16 15:25:06 PST 2018","Fri Feb 16 15:28:23 PST 2018","Mon Feb 19 15:28:23 PST 2018","","Mon Feb 19 12:42:39 PST 2018","Sped through the assignment while indicating the wrong answers with confidence","197","50% (1/2)","50% (1/2)","50% (1/2)","incoherent_sentences_arg2_diff_sense.json","The inquiry soon focused on the judge. Since even his routine business transactions caused trouble, according to the grand jury report. 
+","The inquiry soon focused on the judge. Since if that takes money, take it away from this discredited federal department. 
+","2","incoherent_sentences_arg2_random.json","This has been a major disruption for the Bay area economy. So obviously, things are going to have to go on hold for many companies. 
+","This has been a major disruption for the Bay area economy. So as Ruth, Moira Harris begins almost immediately to overpower each of the men. 
+","1","incoherent_sentences_arg2_random.json","I'm not so young anymore. So i won't be throwing 90 mph. 
+","I'm not so young anymore. So mortgage-backed securities were up less than 1/8 point. 
+","1","incoherent_sentences_arg2_random.json","One concerns Japanese investors. Specifically barely visible on Hong Kong's property scene in 1985, by last year Japan had become the top foreign investor, spending $602 million. 
+","One concerns Japanese investors. Specifically no wonder the competition's green with envy,"" the announcer says. 
+","2","incoherent_sentences_arg2_random.json","You built your career on prejudice and hate. So the scars will be here years after the polls close. 
+","You built your career on prejudice and hate. So they want a 24-hour library. 
+","1","incoherent_sentences_arg2_diff_sense.json","Even the boon to affiliate relations may be limited. Because the sports lineup may add only 1% to 5% to a station's annual profits. 
+","Even the boon to affiliate relations may be limited. Because without Moscow's military and party behind it, East Germany runs the risk of disintegrating. 
+","1","incoherent_sentences_arg2_random.json","Taco Bell has turned around declining customer counts by permanently lowering the price of its tacos. Meanwhile same store-sales for Kentucky Fried Chicken rose only 1%. 
+","Taco Bell has turned around declining customer counts by permanently lowering the price of its tacos. Meanwhile i said, `NOW?. 
+","2","incoherent_sentences_arg2_diff_sense.json","Everyone falls in love with everyone else. But there is some pain, when Lucy has the baby and ""didn't know she would feel like this"" and wants to keep the baby. 
+","Everyone falls in love with everyone else. But recovery could be hampered if Britain's major trading partners in Europe, which are enjoying robust economic activity, cool off as expected in late 1990 and 1991. 
+","2","incoherent_sentences_arg2_random.json","The Arabs had merely oil. While these farmers may have a grip on the world's very heart. 
+","The Arabs had merely oil. While crises larger and more dangerous to the quality of life than they were 10 years ago. 
+","1","incoherent_sentences_arg2_diff_sense.json","I would say he's definitely not in need of money. Because he has good investments. 
+","I would say he's definitely not in need of money. Because we really do know all we need to know, if only we could assimilate this knowledge into our thinking. 
+","2","2","2","2","2","2","2","2","2","2","2","3","3","3","3","2","3","3","3","1","3"
+"3TFJJUELSHM6A7LYTOB5HKKVRIU2C9","3VWCB4I0H931F016YBYBHWJC8X3Q7J","Coherent vs Incoherent sentences","The assignment is to select the incoherent text from a coherent/incoherent pair of texts and indicate how incoherent the selected text is relative to the other.","Reading, Text, Coherence, Incoherence","$0.40","Fri Feb 16 14:04:22 PST 2018","6","BatchId:3118690;OriginalHitTemplateId:920937336;","1800","259200","Mon Feb 26 12:32:12 PST 2018","","","3PW9OPU9PRHP9O9U3URNO8XO5O821P","A3N7R7P9HP2YB6","Rejected","Fri Feb 16 14:14:01 PST 2018","Fri Feb 16 14:16:25 PST 2018","Mon Feb 19 14:16:25 PST 2018","","Mon Feb 19 12:32:12 PST 2018","Selected the wrong answer with confidence the majority of the time while speeding through the assignment","144","75% (3/4)","75% (3/4)","75% (3/4)","incoherent_sentences_arg2_diff_sense.json","The inquiry soon focused on the judge. Since even his routine business transactions caused trouble, according to the grand jury report. 
+","The inquiry soon focused on the judge. Since if that takes money, take it away from this discredited federal department. 
+","2","incoherent_sentences_arg2_random.json","This has been a major disruption for the Bay area economy. So obviously, things are going to have to go on hold for many companies. 
+","This has been a major disruption for the Bay area economy. So as Ruth, Moira Harris begins almost immediately to overpower each of the men. 
+","1","incoherent_sentences_arg2_random.json","I'm not so young anymore. So i won't be throwing 90 mph. 
+","I'm not so young anymore. So mortgage-backed securities were up less than 1/8 point. 
+","1","incoherent_sentences_arg2_random.json","One concerns Japanese investors. Specifically barely visible on Hong Kong's property scene in 1985, by last year Japan had become the top foreign investor, spending $602 million. 
+","One concerns Japanese investors. Specifically no wonder the competition's green with envy,"" the announcer says. 
+","2","incoherent_sentences_arg2_random.json","You built your career on prejudice and hate. So the scars will be here years after the polls close. 
+","You built your career on prejudice and hate. So they want a 24-hour library. 
+","1","incoherent_sentences_arg2_diff_sense.json","Even the boon to affiliate relations may be limited. Because the sports lineup may add only 1% to 5% to a station's annual profits. 
+","Even the boon to affiliate relations may be limited. Because without Moscow's military and party behind it, East Germany runs the risk of disintegrating. 
+","1","incoherent_sentences_arg2_random.json","Taco Bell has turned around declining customer counts by permanently lowering the price of its tacos. Meanwhile same store-sales for Kentucky Fried Chicken rose only 1%. 
+","Taco Bell has turned around declining customer counts by permanently lowering the price of its tacos. Meanwhile i said, `NOW?. 
+","2","incoherent_sentences_arg2_diff_sense.json","Everyone falls in love with everyone else. But there is some pain, when Lucy has the baby and ""didn't know she would feel like this"" and wants to keep the baby. 
+","Everyone falls in love with everyone else. But recovery could be hampered if Britain's major trading partners in Europe, which are enjoying robust economic activity, cool off as expected in late 1990 and 1991. 
+","2","incoherent_sentences_arg2_random.json","The Arabs had merely oil. While these farmers may have a grip on the world's very heart. 
+","The Arabs had merely oil. While crises larger and more dangerous to the quality of life than they were 10 years ago. 
+","1","incoherent_sentences_arg2_diff_sense.json","I would say he's definitely not in need of money. Because he has good investments. 
+","I would say he's definitely not in need of money. Because we really do know all we need to know, if only we could assimilate this knowledge into our thinking. 
+","2","2","2","2","2","2","2","2","2","1","2","3","3","3","3","2","3","2","3","0","3"
+"3TFJJUELSHM6A7LYTOB5HKKVRIU2C9","3VWCB4I0H931F016YBYBHWJC8X3Q7J","Coherent vs Incoherent sentences","The assignment is to select the incoherent text from a coherent/incoherent pair of texts and indicate how incoherent the selected text is relative to the other.","Reading, Text, Coherence, Incoherence","$0.40","Fri Feb 16 14:04:22 PST 2018","6","BatchId:3118690;OriginalHitTemplateId:920937336;","1800","259200","Mon Feb 26 12:32:12 PST 2018","","","3RYC5T2D74Q9U09H3MHEQCNUKWSRPV","ATHS9CW2FLYUY","Rejected","Fri Feb 16 14:05:36 PST 2018","Fri Feb 16 14:29:31 PST 2018","Mon Feb 19 14:29:31 PST 2018","","Mon Feb 19 12:51:47 PST 2018","No attempt was made on the followup questions to distinguish coherence and the sentences were chosen at chance","1435","88% (7/8)","88% (7/8)","88% (7/8)","incoherent_sentences_arg2_diff_sense.json","The inquiry soon focused on the judge. Since even his routine business transactions caused trouble, according to the grand jury report. 
+","The inquiry soon focused on the judge. Since if that takes money, take it away from this discredited federal department. 
+","2","incoherent_sentences_arg2_random.json","This has been a major disruption for the Bay area economy. So obviously, things are going to have to go on hold for many companies. 
+","This has been a major disruption for the Bay area economy. So as Ruth, Moira Harris begins almost immediately to overpower each of the men. 
+","1","incoherent_sentences_arg2_random.json","I'm not so young anymore. So i won't be throwing 90 mph. 
+","I'm not so young anymore. So mortgage-backed securities were up less than 1/8 point. 
+","1","incoherent_sentences_arg2_random.json","One concerns Japanese investors. Specifically barely visible on Hong Kong's property scene in 1985, by last year Japan had become the top foreign investor, spending $602 million. 
+","One concerns Japanese investors. Specifically no wonder the competition's green with envy,"" the announcer says. 
+","2","incoherent_sentences_arg2_random.json","You built your career on prejudice and hate. So the scars will be here years after the polls close. 
+","You built your career on prejudice and hate. So they want a 24-hour library. 
+","1","incoherent_sentences_arg2_diff_sense.json","Even the boon to affiliate relations may be limited. Because the sports lineup may add only 1% to 5% to a station's annual profits. 
+","Even the boon to affiliate relations may be limited. Because without Moscow's military and party behind it, East Germany runs the risk of disintegrating. 
+","1","incoherent_sentences_arg2_random.json","Taco Bell has turned around declining customer counts by permanently lowering the price of its tacos. Meanwhile same store-sales for Kentucky Fried Chicken rose only 1%. 
+","Taco Bell has turned around declining customer counts by permanently lowering the price of its tacos. Meanwhile i said, `NOW?. 
+","2","incoherent_sentences_arg2_diff_sense.json","Everyone falls in love with everyone else. But there is some pain, when Lucy has the baby and ""didn't know she would feel like this"" and wants to keep the baby. 
+","Everyone falls in love with everyone else. But recovery could be hampered if Britain's major trading partners in Europe, which are enjoying robust economic activity, cool off as expected in late 1990 and 1991. 
+","2","incoherent_sentences_arg2_random.json","The Arabs had merely oil. While these farmers may have a grip on the world's very heart. 
+","The Arabs had merely oil. While crises larger and more dangerous to the quality of life than they were 10 years ago. 
+","1","incoherent_sentences_arg2_diff_sense.json","I would say he's definitely not in need of money. Because he has good investments. 
+","I would say he's definitely not in need of money. Because we really do know all we need to know, if only we could assimilate this knowledge into our thinking. 
+","2","1","2","2","1","2","2","2","1","2","1","0","0","0","0","0","0","0","0","0","0"
+"3TFJJUELSHM6A7LYTOB5HKKVRIU2C9","3VWCB4I0H931F016YBYBHWJC8X3Q7J","Coherent vs Incoherent sentences","The assignment is to select the incoherent text from a coherent/incoherent pair of texts and indicate how incoherent the selected text is relative to the other.","Reading, Text, Coherence, Incoherence","$0.40","Fri Feb 16 14:04:22 PST 2018","6","BatchId:3118690;OriginalHitTemplateId:920937336;","1800","259200","Mon Feb 26 12:32:12 PST 2018","","","3X31TUMD7YJVAAV2D09S34WXB8ML1O","A1FG4M4370KNFI","Submitted","Mon Feb 19 18:50:29 PST 2018","Mon Feb 19 18:59:17 PST 2018","Thu Feb 22 18:59:17 PST 2018","","","","528","0% (0/0)","0% (0/0)","0% (0/0)","incoherent_sentences_arg2_diff_sense.json","The inquiry soon focused on the judge. Since even his routine business transactions caused trouble, according to the grand jury report. 
+","The inquiry soon focused on the judge. Since if that takes money, take it away from this discredited federal department. 
+","2","incoherent_sentences_arg2_random.json","This has been a major disruption for the Bay area economy. So obviously, things are going to have to go on hold for many companies. 
+","This has been a major disruption for the Bay area economy. So as Ruth, Moira Harris begins almost immediately to overpower each of the men. 
+","1","incoherent_sentences_arg2_random.json","I'm not so young anymore. So i won't be throwing 90 mph. 
+","I'm not so young anymore. So mortgage-backed securities were up less than 1/8 point. 
+","1","incoherent_sentences_arg2_random.json","One concerns Japanese investors. Specifically barely visible on Hong Kong's property scene in 1985, by last year Japan had become the top foreign investor, spending $602 million. 
+","One concerns Japanese investors. Specifically no wonder the competition's green with envy,"" the announcer says. 
+","2","incoherent_sentences_arg2_random.json","You built your career on prejudice and hate. So the scars will be here years after the polls close. 
+","You built your career on prejudice and hate. So they want a 24-hour library. 
+","1","incoherent_sentences_arg2_diff_sense.json","Even the boon to affiliate relations may be limited. Because the sports lineup may add only 1% to 5% to a station's annual profits. 
+","Even the boon to affiliate relations may be limited. Because without Moscow's military and party behind it, East Germany runs the risk of disintegrating. 
+","1","incoherent_sentences_arg2_random.json","Taco Bell has turned around declining customer counts by permanently lowering the price of its tacos. Meanwhile same store-sales for Kentucky Fried Chicken rose only 1%. 
+","Taco Bell has turned around declining customer counts by permanently lowering the price of its tacos. Meanwhile i said, `NOW?. 
+","2","incoherent_sentences_arg2_diff_sense.json","Everyone falls in love with everyone else. But there is some pain, when Lucy has the baby and ""didn't know she would feel like this"" and wants to keep the baby. 
+","Everyone falls in love with everyone else. But recovery could be hampered if Britain's major trading partners in Europe, which are enjoying robust economic activity, cool off as expected in late 1990 and 1991. 
+","2","incoherent_sentences_arg2_random.json","The Arabs had merely oil. While these farmers may have a grip on the world's very heart. 
+","The Arabs had merely oil. While crises larger and more dangerous to the quality of life than they were 10 years ago. 
+","1","incoherent_sentences_arg2_diff_sense.json","I would say he's definitely not in need of money. Because he has good investments. 
+","I would say he's definitely not in need of money. Because we really do know all we need to know, if only we could assimilate this knowledge into our thinking. 
+","2","2","2","2","2","2","2","1","2","2","2","3","3","3","2","2","1","1","2","2","2"
+"3SU800BH86PJOK4JHQM67844EOEUQO","3VWCB4I0H931F016YBYBHWJC8X3Q7J","Coherent vs Incoherent sentences","The assignment is to select the incoherent text from a coherent/incoherent pair of texts and indicate how incoherent the selected text is relative to the other.","Reading, Text, Coherence, Incoherence","$0.40","Fri Feb 16 14:04:22 PST 2018","3","BatchId:3118690;OriginalHitTemplateId:920937336;","1800","259200","Fri Feb 23 14:04:22 PST 2018","","","37W3JXSD6758BAI4T3N3Q2ONGGBYW0","A2LU259QPV1I4V","Approved","Fri Feb 16 14:13:32 PST 2018","Fri Feb 16 14:22:14 PST 2018","Mon Feb 19 14:22:14 PST 2018","2018-02-19 22:22:42 UTC","","","522","100% (4/4)","100% (4/4)","100% (4/4)","incoherent_sentences_arg2_diff_sense.json","Wall Street won't take kindly to that. Because on a stand-alone basis, the network ought to make money. 
+","Wall Street won't take kindly to that. Because each had claimed Allianz, Europe's largest insurance company, as a tacit ally. 
+","2","incoherent_sentences_arg2_random.json","I wish he could wear lifts in his voice. Because not nearly in his best form, the tenor made dullish sounds along with his usual clumsy hand gestures. 
+","I wish he could wear lifts in his voice. Because on Isaac Stern's recording it's very biting. 
+","1","incoherent_sentences_arg2_random.json","It was dead, listless, depressing and negative. Because there was little turnover and nothing to stimulate the market. 
+","It was dead, listless, depressing and negative. Because when you look at the economics, Traub needs a Japanese and a European partner to make it work. 
+","2","incoherent_sentences_arg2_random.json","In a matter of minutes, she was back, with a tall, silver-haired man in tow. Then she crouched down by the car window and addressed her husband with her favorite nickname. 
+","In a matter of minutes, she was back, with a tall, silver-haired man in tow. Then maine Republican William Cohen said the plan might violate the assassination ban. 
+","2","incoherent_sentences_arg2_random.json","The volatility won't end soon. Because this Friday brings the ""double witching hour. 
+","The volatility won't end soon. Because unemployment in September dropped to 1,695,000, the lowest level since 1980. 
+","2","incoherent_sentences_arg2_random.json","Many in Washington say President Bush will have to raise taxes to pay for his war on drugs. But we have a better idea: Dismantle HUD to pay for the war on drugs. 
+","Many in Washington say President Bush will have to raise taxes to pay for his war on drugs. But the rivals currently are locked in a costly bidding contest for Hollywood film rights. 
+","1","incoherent_sentences_arg2_diff_sense.json","Contrary to some opinions, the trading activities of specialists and other market makers do not provide liquidity to the market as a whole. Rather what market makers provide is immediacy, a very valuable service. 
+","Contrary to some opinions, the trading activities of specialists and other market makers do not provide liquidity to the market as a whole. Rather even Drexel is pulling back. 
+","1","incoherent_sentences_arg2_diff_sense.json","West Germans get glitz, with bourbon in the foreground and a posh Beverly Hills hotel in the background. While ads for England are artsy and irreverent. 
+","West Germans get glitz, with bourbon in the foreground and a posh Beverly Hills hotel in the background. While he expected as much. 
+","1","incoherent_sentences_arg2_diff_sense.json","Never mind. Because you already know the answer. 
+","Never mind. Because those days are over now. 
+","1","incoherent_sentences_arg2_diff_sense.json","But Nora and Malcolm feel trapped. Because they seem to be having the ""worst of both worlds. 
+","But Nora and Malcolm feel trapped. Because after letting aluminum-makers take the recycling lead, a group of the nation's largest steelmakers started a recycling institute to promote steel cans to an environmentally conscious nation. 
+","1","1","2","1","2","2","1","2","2","2","2","1","3","2","1","3","3","3","3","3","1"
+"3SU800BH86PJOK4JHQM67844EOEUQO","3VWCB4I0H931F016YBYBHWJC8X3Q7J","Coherent vs Incoherent sentences","The assignment is to select the incoherent text from a coherent/incoherent pair of texts and indicate how incoherent the selected text is relative to the other.","Reading, Text, Coherence, Incoherence","$0.40","Fri Feb 16 14:04:22 PST 2018","3","BatchId:3118690;OriginalHitTemplateId:920937336;","1800","259200","Fri Feb 23 14:04:22 PST 2018","","","3AUQQEL7U6QYZQMEVL7YC8BPXUU0VR","A110KENBXU7SUJ","Approved","Fri Feb 16 14:04:38 PST 2018","Fri Feb 16 14:11:21 PST 2018","Mon Feb 19 14:11:21 PST 2018","2018-02-19 22:11:42 UTC","","","403","100% (4/4)","100% (4/4)","100% (4/4)","incoherent_sentences_arg2_diff_sense.json","Wall Street won't take kindly to that. Because on a stand-alone basis, the network ought to make money. 
+","Wall Street won't take kindly to that. Because each had claimed Allianz, Europe's largest insurance company, as a tacit ally. 
+","2","incoherent_sentences_arg2_random.json","I wish he could wear lifts in his voice. Because not nearly in his best form, the tenor made dullish sounds along with his usual clumsy hand gestures. 
+","I wish he could wear lifts in his voice. Because on Isaac Stern's recording it's very biting. 
+","1","incoherent_sentences_arg2_random.json","It was dead, listless, depressing and negative. Because there was little turnover and nothing to stimulate the market. 
+","It was dead, listless, depressing and negative. Because when you look at the economics, Traub needs a Japanese and a European partner to make it work. 
+","2","incoherent_sentences_arg2_random.json","In a matter of minutes, she was back, with a tall, silver-haired man in tow. Then she crouched down by the car window and addressed her husband with her favorite nickname. 
+","In a matter of minutes, she was back, with a tall, silver-haired man in tow. Then maine Republican William Cohen said the plan might violate the assassination ban. 
+","2","incoherent_sentences_arg2_random.json","The volatility won't end soon. Because this Friday brings the ""double witching hour. 
+","The volatility won't end soon. Because unemployment in September dropped to 1,695,000, the lowest level since 1980. 
+","2","incoherent_sentences_arg2_random.json","Many in Washington say President Bush will have to raise taxes to pay for his war on drugs. But we have a better idea: Dismantle HUD to pay for the war on drugs. 
+","Many in Washington say President Bush will have to raise taxes to pay for his war on drugs. But the rivals currently are locked in a costly bidding contest for Hollywood film rights. 
+","1","incoherent_sentences_arg2_diff_sense.json","Contrary to some opinions, the trading activities of specialists and other market makers do not provide liquidity to the market as a whole. Rather what market makers provide is immediacy, a very valuable service. 
+","Contrary to some opinions, the trading activities of specialists and other market makers do not provide liquidity to the market as a whole. Rather even Drexel is pulling back. 
+","1","incoherent_sentences_arg2_diff_sense.json","West Germans get glitz, with bourbon in the foreground and a posh Beverly Hills hotel in the background. While ads for England are artsy and irreverent. 
+","West Germans get glitz, with bourbon in the foreground and a posh Beverly Hills hotel in the background. While he expected as much. 
+","1","incoherent_sentences_arg2_diff_sense.json","Never mind. Because you already know the answer. 
+","Never mind. Because those days are over now. 
+","1","incoherent_sentences_arg2_diff_sense.json","But Nora and Malcolm feel trapped. Because they seem to be having the ""worst of both worlds. 
+","But Nora and Malcolm feel trapped. Because after letting aluminum-makers take the recycling lead, a group of the nation's largest steelmakers started a recycling institute to promote steel cans to an environmentally conscious nation. 
+","1","2","2","1","2","2","2","2","2","2","2","1","2","0","0","2","0","3","1","1","0"
+"3SU800BH86PJOK4JHQM67844EOEUQO","3VWCB4I0H931F016YBYBHWJC8X3Q7J","Coherent vs Incoherent sentences","The assignment is to select the incoherent text from a coherent/incoherent pair of texts and indicate how incoherent the selected text is relative to the other.","Reading, Text, Coherence, Incoherence","$0.40","Fri Feb 16 14:04:22 PST 2018","3","BatchId:3118690;OriginalHitTemplateId:920937336;","1800","259200","Fri Feb 23 14:04:22 PST 2018","","","3Z7VU45IPZEFFZC6S101BJ7VQX5Z1S","ATHS9CW2FLYUY","Approved","Fri Feb 16 14:05:35 PST 2018","Fri Feb 16 14:18:05 PST 2018","Mon Feb 19 14:18:05 PST 2018","2018-02-19 22:18:42 UTC","","","750","88% (7/8)","88% (7/8)","88% (7/8)","incoherent_sentences_arg2_diff_sense.json","Wall Street won't take kindly to that. Because on a stand-alone basis, the network ought to make money. 
+","Wall Street won't take kindly to that. Because each had claimed Allianz, Europe's largest insurance company, as a tacit ally. 
+","2","incoherent_sentences_arg2_random.json","I wish he could wear lifts in his voice. Because not nearly in his best form, the tenor made dullish sounds along with his usual clumsy hand gestures. 
+","I wish he could wear lifts in his voice. Because on Isaac Stern's recording it's very biting. 
+","1","incoherent_sentences_arg2_random.json","It was dead, listless, depressing and negative. Because there was little turnover and nothing to stimulate the market. 
+","It was dead, listless, depressing and negative. Because when you look at the economics, Traub needs a Japanese and a European partner to make it work. 
+","2","incoherent_sentences_arg2_random.json","In a matter of minutes, she was back, with a tall, silver-haired man in tow. Then she crouched down by the car window and addressed her husband with her favorite nickname. 
+","In a matter of minutes, she was back, with a tall, silver-haired man in tow. Then maine Republican William Cohen said the plan might violate the assassination ban. 
+","2","incoherent_sentences_arg2_random.json","The volatility won't end soon. Because this Friday brings the ""double witching hour. 
+","The volatility won't end soon. Because unemployment in September dropped to 1,695,000, the lowest level since 1980. 
+","2","incoherent_sentences_arg2_random.json","Many in Washington say President Bush will have to raise taxes to pay for his war on drugs. But we have a better idea: Dismantle HUD to pay for the war on drugs. 
+","Many in Washington say President Bush will have to raise taxes to pay for his war on drugs. But the rivals currently are locked in a costly bidding contest for Hollywood film rights. 
+","1","incoherent_sentences_arg2_diff_sense.json","Contrary to some opinions, the trading activities of specialists and other market makers do not provide liquidity to the market as a whole. Rather what market makers provide is immediacy, a very valuable service. 
+","Contrary to some opinions, the trading activities of specialists and other market makers do not provide liquidity to the market as a whole. Rather even Drexel is pulling back. 
+","1","incoherent_sentences_arg2_diff_sense.json","West Germans get glitz, with bourbon in the foreground and a posh Beverly Hills hotel in the background. While ads for England are artsy and irreverent. 
+","West Germans get glitz, with bourbon in the foreground and a posh Beverly Hills hotel in the background. While he expected as much. 
+","1","incoherent_sentences_arg2_diff_sense.json","Never mind. Because you already know the answer. 
+","Never mind. Because those days are over now. 
+","1","incoherent_sentences_arg2_diff_sense.json","But Nora and Malcolm feel trapped. Because they seem to be having the ""worst of both worlds. 
+","But Nora and Malcolm feel trapped. Because after letting aluminum-makers take the recycling lead, a group of the nation's largest steelmakers started a recycling institute to promote steel cans to an environmentally conscious nation. 
+","1","2","1","1","2","2","1","1","2","2","1","1","1","1","1","1","1","1","1","2","0"
+"3P888QFVX3ROBFKML4AX82CFW2QQO7","3VWCB4I0H931F016YBYBHWJC8X3Q7J","Coherent vs Incoherent sentences","The assignment is to select the incoherent text from a coherent/incoherent pair of texts and indicate how incoherent the selected text is relative to the other.","Reading, Text, Coherence, Incoherence","$0.40","Fri Feb 16 14:04:22 PST 2018","3","BatchId:3118690;OriginalHitTemplateId:920937336;","1800","259200","Fri Feb 23 14:04:22 PST 2018","","","3CCZ6YKWR8GZXQVCPQ8E1LIJNAM955","A3N7R7P9HP2YB6","Approved","Fri Feb 16 14:06:04 PST 2018","Fri Feb 16 14:08:59 PST 2018","Mon Feb 19 14:08:59 PST 2018","2018-02-19 22:09:42 UTC","","","175","75% (3/4)","75% (3/4)","75% (3/4)","incoherent_sentences_arg2_random.json","A Texas legislator proposes color-coding drivers' licenses of some drug offenders. In particular the bill would authorize courts to order the licenses as a condition of probation. 
+","A Texas legislator proposes color-coding drivers' licenses of some drug offenders. In particular analysts have continually lowered their earnings estimates for the company, and their outlook, at least for the short term, is bleak. 
+","2","incoherent_sentences_arg2_diff_sense.json","Some couples continue to try. But such determination may translate into extreme physical, emotional and financial costs. 
+","Some couples continue to try. But more enemies to be dealt with. 
+","2","incoherent_sentences_arg2_random.json","They were a sleeper. Because everybody was out buying Monets. 
+","They were a sleeper. Because i myself took such courses in college, thinking I might end up a schoolteacher. 
+","1","incoherent_sentences_arg2_random.json","China's land and labor offer inexpensive alternatives to local industry. And china-bound freight streams through the territory's port. 
+","China's land and labor offer inexpensive alternatives to local industry. And others, just released from the majors, hope the senior league will be their bridge back into the big-time. 
+","2","incoherent_sentences_arg2_diff_sense.json","Spirits companies now view themselves as global marketers. But if you want to be a player, you have to be in America, Europe and the Far East. 
+","Spirits companies now view themselves as global marketers. But she has TB, after all, and a weak-kneed lover. 
+","2","incoherent_sentences_arg2_random.json","They talked of the home run. For example i thought it was in the upper deck,"" said Bobby Thomson, now 66 years old. 
+","They talked of the home run. For example duck swarms. 
+","1","incoherent_sentences_arg2_diff_sense.json","The Department of Housing and Urban Development has used testers to investigate discrimination in rental housing. However using testers could be controversial with financial institutions. 
+","The Department of Housing and Urban Development has used testers to investigate discrimination in rental housing. However better to have a true monetarist policy, just for the experience. 
+","1","incoherent_sentences_arg2_diff_sense.json","I was an eyewitness of the most newsworthy event on the planet at that moment. So what was my angle. 
+","I was an eyewitness of the most newsworthy event on the planet at that moment. So many analysts question management's credibility. 
+","1","incoherent_sentences_arg2_diff_sense.json","We're surprised. Because we didn't think a sleeping {Bell} mentality would be willing to take on dilution. 
+","We're surprised. Because by a 4-0 vote, it allowed AT&T to continue offering special discount packages to big customers. 
+","1","incoherent_sentences_arg2_diff_sense.json","East Bloc pollution data typically have been state secrets. So while Polish data have been freely available since 1980, it was no accident that participants urged the free flow of information. 
+","East Bloc pollution data typically have been state secrets. So barbra Streisand made him famous. 
+","2","2","2","2","1","2","2","2","2","2","1","2","3","3","1","3","3","3","2","1","3"
+"3P888QFVX3ROBFKML4AX82CFW2QQO7","3VWCB4I0H931F016YBYBHWJC8X3Q7J","Coherent vs Incoherent sentences","The assignment is to select the incoherent text from a coherent/incoherent pair of texts and indicate how incoherent the selected text is relative to the other.","Reading, Text, Coherence, Incoherence","$0.40","Fri Feb 16 14:04:22 PST 2018","3","BatchId:3118690;OriginalHitTemplateId:920937336;","1800","259200","Fri Feb 23 14:04:22 PST 2018","","","3LUY3GC630XZCHP2U8J8LVWUJKYP7U","ATHS9CW2FLYUY","Approved","Fri Feb 16 14:05:32 PST 2018","Fri Feb 16 14:12:15 PST 2018","Mon Feb 19 14:12:15 PST 2018","2018-02-19 22:12:42 UTC","","","403","88% (7/8)","88% (7/8)","88% (7/8)","incoherent_sentences_arg2_random.json","A Texas legislator proposes color-coding drivers' licenses of some drug offenders. In particular the bill would authorize courts to order the licenses as a condition of probation. 
+","A Texas legislator proposes color-coding drivers' licenses of some drug offenders. In particular analysts have continually lowered their earnings estimates for the company, and their outlook, at least for the short term, is bleak. 
+","2","incoherent_sentences_arg2_diff_sense.json","Some couples continue to try. But such determination may translate into extreme physical, emotional and financial costs. 
+","Some couples continue to try. But more enemies to be dealt with. 
+","2","incoherent_sentences_arg2_random.json","They were a sleeper. Because everybody was out buying Monets. 
+","They were a sleeper. Because i myself took such courses in college, thinking I might end up a schoolteacher. 
+","1","incoherent_sentences_arg2_random.json","China's land and labor offer inexpensive alternatives to local industry. And china-bound freight streams through the territory's port. 
+","China's land and labor offer inexpensive alternatives to local industry. And others, just released from the majors, hope the senior league will be their bridge back into the big-time. 
+","2","incoherent_sentences_arg2_diff_sense.json","Spirits companies now view themselves as global marketers. But if you want to be a player, you have to be in America, Europe and the Far East. 
+","Spirits companies now view themselves as global marketers. But she has TB, after all, and a weak-kneed lover. 
+","2","incoherent_sentences_arg2_random.json","They talked of the home run. For example i thought it was in the upper deck,"" said Bobby Thomson, now 66 years old. 
+","They talked of the home run. For example duck swarms. 
+","1","incoherent_sentences_arg2_diff_sense.json","The Department of Housing and Urban Development has used testers to investigate discrimination in rental housing. However using testers could be controversial with financial institutions. 
+","The Department of Housing and Urban Development has used testers to investigate discrimination in rental housing. However better to have a true monetarist policy, just for the experience. 
+","1","incoherent_sentences_arg2_diff_sense.json","I was an eyewitness of the most newsworthy event on the planet at that moment. So what was my angle. 
+","I was an eyewitness of the most newsworthy event on the planet at that moment. So many analysts question management's credibility. 
+","1","incoherent_sentences_arg2_diff_sense.json","We're surprised. Because we didn't think a sleeping {Bell} mentality would be willing to take on dilution. 
+","We're surprised. Because by a 4-0 vote, it allowed AT&T to continue offering special discount packages to big customers. 
+","1","incoherent_sentences_arg2_diff_sense.json","East Bloc pollution data typically have been state secrets. So while Polish data have been freely available since 1980, it was no accident that participants urged the free flow of information. 
+","East Bloc pollution data typically have been state secrets. So barbra Streisand made him famous. 
+","2","2","1","2","1","1","2","1","2","1","1","1","1","2","1","1","2","2","2","1","1"
+"3P888QFVX3ROBFKML4AX82CFW2QQO7","3VWCB4I0H931F016YBYBHWJC8X3Q7J","Coherent vs Incoherent sentences","The assignment is to select the incoherent text from a coherent/incoherent pair of texts and indicate how incoherent the selected text is relative to the other.","Reading, Text, Coherence, Incoherence","$0.40","Fri Feb 16 14:04:22 PST 2018","3","BatchId:3118690;OriginalHitTemplateId:920937336;","1800","259200","Fri Feb 23 14:04:22 PST 2018","","","3ZAK8W07I5BYMBXEQVXTGM96JNL0U2","A110KENBXU7SUJ","Approved","Fri Feb 16 14:04:35 PST 2018","Fri Feb 16 14:09:05 PST 2018","Mon Feb 19 14:09:05 PST 2018","2018-02-19 22:09:42 UTC","","","270","100% (4/4)","100% (4/4)","100% (4/4)","incoherent_sentences_arg2_random.json","A Texas legislator proposes color-coding drivers' licenses of some drug offenders. In particular the bill would authorize courts to order the licenses as a condition of probation. 
+","A Texas legislator proposes color-coding drivers' licenses of some drug offenders. In particular analysts have continually lowered their earnings estimates for the company, and their outlook, at least for the short term, is bleak. 
+","2","incoherent_sentences_arg2_diff_sense.json","Some couples continue to try. But such determination may translate into extreme physical, emotional and financial costs. 
+","Some couples continue to try. But more enemies to be dealt with. 
+","2","incoherent_sentences_arg2_random.json","They were a sleeper. Because everybody was out buying Monets. 
+","They were a sleeper. Because i myself took such courses in college, thinking I might end up a schoolteacher. 
+","1","incoherent_sentences_arg2_random.json","China's land and labor offer inexpensive alternatives to local industry. And china-bound freight streams through the territory's port. 
+","China's land and labor offer inexpensive alternatives to local industry. And others, just released from the majors, hope the senior league will be their bridge back into the big-time. 
+","2","incoherent_sentences_arg2_diff_sense.json","Spirits companies now view themselves as global marketers. But if you want to be a player, you have to be in America, Europe and the Far East. 
+","Spirits companies now view themselves as global marketers. But she has TB, after all, and a weak-kneed lover. 
+","2","incoherent_sentences_arg2_random.json","They talked of the home run. For example i thought it was in the upper deck,"" said Bobby Thomson, now 66 years old. 
+","They talked of the home run. For example duck swarms. 
+","1","incoherent_sentences_arg2_diff_sense.json","The Department of Housing and Urban Development has used testers to investigate discrimination in rental housing. However using testers could be controversial with financial institutions. 
+","The Department of Housing and Urban Development has used testers to investigate discrimination in rental housing. However better to have a true monetarist policy, just for the experience. 
+","1","incoherent_sentences_arg2_diff_sense.json","I was an eyewitness of the most newsworthy event on the planet at that moment. So what was my angle. 
+","I was an eyewitness of the most newsworthy event on the planet at that moment. So many analysts question management's credibility. 
+","1","incoherent_sentences_arg2_diff_sense.json","We're surprised. Because we didn't think a sleeping {Bell} mentality would be willing to take on dilution. 
+","We're surprised. Because by a 4-0 vote, it allowed AT&T to continue offering special discount packages to big customers. 
+","1","incoherent_sentences_arg2_diff_sense.json","East Bloc pollution data typically have been state secrets. So while Polish data have been freely available since 1980, it was no accident that participants urged the free flow of information. 
+","East Bloc pollution data typically have been state secrets. So barbra Streisand made him famous. 
+","2","2","2","2","2","2","2","2","2","2","1","3","3","2","0","3","3","3","2","1","0"
