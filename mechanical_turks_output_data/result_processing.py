@@ -499,9 +499,3 @@ if __name__ == '__main__':
     result_list = get_results_with_agreement(csv_data, agreement_threshold, categories_list)
     print(cluster_matching_datasets(list(categories_list), result_list, agreement_threshold=agreement_threshold))
 
-
-    # get_sentence_length_based_results(csv_data, agreement_threshold)
-
-    # for item in csv_data:
-    #     print(item)
-

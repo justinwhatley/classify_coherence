@@ -26,6 +26,14 @@ def output_sentences(sentences, output_file):
             out.write('\n')
 
 def create_sentence(arg1, arg2, connective, sense):
+    """
+    Creates a sentence dictionary
+    :param arg1:
+    :param arg2:
+    :param connective:
+    :param sense:
+    :return:
+    """
     sentence = {
         'Arg1Raw': arg1,
         'Arg2Raw': arg2,
@@ -35,6 +43,15 @@ def create_sentence(arg1, arg2, connective, sense):
     return sentence
 
 def create_sentence_pair(arg1, arg2, connective, sense, original_sentence_index):
+    """
+    Creates a sentence dictionary which includes a reference to the original text before corruption
+    :param arg1:
+    :param arg2:
+    :param connective:
+    :param sense:
+    :param original_sentence_index:
+    :return:
+    """
     sentence = {
         'Arg1Raw': arg1,
         'Arg2Raw': arg2,
@@ -46,7 +63,10 @@ def create_sentence_pair(arg1, arg2, connective, sense, original_sentence_index)
 
 
 def keep_only_top_level_sense():
-    # Only keep top level Sense
+    """
+    Removes all lower level sense in the data. Thus, leaving only the Comparison, Contingency, etc
+    :return:
+    """
     for line in data:
         top_level_sense = ""
         for sense in line['Sense']:
@@ -55,17 +75,27 @@ def keep_only_top_level_sense():
         line['Sense'] = top_level_sense
 
 def remove_sentences_with_explicit_connectives():
-    # Remove sentence with Explicit connectives
+    """
+    Removes sentences with explicit connectives from the data
+    """
     global data
     data = (filter(lambda line: line['Type'] != 'Explicit', data))
 
 def include_only_sentences_of_type(type):
+    """
+    Specify a specific type (i.e., 'Implicit') that will be used to
+    :param type: str indicating the type
+    :return:
+    """
     global data
     data = (filter(lambda line: line['Type'] == type, data))
 
 def display_different_types():
+    """
+    Outputs the different types of sentences contained in the data
+    :return:
+    """
     global data
-
     type = []
     for line in data:
         if line['Type'] not in type:
@@ -272,29 +302,28 @@ if __name__ == '__main__':
 
     keep_only_top_level_sense()
 
-    # remove_sentences_with_explicit_connectives()
-    include_only_sentences_of_type('Implicit')
-    remove_texts_with_nested_sentences()
-    remove_texts_with_args_starting_midsentence()
-    remove_sentences_with_unlisted_connectives()
+    exlusive_connective_type = 'Implicit'
+    include_only_sentences_of_type(exlusive_connective_type)
 
-    # comparison_examples = extract_text_with_sense('Comparison')
-    # print(len(comparison_examples))
-    #
-    # contingency_examples = extract_text_with_sense('Contingency')
-    # print(len(contingency_examples))
-    print(len(data))
+    if exlusive_connective_type == 'Implicit':
+        remove_texts_with_nested_sentences()
+        remove_texts_with_args_starting_midsentence()
+        remove_sentences_with_unlisted_connectives()
 
-    coherent_sentences = prepare_coherent_sentences()
+        coherent_sentences = prepare_coherent_sentences()
+        unique_connectives_senses = create_unique_connectives()
 
-    unique_connectives_senses = create_unique_connectives()
+        # Generate sentences
+        generate_sentences_random_arg2(coherent_sentences)
+        # generate_sentences_swapping_connectives(unique_connectives_senses)
+        # generate_sentences_swapping_arg2_same_sense(unique_connectives_senses, coherent_sentences)
+        generate_sentences_swapping_arg2_different_sense(unique_connectives_senses, coherent_sentences)
+        # generate_sentences_swapping_arg2_matching_connective(coherent_sentences)
+        # generate_sentences_swapping_arg2_different_sense_connective(unique_connectives_senses)
 
-    generate_sentences_random_arg2(coherent_sentences)
-    # generate_sentences_swapping_connectives(unique_connectives_senses)
-    # generate_sentences_swapping_arg2_same_sense(unique_connectives_senses, coherent_sentences)
-    generate_sentences_swapping_arg2_different_sense(unique_connectives_senses, coherent_sentences)
-    # generate_sentences_swapping_arg2_matching_connective(coherent_sentences)
-    # generate_sentences_swapping_arg2_different_sense_connective(unique_connectives_senses)
+
+    elif exlusive_connective_type == 'Explicit':
+        coherent_sentences = prepare_coherent_sentences()
 
 
 

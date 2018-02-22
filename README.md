@@ -23,12 +23,6 @@ This file is where we run our convolutional neural network. It defines many flag
 #### cnn.py 
 This is the class that implements the underlying logic of our convolutional neural network. It creates the actual network, connects layers, implements the convolution, etc. 
 
-#### randomize_words.py 
-This file was used to randomize the `Arg2` of our training data, using several `gamma` values that specify the probability of each word of being swapped with another. 
-
-#### crowdflower_sampling.py
-This file randomly chooses a fixed number of samples from each of our datasets to get them annotated on Crowdflower. 
-
 #### connective_middle_frequency.py 
 This file looks at which connectives in our data are more likely to be in the middle of `Arg1` and `Arg2`. It was not used for our experiments, but is still in the code because it would be useful if we want to experiment with unannotated data in the future. 
 

@@ -8,9 +8,9 @@ CROWDFLOWER_DIR = "crowdflower_input_data"
 
 def prepare_sample_for_crowdflower():
 
-    open(CROWDFLOWER_DIR + "/samples.csv", 'w') # Clear contents of file
+    open(CROWDFLOWER_DIR + "/Batch_3118690_samples.csv", 'w') # Clear contents of file
     # Get txt version of data
-    with open(CROWDFLOWER_DIR + "/samples.csv", 'a+') as csvfile:
+    with open(CROWDFLOWER_DIR + "/Batch_3118690_samples.csv", 'a+') as csvfile:
         writer = csv.writer(csvfile)
         writer.writerow(["Dataset", "Sample1", "Sample2", "CoherentSentence", "IncoherentSentence"])
         for filename in os.listdir(os.getcwd()+ "/data/txt"):
@@ -62,6 +62,12 @@ def connect_sentence(line, include_connective = True):
 
 
 def setup_csv_basic(sample_name, sample_directory):
+    """
+
+    :param sample_name:
+    :param sample_directory:
+    :return:
+    """
 
     file_location = os.path.join(sample_directory, sample_name)
     # Clear contents of file
@@ -245,7 +251,7 @@ def ensure_correct_sample_size_to_questions_per_hit_ratio(sample_size_per_datase
         exit(0)
 
 def test_csv_sample():
-    path = 'mechanical_turks_input_data/samples.csv'
+    path = 'mechanical_turks_input_data/Batch_3118690_samples.csv'
 
     with open(path, 'rb') as csvfile:
         reader = csv.DictReader(csvfile)
@@ -272,7 +278,7 @@ def test_csv_sample():
 
 
 if __name__ == '__main__':
-    sample_name = "samples.csv"
+    sample_name = "Batch_3118690_samples.csv"
     sample_directory = MECHANICAL_TURKS_DIR
     sample_size_per_dataset = 40
     questions_per_hit = 10
