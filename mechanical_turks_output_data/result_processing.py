@@ -6,17 +6,16 @@ import csv
 
 from datetime import datetime
 
-# Graph Imports
-# import matplotlib.pyplot as plt
-# import matplotlib.mlab as mlab
-import numpy as np
-
 
 crowdflower_output_directory = 'crowdflower_output_data'
 mechanical_turks_output_directory = 'multi_question_hit'
 # mechanical_turks_output_directory = 'single_question_hit'
 
 def read_csv():
+    """
+    Loads the csv data by row, assigning each row value to a column key
+    :return:
+    """
     directory = mechanical_turks_output_directory
 
     csv_list_of_dicts = []
@@ -33,7 +32,6 @@ def read_csv():
                         result_obj[header[j]] = row_list[j]
                     csv_list_of_dicts.append(result_obj)
 
-    print header
     return csv_list_of_dicts
 
 def test_csv_sample():
@@ -172,10 +170,14 @@ def get_bin_data(_bin, categories_list, agreement_threshold, aggregate=False):
 
 
 def count_incoherence_agreement(agreement_threshold, temp_list):
-    # for category to check
-    # for every unique sample to check
-    # ensure that the result is above the threshold (which will be a fraction)
-    # return a fraction consisting of the samples meeting the threshold over the ones that did not
+    """
+    First sorts the list to ensure that the same samples are placed next to eachother. After this is done, the
+    frequency of correct answers are calculated over the total possible answers. A particular sample is counted when it
+    meets the agreement threshold criteria
+    :param agreement_threshold: decimal fraction required to count a particular question as correctly labelled incoherent
+    :param temp_list:
+    :return:
+    """
 
     # Sorts the list so that questions for the same sample pairs will appear in sequence
     temp_list = sorted(temp_list, key=lambda k: (k['Input.Sample1'], k['Input.Sample2']))
@@ -219,6 +221,11 @@ def count_incoherence_agreement(agreement_threshold, temp_list):
 
 
 def evaluate_incoherence_frequency(categories_list):
+    """
+    Counds the number of texts that were correctly labelled incoherent
+    :param categories_list:
+    :return:
+    """
 
     bin_incoherence_freq = 0
     for i, dict in enumerate(categories_list):
@@ -228,6 +235,13 @@ def evaluate_incoherence_frequency(categories_list):
     return bin_incoherence_freq
 
 def remove_dataset(csv_data, dataset_to_remove):
+    """
+    Removes a dataset from the csv_data
+    :param csv_data:
+    :param dataset_to_remove: str containing the dataset name
+    :return:
+    """
+
     new_csv_data = []
     for item in csv_data:
         if item['dataset'] != dataset_to_remove:
@@ -236,6 +250,12 @@ def remove_dataset(csv_data, dataset_to_remove):
 
 
 def get_diff_values_from_category(csv_data, category):
+    """
+    Create a list of all possible values in a specific category
+    :param csv_data:
+    :param category:
+    :return:
+    """
     listed = []
     for item in csv_data:
         if item[category] not in listed:
@@ -244,6 +264,13 @@ def get_diff_values_from_category(csv_data, category):
 
 
 def count_from_country(csv_data, countries_list):
+    """
+    Deprecated. Was used to count countries for CrowdFlower data. In Mechanical Turks Test only people in the US
+    were tested
+    :param csv_data:
+    :param countries_list:
+    :return:
+    """
 
     english_country_counter = 0.0
     total_country_counter = 0.0
@@ -261,7 +288,8 @@ def count_from_country(csv_data, countries_list):
 
 def remove_infrequent_samples(csv_data, sample_threshold):
     """
-    Removes samples from the result data that do not have sufficient samples
+    Removes samples from the result data that do not have sufficient samples. This makes sense when they will not satisfy
+    a certain sample_threshold which is the number of responses to a specific sample pair
     :param csv_data:
     :param sample_threshold: The minimum number of samples required for the result to be considered
     :return:
@@ -299,7 +327,7 @@ def remove_infrequent_samples(csv_data, sample_threshold):
 
 def update_correct_answers(csv_data):
     """
-    Adds
+    Adds a new key 'correct_answer' indicating whether the answer for each row was correct through a boolean
     :param csv_data:
     :return:
     """
@@ -373,23 +401,23 @@ def expand_csv_data(csv_data, length_of_questionnaire):
     """
     new_csv_data = []
     for row in csv_data:
-        print(length_of_questionnaire)
-        for i in range(1,length_of_questionnaire+1):
-            new_csv_row = {'WorkerId': row['WorkerId'],
-                           'CreationTime': row['CreationTime'],
-                           'Input.Sample1': row['Input.Sample' + str(i) + '_' + str(1)],
-                           'Input.Sample2': row['Input.Sample' + str(i) + '_' + str(2)],
-                           'Input.Incoherent_Sample': row['Input.Incoherent_Sample' + str(i)],
-                           'Answer.FollowupAnswer': row['Answer.FollowupAnswer' + str(i)],
-                           'Answer.Answer': row['Answer.Answer' + str(i)],
-                           'Input.Dataset': row['Input.Sample' + str(i) + 'Dataset'],
-                           'AcceptTime': row['AcceptTime'],
-                           'SubmitTime': row['SubmitTime'],
-                           'RequesterFeedback': row['RequesterFeedback'],
-                           'HITId': row['HITId']
+        if row['RejectionTime'] != 'None':
+            for i in range(1,length_of_questionnaire+1):
+                new_csv_row = {'WorkerId': row['WorkerId'],
+                               'CreationTime': row['CreationTime'],
+                               'Input.Sample1': row['Input.Sample' + str(i) + '_' + str(1)],
+                               'Input.Sample2': row['Input.Sample' + str(i) + '_' + str(2)],
+                               'Input.Incoherent_Sample': row['Input.Incoherent_Sample' + str(i)],
+                               'Answer.FollowupAnswer': row['Answer.FollowupAnswer' + str(i)],
+                               'Answer.Answer': row['Answer.Answer' + str(i)],
+                               'Input.Dataset': row['Input.Sample' + str(i) + 'Dataset'],
+                               'AcceptTime': row['AcceptTime'],
+                               'SubmitTime': row['SubmitTime'],
+                               'RequesterFeedback': row['RequesterFeedback'],
+                               'HITId': row['HITId']
 
-                           }
-            new_csv_data.append(new_csv_row)
+                               }
+                new_csv_data.append(new_csv_row)
 
     return new_csv_data
 
@@ -439,13 +467,15 @@ def count_instances(csv_data, key):
 
 if __name__ == '__main__':
 
-    csv_data = read_csv()
-    # count_instances_multiquestion_hit(csv_data, 'incoherent_sentences_arg2_random.json')
-    # count_instances_multiquestion_hit(csv_data, 'incoherent_sentences_arg2_diff_sense.json')
-
-    length_of_questionnaire = get_number_of_questions(csv_data)
+    original_csv_data = read_csv()
+    count_instances(original_csv_data, 'WorkerId')
+    # count_instances_multiquestion_hit(original_csv_data, 'incoherent_sentences_arg2_random.json')
+    # count_instances_multiquestion_hit(original_csv_data, 'incoherent_sentences_arg2_diff_sense.json')
+    length_of_questionnaire = get_number_of_questions(original_csv_data)
     if length_of_questionnaire > 1:
-        csv_data = expand_csv_data(csv_data, length_of_questionnaire)
+        csv_data = expand_csv_data(original_csv_data, length_of_questionnaire)
+    else:
+        csv_data = original_csv_data
 
     set_time_elapsed(csv_data)
     count_instances(csv_data, 'Input.Dataset')
