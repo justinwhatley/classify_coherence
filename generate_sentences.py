@@ -302,7 +302,7 @@ if __name__ == '__main__':
 
     keep_only_top_level_sense()
 
-    exlusive_connective_type = 'Implicit'
+    exlusive_connective_type = 'Explicit'
     include_only_sentences_of_type(exlusive_connective_type)
 
     if exlusive_connective_type == 'Implicit':
@@ -325,6 +325,7 @@ if __name__ == '__main__':
     elif exlusive_connective_type == 'Explicit':
         #TODO implement parsing for individual setences to try training a larger dataset
         coherent_sentences = prepare_coherent_sentences()
+        print('made it')
 
 
 

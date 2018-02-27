@@ -3,7 +3,7 @@ import random
 import csv
 import json
 
-MECHANICAL_TURKS_DIR = "mechanical_turks_input_data"
+MECHANICAL_TURKS_DIR = "mechanical_mechanical_turks_input_data"
 CROWDFLOWER_DIR = "crowdflower_input_data"
 
 def prepare_sample_for_crowdflower():

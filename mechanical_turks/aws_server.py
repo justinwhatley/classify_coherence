@@ -1,5 +1,9 @@
 import boto3
 
+"""
+TODO for use with AWS mechanical turks
+"""
+
 region_name = 'us-east-1'
 aws_access_key_id = 'YOUR_ACCESS_ID'
 aws_secret_access_key = 'YOUR_SECRET_KEY'
