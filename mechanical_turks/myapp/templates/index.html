@@ -1,9 +1,27 @@
 {% extends "layout.html" %}
-{% block title %}
-	Incoherence Questionnaire I AMMM HERE
+
+{% block content %}
+    <h1>Text Incoherence</h1>
+    <p>
+		The purpose of this study is to assess text-incoherence in automatically generated text.
+        We define text-incoherence as text which does not follow logically. Put another way, incoherent
+        texts should not make clear sense. For example, "I'm hungry because it is snowing" should be
+        labelled incoherent.
+	</p>
+
+	<p>
+		Each question in the form will include two texts and you are tasked with selecting
+		the most <i>incoherent</i> text from the pair. In a follow-up question, you will be asked
+        to indicate your confidence in your selection of the incoherent sentence, indicating how
+        incoherent the selected text is relative to the non-selected sentence.
+	</p>
+
+    <form action="" method="post">
+        <p>{{ form.submit() }}</p>
+    </form>
+
 {% endblock %}
 
-{% block body %}
 
 
-{% endblock %}
+

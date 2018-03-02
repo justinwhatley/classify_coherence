@@ -1,9 +1,9 @@
 import flask
-# import flask.ext.restless
 
 # New modules
 import flask_sqlalchemy
 import flask_restless
+
 
 
 from myapp import app, db
