@@ -8,7 +8,6 @@ app.config["DEBUG"] = True
 app.config["SECRET_KEY"] = 'a very long random string'
 
 
-
 db = SQLAlchemy(app)
 
 from myapp import api

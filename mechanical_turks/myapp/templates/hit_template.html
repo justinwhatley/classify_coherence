@@ -12,7 +12,8 @@
 
 
 <section>&nbsp;
-
+<!--<form action="{{ '/handle_result' }}" method="post">-->
+    <form action="{{ '/handle_result' }}" method="post">
 <fieldset>
 <p><label>1. a) Which text is more <em>incoherent</em>? Select only ONE of the following:</label></p>
 
@@ -32,24 +33,24 @@
 </fieldset>
 &nbsp;
 
-<!--<fieldset>-->
-<!--<p><label>2. a) Which text is more <em>incoherent</em>? Select only ONE of the following:</label></p>-->
+<fieldset>
+<p><label>2. a) Which text is more <em>incoherent</em>? Select only ONE of the following:</label></p>
 
-<!--<div class="radio"><label><input name="Answer2" required="" type="radio" value="1" />{{dict['Sample2_1']}}</label></div>-->
+<div class="radio"><label><input name="Answer2" required="" type="radio" value="1" />{{dict['Sample2_1']}}</label></div>
 
-<!--<div class="radio"><label><input name="Answer2" required="" type="radio" value="2" />{{dict['Sample2_2']}}</label></div>-->
+<div class="radio"><label><input name="Answer2" required="" type="radio" value="2" />{{dict['Sample2_2']}}</label></div>
 
-<!--<p><strong>b) Rate how <em>incoherent</em> your selection is relative to the alternate choice:</strong></p>-->
+<p><strong>b) Rate how <em>incoherent</em> your selection is relative to the alternate choice:</strong></p>
 
-<!--<div class="radio"><label><input name="FollowupAnswer2" required="" type="radio" value="0" />Equally <em>incoherent</em>, there is no difference in the incoherence of the texts</label></div>-->
+<div class="radio"><label><input name="FollowupAnswer2" required="" type="radio" value="0" />Equally <em>incoherent</em>, there is no difference in the incoherence of the texts</label></div>
 
-<!--<div class="radio"><label><input name="FollowupAnswer2" required="" type="radio" value="1" />A little more <em>incoherent</em>, but the difference is not obvious</label></div>-->
+<div class="radio"><label><input name="FollowupAnswer2" required="" type="radio" value="1" />A little more <em>incoherent</em>, but the difference is not obvious</label></div>
 
-<!--<div class="radio"><label><input name="FollowupAnswer2" required="" type="radio" value="2" />More <em>incoherent</em>, the selected text is more incoherent than the other choice</label></div>-->
+<div class="radio"><label><input name="FollowupAnswer2" required="" type="radio" value="2" />More <em>incoherent</em>, the selected text is more incoherent than the other choice</label></div>
 
-<!--<div class="radio"><label><input name="FollowupAnswer2" required="" type="radio" value="3" />Completely <em>incoherent</em>, the selected text is obviously incoherent</label></div>-->
-<!--</fieldset>-->
-<!--&nbsp;-->
+<div class="radio"><label><input name="FollowupAnswer2" required="" type="radio" value="3" />Completely <em>incoherent</em>, the selected text is obviously incoherent</label></div>
+</fieldset>
+&nbsp;
 
 <!--<fieldset>-->
 <!--<p><label>3. a) Which text is more <em>incoherent</em>? Select only ONE of the following:</label></p>-->
@@ -204,7 +205,6 @@
 &nbsp;
 <style type="text/css">fieldset { padding: 10px; background:#fbfbfb; border-radius:5px; margin-bottom:5px; }
 </style>
-    <form action="{{ '/handle_result' }}" method="post">
         <p class = "text-center">
             <input id = "submitButton" class="btn btn-primary" value="Submit" type="submit">
         </p>
