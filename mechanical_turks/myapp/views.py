@@ -129,13 +129,15 @@ def hit(number):
     """
     if request.method == 'POST':
         result = request.form
+        #Assumes a full HIT of ten
         for key in result:
             print (key, result[key])
-        render_template('hit_template.html', dict=csv_list_of_dicts[number+1])
+        return redirect(url_for('hit', number=number+1))
 
     if not (1 <= number <= 7):
         return 'Out of bounds!'
-    return render_template('hit_template.html', dict=csv_list_of_dicts[number])
+    print(number)
+    return render_template('hit_template.html', dict=csv_list_of_dicts[number], SubmitForm='/hit'+str(number))
 
 
 @app.route("/handle_result", methods=['GET','POST'])
@@ -144,7 +146,6 @@ def handle_data():
         result = request.form
         for key in result:
             print (key, result[key])
-
 
     return render_template('hit_template.html', dict=csv_list_of_dicts[5])
 

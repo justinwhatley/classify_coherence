@@ -41,6 +41,9 @@ def read_csv():
 
     return csv_list_of_dicts
 
+def write_line_to_csv(form_response, form_number):
+    pass
+
 sample_directory = 'mechanical_turks_input_data'
 sample_name = 'Batch_3118690_samples.csv'
 from os.path import join
