@@ -56,6 +56,10 @@ Ref. https://github.com/miguelgrinberg/REST-auth
 ********************************************************************************************
 """
 
+@login_manager.user_loader
+def load_user(username):
+    return User.query.filter_by(username=username).first()
+
 from flask import abort, request, jsonify, g, url_for
 
 @auth.verify_password
