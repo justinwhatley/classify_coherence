@@ -30,7 +30,7 @@ def index():
 
 
 from flask_login import login_user
-from myapp.api import User, new_user
+from myapp.api import User, new_user, get_user
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -49,20 +49,26 @@ def register():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    # TODO handling of CSRF tokens with: http://flask.pocoo.org/snippets/3/
+
     #TODO connect with authentication functions in api
     # if current_user.is_authenticated:
     #     print('made it')
     #     return redirect(url_for('hit', number=1))
     form = LoginForm()
     if form.validate_on_submit():
-        user = User.query.filter_by(username=form.username.data).first()
-        if user is None or not user.check_password(form.password.data):
+        result = request.form
+        user = User.query.filter_by(username=result['username']).first()
+        password = result['password']
+
+        if user is None or not user.verify_password(password):
             flash('Invalid username or password')
             return redirect(url_for('login'))
-        login_user(user, remember=form.remember_me.data)
-        return redirect(url_for('index'))
+        # login_user(user, remember=form.remember_me.data)
+        else:
+            return redirect(url_for('hit', number=1, username=user.username))
 
-
+    print('didn\'t made it')
     return render_template('login.html', title='Sign In', form=form)
 
 

@@ -6,6 +6,7 @@ import flask
 import flask_sqlalchemy
 import flask_restless
 import flask_login
+from flask import flash
 
 from myapp import app, db, auth
 from myapp.models import User
@@ -75,11 +76,12 @@ def new_user(request):
     username = request.get('username')
     password = request.get('password')
     if username is None or password is None:
+        flash('Username or password are not set')
         print('Username or password are not set')
         return False
         # abort(400)    # missing arguments
     if User.query.filter_by(username=username).first() is not None:
-        print('User already exits')
+        flash('User already exists')
         return False
         # abort(400)    # existing user
     user = User(username=username)
