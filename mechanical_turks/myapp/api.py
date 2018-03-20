@@ -9,7 +9,7 @@ import flask_login
 from flask import flash
 
 from myapp import app, db, auth
-from myapp.models import User
+from myapp.models import User, Completed_Questionnaires
 
 # Create the Flask-Restless API manager.
 manager = flask_restless.APIManager(app, flask_sqlalchemy_db=db)
@@ -21,6 +21,7 @@ login_manager.init_app(app)
 # Create API endpoints, which will be available at /api/<tablename> by
 # default. Allowed HTTP methods can be specified as well.
 manager.create_api(User, methods=['GET', 'POST', 'DELETE'])
+manager.create_api(Completed_Questionnaires, methods=['GET', 'POST', 'DELETE'])
 
 
 """
@@ -92,9 +93,14 @@ def new_user(request):
     user.hash_password(password)
     db.session.add(user)
     db.session.commit()
+
+    completed_questionnaires = Completed_Questionnaires(user_id=user.id, last_answered_question = 0)
+    db.session.add(completed_questionnaires)
+    db.session.commit()
+
     return get_user(id=user.id)
-        # (jsonify({'username': user.username}), 201,
-        #    {'Location': url_for('get_user', id=user.id, _external=True)})
+    # return (jsonify({'username': user.username}), 201,
+    #        {'Location': url_for('get_user', id=user.id, _external=True)})
 
 # @app.route('/api/users/<int:id>')
 def get_user(id):
@@ -166,20 +172,22 @@ def merge_two_dicts(x, y):
     z.update(y)
     return z
 
-def write_line_to_csv(form_response, data_line):
-    # new_line = {}
-    # for key in csv_list_of_dicts[int(data_line)]:
-    #     new_line['Input.' + key] = csv_list_of_dicts[int(data_line)][key]
+def write_line_to_csv(form_response, data_line, worker_id, hit_number):
+
     new_input_line = add_tag_to_key('Input.', csv_list_of_dicts[int(data_line)])
     new_output_line = add_tag_to_key('Answer.', form_response)
     new_line = merge_two_dicts(new_input_line, new_output_line)
+
+    # adds user to response as 'WorkerId'
+    new_line['WorkerId'] = worker_id
+
     result_q.put(new_line)
 
-    # for key in form_response:
-    #     new_line['Answer.'+ key] = form_response[key]
-
-    # TODO add user to response as 'WorkerId'
-    # new_line['WorkerId'] =
+    # Finds the appropriate user.id based on the worker_id(username) and adds the questionnaire to the completed table
+    user = User.query.filter_by(username=worker_id).first()
+    completed_q = Completed_Questionnaires.query.filter_by(user_id=user.id).first()
+    setattr(completed_q, 'last_answered_question', hit_number)
+    db.session.commit()
 
 
 def add_tag_to_key(tag, original_dict):
@@ -240,6 +248,16 @@ def result_writer():
             csvfile.close()
         time.sleep(5)
 thread.start_new_thread(result_writer, ())
+
+
+"""
+********************************************************************************************
+Completed questionnaires
+********************************************************************************************
+"""
+
+
+
 
 
 # ********************************************************************************************

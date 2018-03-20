@@ -30,7 +30,7 @@ def index():
 
 
 from flask_login import login_user
-from myapp.api import User, new_user, get_user
+from myapp.api import User, Completed_Questionnaires, new_user, get_user, get_auth_token
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -42,8 +42,9 @@ def register():
             return render_template('register_user.html', title='Sign In', form=form)
         else:
             success = new_user(result)
+
             if success:
-                return redirect(url_for('hit', number=1, username =success['username']))
+                return redirect(url_for('hit', number=1, username=success['username']))
 
     return render_template('register_user.html', title='Sign In', form=form)
 
@@ -66,9 +67,9 @@ def login():
             return redirect(url_for('login'))
         # login_user(user, remember=form.remember_me.data)
         else:
-            return redirect(url_for('hit', number=1, username=user.username))
+            completed_questionnaire = Completed_Questionnaires.query.filter_by(user_id = user.id).first()
+            return redirect(url_for('hit', number=completed_questionnaire.last_answered_question+1, username=user.username))
 
-    print('didn\'t made it')
     return render_template('login.html', title='Sign In', form=form)
 
 
@@ -85,7 +86,6 @@ HIT Form Handling
 ********************************************************************************************
 """
 
-# @app.route("/hit<int:number>/<username>", methods=['GET', 'POST'])
 @app.route("/hit<int:number>/<username>", methods=['GET', 'POST'])
 def hit(number, username):
     """
@@ -96,25 +96,15 @@ def hit(number, username):
     if request.method == 'POST':
         result = request.form
         #Assumes a full HIT of ten
-        write_line_to_csv(result, number)
+        write_line_to_csv(result, number, username, number)
         return redirect(url_for('hit', number=number+1, username= username))
         # return render_template('hit_template.html', dict=csv_list_of_dicts[number], SubmitForm='/hit'+str(number+1))
 
     if not (1 <= number <= 7):
         return 'Out of bounds!'
-    print(csv_list_of_dicts[number])
-    print(number)
+
     return render_template('hit_template.html', dict=csv_list_of_dicts[number], SubmitForm='/hit'+str(number))
 
-
-# @app.route("/handle_result", methods=['GET','POST'])
-# def handle_data():
-#     if request.method == 'POST':
-#         result = request.form
-#         for key in result:
-#             print (key, result[key])
-#
-#     return render_template('hit_template.html', dict=csv_list_of_dicts[5])
 
 """
 ********************************************************************************************

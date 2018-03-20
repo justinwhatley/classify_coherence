@@ -5,6 +5,12 @@ from passlib.apps import custom_app_context as pwd_context
 from itsdangerous import (TimedJSONWebSignatureSerializer
                          as Serializer, BadSignature, SignatureExpired)
 
+class Completed_Questionnaires(db.Model):
+    __tablename__ = 'completed_questionnaires'
+    user_id = db.Column(db.String(32), primary_key=True)
+    last_answered_question = db.Column(db.Integer)
+
+
 class User(db.Model):
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
