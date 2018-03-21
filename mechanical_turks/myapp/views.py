@@ -1,6 +1,6 @@
 from myapp import app
 from flask import redirect, render_template, flash, url_for
-from flask import redirect, render_template, flash
+from flask import redirect, render_template, flash, abort
 from flask_login import login_required, current_user
 from flask import request
 
@@ -93,6 +93,11 @@ def hit(number, username):
     :param number:
     :return:
     """
+    if number == 8:
+        return render_template('hits_complete.html')
+    if not 1 <= number <= 7:
+        return abort(400)
+
     if request.method == 'POST':
         result = request.form
         #Assumes a full HIT of ten
@@ -100,8 +105,6 @@ def hit(number, username):
         return redirect(url_for('hit', number=number+1, username= username))
         # return render_template('hit_template.html', dict=csv_list_of_dicts[number], SubmitForm='/hit'+str(number+1))
 
-    if not (1 <= number <= 7):
-        return 'Out of bounds!'
 
     return render_template('hit_template.html', dict=csv_list_of_dicts[number], SubmitForm='/hit'+str(number))
 
