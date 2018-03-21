@@ -155,7 +155,7 @@ def read_csv():
                 csv_list_of_dicts.append(result_obj)
 
     return csv_list_of_dicts
-
+#TODO
 sample_directory = 'mechanical_turks_input_data'
 sample_name = 'Batch_3118690_samples.csv'
 from os.path import join
@@ -178,16 +178,22 @@ def write_line_to_csv(form_response, data_line, worker_id, hit_number):
     new_output_line = add_tag_to_key('Answer.', form_response)
     new_line = merge_two_dicts(new_input_line, new_output_line)
 
-    # adds user to response as 'WorkerId'
-    new_line['WorkerId'] = worker_id
+    try:
+        # Finds the appropriate user.id based on the worker_id(username) and adds the questionnaire to the completed table
+        user = User.query.filter_by(username=worker_id).first()
+        completed_q = Completed_Questionnaires.query.filter_by(user_id=user.id).first()
+        setattr(completed_q, 'last_answered_question', hit_number)
 
-    result_q.put(new_line)
+        # adds user to response as 'WorkerId'
+        new_line['WorkerId'] = worker_id
+        result_q.put(new_line)
 
-    # Finds the appropriate user.id based on the worker_id(username) and adds the questionnaire to the completed table
-    user = User.query.filter_by(username=worker_id).first()
-    completed_q = Completed_Questionnaires.query.filter_by(user_id=user.id).first()
-    setattr(completed_q, 'last_answered_question', hit_number)
-    db.session.commit()
+        db.session.commit()
+    except:
+        return False
+    return True
+
+
 
 
 def add_tag_to_key(tag, original_dict):
@@ -248,13 +254,6 @@ def result_writer():
             csvfile.close()
         time.sleep(5)
 thread.start_new_thread(result_writer, ())
-
-
-"""
-********************************************************************************************
-Completed questionnaires
-********************************************************************************************
-"""
 
 
 

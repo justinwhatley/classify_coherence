@@ -96,12 +96,15 @@ def hit(number, username):
     if number == 8:
         return render_template('hits_complete.html')
     if not 1 <= number <= 7:
-        return abort(400)
+        return redirect(url_for('index'))
+
 
     if request.method == 'POST':
         result = request.form
         #Assumes a full HIT of ten
-        write_line_to_csv(result, number, username, number)
+        completed = write_line_to_csv(result, number, username, number)
+        if not completed:
+            return redirect(url_for('index'))
         return redirect(url_for('hit', number=number+1, username= username))
         # return render_template('hit_template.html', dict=csv_list_of_dicts[number], SubmitForm='/hit'+str(number+1))
 
