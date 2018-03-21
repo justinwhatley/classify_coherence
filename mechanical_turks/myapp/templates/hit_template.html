@@ -1,4 +1,11 @@
+{% extends "layout.html" %}
+
+{% block styles %}
 <link href="https://s3.amazonaws.com/mturk-public/bs30/css/bootstrap.min.css" rel="stylesheet" />
+{% endblock %}
+
+
+    {% block content %}
 <section class="container" id="Other" style="margin-bottom:15px; padding: 10px 10px; font-family: Verdana, Geneva, sans-serif; color:#333333; font-size:0.9em;">
 <div class="row col-xs-12 col-md-12"><!-- Instructions -->
 <div class="panel panel-primary">
@@ -8,7 +15,6 @@
 <p>Please select the most <em>incoherent</em> of the two possibly choices.&nbsp; An incoherent text is one that does not follow logically. In a simple example, the text &quot;I am hungry because it is snowing&quot; is more <em>incoherent</em> than &quot;I am hungry because I didn&#39;t eat&quot;.</p>
 </div>
 </div>
-
 
 
 <section>&nbsp;
@@ -215,3 +221,5 @@
 
 </div>
 </section>
+
+{% endblock %}

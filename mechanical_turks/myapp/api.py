@@ -32,10 +32,10 @@ Form handling
 from wtforms import Form, TextField, Field, validators, StringField, SubmitField
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField
-from wtforms.validators import DataRequired
+from wtforms.validators import DataRequired, Email
 
 class RegistrationForm(FlaskForm):
-    username = StringField('Email', validators=[DataRequired()])
+    username = StringField('Email', validators=[DataRequired(), Email(message='Must be a valid email format')])
     password = PasswordField('Password', validators=[DataRequired()])
     password2 = PasswordField('Confirm Password', validators=[DataRequired()])
     submit = SubmitField('Create User')
@@ -49,6 +49,14 @@ class LoginForm(FlaskForm):
 
 class Continue(FlaskForm):
     submit = SubmitField('Continue')
+
+def flash_errors(form):
+    for field, errors in form.errors.items():
+        for error in errors:
+            flash(u"Error in the %s field - %s" % (
+                getattr(form, field).label.text,
+                error
+            ))
 
 """
 ********************************************************************************************
@@ -74,7 +82,6 @@ def verify_password(username_or_token, password):
            return False
    g.user = user
    return True
-
 
 # @app.route('/api/users', methods=['POST'])
 def new_user(request):
@@ -120,11 +127,6 @@ def get_auth_token():
 def get_resource():
     return jsonify({'data': 'Hello, %s!' % g.user.username})
 
-# if __name__ == '__main__':
-#     if not os.path.exists('db.sqlite'):
-#         db.create_all()
-# app.run(debug=True)
-
 
 """
 ********************************************************************************************
@@ -158,6 +160,7 @@ def read_csv():
 #TODO
 sample_directory = 'mechanical_turks_input_data'
 sample_name = 'Batch_3118690_samples.csv'
+result_directory = 'local_server_output_data'
 from os.path import join
 sample = join(sample_directory, sample_name)
 csv_list_of_dicts = read_csv()
@@ -194,8 +197,6 @@ def write_line_to_csv(form_response, data_line, worker_id, hit_number):
     return True
 
 
-
-
 def add_tag_to_key(tag, original_dict):
     temp_dict = {}
     for key in original_dict:
@@ -218,7 +219,6 @@ def get_number_of_questions(csv_data):
     return largest_question_number
 
 def write_header(result_file):
-    # with open('result.csv', 'w') as csvfile:
 
     csvfile = open(result_file, 'w')
     # Creating header
@@ -242,7 +242,26 @@ def write_header(result_file):
     return fieldnames
 
 def result_writer():
-    result_file = 'result.csv'
+    global result_directory
+    import os.path
+
+    result_file = ''
+    i = 0
+    while True:
+        result_path = join(result_directory, 'result')
+        if i == 0:
+            to_check = result_path + '.csv'
+        else:
+            to_check = result_path + str(i) + '.csv'
+        if not os.path.exists(to_check):
+            break
+        i += 1
+
+    if i == 0:
+        result_file = result_path + '.csv'
+    else:
+        result_file = result_path + str(i) + '.csv'
+
     fieldnames = write_header(result_file)
     while True:
         while not result_q.empty():
@@ -254,8 +273,6 @@ def result_writer():
             csvfile.close()
         time.sleep(5)
 thread.start_new_thread(result_writer, ())
-
-
 
 
 

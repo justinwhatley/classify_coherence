@@ -6,7 +6,7 @@ from flask import request
 
 
 from myapp.api import csv_list_of_dicts, write_line_to_csv
-from myapp.api import Continue, LoginForm, RegistrationForm
+from myapp.api import Continue, LoginForm, RegistrationForm, flash_errors
 
 
 """
@@ -35,7 +35,11 @@ from myapp.api import User, Completed_Questionnaires, new_user, get_user, get_au
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegistrationForm()
+    # for item in form:
+    #     print (item, form[item])
+    #TODO add descriptive errors on validation
     if form.validate_on_submit():
+        flash_errors(form)
         result = request.form
         if result['password'] != result['password2']:
             flash('Passwords do not match')
