@@ -226,11 +226,18 @@ def write_header(result_file):
     # Assumes that the csv_list_of_dicts will contain the same keys throughout
     new_input_line = add_tag_to_key('Input.', csv_list_of_dicts[0])
     temp_answer_dict = {}
-    for i in range(1, get_number_of_questions(csv_list_of_dicts)):
+    print(get_number_of_questions(csv_list_of_dicts))
+    for i in range(1, get_number_of_questions(csv_list_of_dicts)+1):
         temp_answer_dict['Answer' + str(i)] = 'Placeholder'
         temp_answer_dict['FollowupAnswer' + str(i)] = 'Placeholder'
     new_output_line = add_tag_to_key('Answer.', temp_answer_dict)
     new_output_line['WorkerId'] = 'Placeholder'
+    new_output_line['RejectionTime'] = 'Placeholder'
+    new_output_line['CreationTime'] = 'Placeholder'
+    new_output_line['AcceptTime'] = 'Placeholder'
+    new_output_line['SubmitTime'] = 'Placeholder'
+    new_output_line['HITId'] = 'Placeholder'
+    new_output_line['RequesterFeedback'] = 'Placeholder'
 
     new_line = merge_two_dicts(new_input_line, new_output_line)
     fieldnames = sorted(key for key, val in new_line.iteritems())
@@ -245,7 +252,7 @@ def result_writer():
     global result_directory
     import os.path
 
-    result_file = ''
+    # Creates a new output file when the file already exists
     i = 0
     while True:
         result_path = join(result_directory, 'result')
@@ -279,35 +286,3 @@ thread.start_new_thread(result_writer, ())
 # ********************************************************************************************
 # ********************************************************************************************
 
-
-# class User(db.Model):
-#
-#     """
-#     https://realpython.com/blog/python/using-flask-login-for-user-management-with-flask/
-#     An admin user capable of viewing reports.
-#
-#     :param str email: email address of user
-#     :param str password: encrypted password for the user
-#
-#     """
-#     __tablename__ = 'user'
-#
-#     email = db.Column(db.String, primary_key=True)
-#     password = db.Column(db.String)
-#     authenticated = db.Column(db.Boolean, default=False)
-#
-#     def is_active(self):
-#         """True, as all users are active."""
-#         return True
-#
-#     def get_id(self):
-#         """Return the email address to satisfy Flask-Login's requirements."""
-#         return self.email
-#
-#     def is_authenticated(self):
-#         """Return True if the user is authenticated."""
-#         return self.authenticated
-#
-#     def is_anonymous(self):
-#         """False, as anonymous users aren't supported."""
-#         return False

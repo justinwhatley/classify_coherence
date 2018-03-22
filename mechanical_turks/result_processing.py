@@ -4,20 +4,22 @@ import os.path as path
 import glob
 import csv
 
+
 from datetime import datetime
 
 
 crowdflower_output_directory = 'crowdflower_output_data'
-mechanical_turks_output_directory = 'multi_question_hit'
-# mechanical_turks_output_directory = 'single_question_hit'
+local_server_output_directory = './local_server_output_data'
+mechanical_turks_output_directory = 'mechanical_turks_output_data/multi_question_hit'
+# mechanical_turks_output_directory = 'mechanical_turks_output_data/single_question_hit'
 
 def read_csv():
     """
     Loads the csv data by row, assigning each row value to a column key
     :return:
     """
-    directory = mechanical_turks_output_directory
-
+    global local_server_output_directory
+    directory = local_server_output_directory
     csv_list_of_dicts = []
     for filename in glob.glob(path.join(directory, '*.csv')):
         with open(filename, 'rb') as csv_file:
@@ -415,7 +417,6 @@ def expand_csv_data(csv_data, length_of_questionnaire):
                                'SubmitTime': row['SubmitTime'],
                                'RequesterFeedback': row['RequesterFeedback'],
                                'HITId': row['HITId']
-
                                }
                 new_csv_data.append(new_csv_row)
 
@@ -471,13 +472,14 @@ if __name__ == '__main__':
     count_instances(original_csv_data, 'WorkerId')
 
     # Distributes CSV rows to columns
+    print(original_csv_data)
     length_of_questionnaire = get_number_of_questions(original_csv_data)
     if length_of_questionnaire > 1:
         csv_data = expand_csv_data(original_csv_data, length_of_questionnaire)
     else:
         csv_data = original_csv_data
 
-    set_time_elapsed(csv_data)
+    # set_time_elapsed(csv_data)
     count_instances(csv_data, 'Input.Dataset')
 
     #csv_data = include_only_this_dataset(csv_data, '.txt')
