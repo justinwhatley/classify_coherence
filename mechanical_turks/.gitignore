@@ -63,3 +63,9 @@ target/
 
 #Ipython Notebook
 .ipynb_checkpoints
+
+#Data
+mechanical_turks_input_data/*
+mechanical_turks_output_data/*
+local_server_output_data/*
+
