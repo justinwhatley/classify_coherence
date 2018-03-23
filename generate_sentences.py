@@ -218,6 +218,8 @@ def generate_sentences_swapping_arg2_same_sense(coherent_sentences, sense):
                 index = randint(0, len(coherent_sentences_given_sense_copy) - 1)
                 random_coherent_sentence = coherent_sentences_given_sense_copy[index]
                 # Ensures that Arg2 does not come from the same (coherent) sentence
+                if random_coherent_sentence['Sense'] != sense:
+                    continue
                 if line['Arg2']['RawText'] != random_coherent_sentence['Arg2Raw']:
                     break
 
@@ -344,7 +346,7 @@ if __name__ == '__main__':
         generate_sentences_swapping_arg2_same_sense(coherent_sentences, sense)
 
         # Note - was modified to only use Comparison and Contingency senses
-        generate_sentences_swapping_arg2_different_sense(coherent_sentences)
+        # generate_sentences_swapping_arg2_different_sense(coherent_sentences)
 
         # generate_sentences_swapping_arg2_matching_connective(coherent_sentences)
         # generate_sentences_swapping_arg2_different_sense_connective(unique_connectives_senses)
