@@ -3,7 +3,10 @@ import random
 import csv
 import json
 
-MECHANICAL_TURKS_DIR = "mechanical_mechanical_turks_input_data"
+mechanical_turks_dir = 'mechanical_turks'
+mechanical_turks_input_dir = 'mechanical_turks_input_data'
+MECHANICAL_TURKS_DIR = os.path.join(mechanical_turks_dir, mechanical_turks_input_dir)
+
 CROWDFLOWER_DIR = "crowdflower_input_data"
 
 def prepare_sample_for_crowdflower():
@@ -118,8 +121,8 @@ def get_random_sample(sample_size, population_size):
 
 def get_original_sentence(coherent_data, incoherent_data_line):
     # Gets the original sentence which was corrupted
-    print connect_sentence(incoherent_data_line)
-    print connect_sentence(coherent_data[incoherent_data_line['OriginalSentenceIndex']])
+    # print connect_sentence(incoherent_data_line)
+    # print connect_sentence(coherent_data[incoherent_data_line['OriginalSentenceIndex']])
     return connect_sentence(coherent_data[incoherent_data_line['OriginalSentenceIndex']])
 
 def is_longer_than_length_limit(sentence, length_limit, length_type):
@@ -143,9 +146,9 @@ def generate_random_sentence_pairs(sample_size, coherent_data, incoherent_data, 
     for i, line in enumerate(incoherent_data):
         if i in sample_list:
             incoherent_sentence = connect_sentence(line).encode('ascii', 'ignore')
-            print len(incoherent_sentence.split()) >= 35
+            # print len(incoherent_sentence.split()) >= 35
             coherent_sentence = get_original_sentence(coherent_data, line).encode('ascii', 'ignore')
-            print len(coherent_sentence.split()) >= 35
+            # print len(coherent_sentence.split()) >= 35
 
             incoherent_selection = random.randint(0, 1)
             if incoherent_selection:
@@ -277,14 +280,34 @@ def test_csv_sample():
                 print "2. " + row['Sample' + str(i) + "_" + str(2)]
 
 
+def add_time_stamp(fname, fmt='%Y_%m_%d_%H_%M_{fname}'):
+    """
+    Adds the date to front of a string
+    :param fname:
+    :param fmt:
+    :return:
+    """
+    import datetime
+    return datetime.datetime.now().strftime(fmt).format(fname=fname)
+
 if __name__ == '__main__':
-    sample_name = "Batch_3118690_samples.csv"
+
+    sample_name = add_time_stamp("sample.csv")
     sample_directory = MECHANICAL_TURKS_DIR
-    sample_size_per_dataset = 40
+
+    print('Writing to: ' )
+    print(os.path.join(MECHANICAL_TURKS_DIR, sample_name))
+
+    sample_size_per_dataset = 20
     questions_per_hit = 10
+
+
+    print('Taking '+ str(sample_size_per_dataset) + ' sentence pairs from each dataset')
+    print('with ' + str(questions_per_hit) + ' questions per questionnaire')
 
     length_limit = 35
     length_type = 'word'
+
     # specify_datasets = ['incoherent_sentences_arg2_diff_sense.json', 'incoherent_sentences_arg2_random.json']
     # ensure_correct_sample_size_to_questions_per_hit_ratio(sample_size_per_dataset, questions_per_hit, specify_datasets)
     # prepare_coherent_incoherent_pair_sample(sample_name, sample_directory, sample_size_per_dataset, questions_per_hit, specify_datasets)
