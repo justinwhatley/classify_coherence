@@ -2,8 +2,20 @@
 
 {% block content %}
     <h1>Create your account</h1>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class=flashes>
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
     <form action="" method="post">
         {{ form.hidden_tag() }}
+
         <p>
             {{ form.username.label }}<br>
             {{ form.username(size=32) }}

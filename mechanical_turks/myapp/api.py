@@ -39,7 +39,6 @@ class RegistrationForm(FlaskForm):
     password = PasswordField('Password', validators=[DataRequired()])
     password2 = PasswordField('Confirm Password', validators=[DataRequired()])
     submit = SubmitField('Create User')
-    # login = SubmitField('Login')
 
 class LoginForm(FlaskForm):
     username = StringField('Email', validators=[DataRequired()])
@@ -89,7 +88,6 @@ def new_user(request):
     password = request.get('password')
     if username is None or password is None:
         flash('Username or password are not set')
-        print('Username or password are not set')
         return False
         # abort(400)    # missing arguments
     if User.query.filter_by(username=username).first() is not None:

@@ -62,11 +62,13 @@ def login():
     #     return redirect(url_for('hit', number=1))
     form = LoginForm()
     if form.validate_on_submit():
+        print('made it')
         result = request.form
         user = User.query.filter_by(username=result['username']).first()
         password = result['password']
 
         if user is None or not user.verify_password(password):
+            print('Invalid username or password')
             flash('Invalid username or password')
             return redirect(url_for('login'))
         # login_user(user, remember=form.remember_me.data)

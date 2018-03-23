@@ -1,7 +1,17 @@
 {% extends "layout.html" %}
-
 {% block content %}
     <h1>Sign In</h1>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class=flashes>
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
     <form action="" method="post">
         {{ form.hidden_tag() }}
         <p>
@@ -12,7 +22,6 @@
             {{ form.password.label }}<br>
             {{ form.password(size=32) }}
         </p>
-        <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
         <p>{{ form.submit() }}</p>
     </form>
 {% endblock %}
