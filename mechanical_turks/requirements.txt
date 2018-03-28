@@ -1,6 +1,11 @@
-flask
-flask-restless
-flask-sqlalchemy
-flask-script
-eventlet
-celery
+flask == 0.12.2
+flask-restless == 0.17.0
+flask-sqlalchemy == 1.0
+flask-script == 2.0.6
+eventlet == 0.22.1
+celery == 4.1.0
+flask_httpauth == 3.2.3
+flask_login == 0.2.9
+passlib == 1.7.1
+wtforms == 2.1
+flask_wtf == 0.14.2
