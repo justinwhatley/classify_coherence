@@ -23,6 +23,13 @@ login_manager.init_app(app)
 manager.create_api(User, methods=['GET', 'POST', 'DELETE'])
 manager.create_api(Completed_Questionnaires, methods=['GET', 'POST', 'DELETE'])
 
+# Result input/output directories
+sample_directory = 'mechanical_turks_input_data'
+sample_name = '2018_03_26_10_52_sample.csv'
+result_directory = 'local_server_output_data'
+from os.path import join
+sample = join(sample_directory, sample_name)
+
 
 """
 ********************************************************************************************
@@ -133,6 +140,7 @@ CSV reading/writing for questionnaire presentation and result storage
 """
 
 import Queue
+# import threading,mydaemon, time
 import thread, time
 import csv
 
@@ -155,12 +163,8 @@ def read_csv():
                 csv_list_of_dicts.append(result_obj)
 
     return csv_list_of_dicts
-#TODO
-sample_directory = 'mechanical_turks_input_data'
-sample_name = 'Batch_3118690_samples.csv'
-result_directory = 'local_server_output_data'
-from os.path import join
-sample = join(sample_directory, sample_name)
+
+# Initialize questions
 csv_list_of_dicts = read_csv()
 
 # Warning - this implementation assumes the user of Flask's built-in server and NOT a production server
@@ -174,6 +178,9 @@ def merge_two_dicts(x, y):
     return z
 
 def write_line_to_csv(form_response, data_line, worker_id, hit_number):
+
+    # for i, key in enumerate(sorted(form_response)):
+    #     print(key, form_response[key])
 
     new_input_line = add_tag_to_key('Input.', csv_list_of_dicts[int(data_line)])
     new_output_line = add_tag_to_key('Answer.', form_response)
@@ -277,8 +284,11 @@ def result_writer():
             writer.writerow(my_dict)
             csvfile.close()
         time.sleep(5)
-thread.start_new_thread(result_writer, ())
 
+thread.start_new(result_writer, ())
+# t = threading.Thread(target=mydaemon.start, result_writer)
+# t.daemon = True
+# t.start()
 
 
 # ********************************************************************************************

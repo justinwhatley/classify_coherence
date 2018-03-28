@@ -62,7 +62,6 @@ def login():
     #     return redirect(url_for('hit', number=1))
     form = LoginForm()
     if form.validate_on_submit():
-        print('made it')
         result = request.form
         user = User.query.filter_by(username=result['username']).first()
         password = result['password']
@@ -79,13 +78,6 @@ def login():
     return render_template('login.html', title='Sign In', form=form)
 
 
-# with app.test_request_context():
-#     print url_for('index')
-#     print url_for('login')
-#     print url_for('login', next='/')
-#     print url_for('profile', username='John Doe')
-
-
 """
 ********************************************************************************************
 HIT Form Handling
@@ -99,9 +91,10 @@ def hit(number, username):
     :param number:
     :return:
     """
-    if number == 8:
+    # Assumes the questionnaire will have 8 sheets
+    if number == 9:
         return render_template('hits_complete.html')
-    if not 1 <= number <= 7:
+    if not 1 <= number <= 8:
         return redirect(url_for('index'))
 
 
