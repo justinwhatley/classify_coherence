@@ -25,7 +25,7 @@ manager.create_api(Completed_Questionnaires, methods=['GET', 'POST', 'DELETE'])
 
 # Result input/output directories
 sample_directory = 'mechanical_turks_input_data'
-sample_name = '2018_03_26_10_52_sample.csv'
+sample_name = '2018_04_03_09_57_sample.csv'
 result_directory = 'local_server_output_data'
 from os.path import join
 sample = join(sample_directory, sample_name)
