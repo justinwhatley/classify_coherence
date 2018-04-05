@@ -466,9 +466,32 @@ def count_instances(csv_data, key):
             occurence_dict[row[key]] += 1
     print(occurence_dict)
 
+def remove_duplicate_submissions(original_csv_data):
+    """
+    Removes duplicate, keeping the latest form submission
+    :param original_csv_data:
+    :return:
+    """
+    # Add tuples containing the WorkerId and Input.Sample2_1
+    worker_id_sentence_pair = set()
+
+    # If adding the tuple to the set doesn't increase its size, there is a duplicate
+    original_csv_data_no_dupes = []
+
+    for row in reversed(original_csv_data):
+        set_size = len(worker_id_sentence_pair)
+        worker_id_sentence_pair.add((row['WorkerId'], row['Input.Sample2_1']))
+        if set_size == len(worker_id_sentence_pair):
+            continue
+        original_csv_data_no_dupes.append(row)
+
+    original_csv_data_no_dupes = [x for x in reversed(original_csv_data_no_dupes)]
+    return original_csv_data_no_dupes
+
 if __name__ == '__main__':
 
     original_csv_data = read_csv()
+    original_csv_data = remove_duplicate_submissions(original_csv_data)
     count_instances(original_csv_data, 'WorkerId')
 
     # Distributes CSV rows to columns
