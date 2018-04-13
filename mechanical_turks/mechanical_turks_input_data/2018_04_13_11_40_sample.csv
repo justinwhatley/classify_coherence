@@ -1,0 +1,169 @@
+Sample1Dataset,Sample1_1,Sample1_2,Incoherent_Sample1,Sample2Dataset,Sample2_1,Sample2_2,Incoherent_Sample2,Sample3Dataset,Sample3_1,Sample3_2,Incoherent_Sample3,Sample4Dataset,Sample4_1,Sample4_2,Incoherent_Sample4,Sample5Dataset,Sample5_1,Sample5_2,Incoherent_Sample5,Sample6Dataset,Sample6_1,Sample6_2,Incoherent_Sample6,Sample7Dataset,Sample7_1,Sample7_2,Incoherent_Sample7,Sample8Dataset,Sample8_1,Sample8_2,Incoherent_Sample8,Sample9Dataset,Sample9_1,Sample9_2,Incoherent_Sample9,Sample10Dataset,Sample10_1,Sample10_2,Incoherent_Sample10
+incoherent_sentences_arg2_same_sense_comparison.json,"He bid $243 million for rights to the 1992 Winter Games in Albertville, France. By comparison aBC and NBC wouldn't bid even $200 million. 
+","He bid $243 million for rights to the 1992 Winter Games in Albertville, France. By comparison so far, the victims are officially considered evil-doers, and their families receive no compensation. 
+",1,incoherent_sentences_arg2_same_sense_expansion.json,"We are having a regular day. Overall volume is down out of San Francisco, but not out of the 11 outlying offices. 
+","We are having a regular day. Overall one Mobil executive said that the $40 million charge related to the action indicates ""a substantial"" number of people will be involved. 
+",1,incoherent_sentences_arg2_same_sense_comparison.json,"They've been promising 13% to 15% growth based on the strategic moves they've made. But if the earnings acceleration is to take place, that should be the quarter. 
+","They've been promising 13% to 15% growth based on the strategic moves they've made. But with Krenz, we just don't know what to expect. 
+",2,incoherent_sentences_arg2_same_sense_contingency.json,"Every year we've been waiting for stepped-up expansion from the company. So the news couldn't have been better. 
+","Every year we've been waiting for stepped-up expansion from the company. So a marketing consultant, he pioneered slashing ad agency commissions, to the delight of advertising clients and the dismay of agencies. 
+",2,incoherent_sentences_arg2_same_sense_temporal.json,"She is told she can't enter unless she is accompanied by an inspector. Then she bursts into tears and walks away. 
+","She is told she can't enter unless she is accompanied by an inspector. Then she had an idea. 
+",1,incoherent_sentences_arg2_same_sense_contingency.json,"Almost simultaneously, PaineWebber began a very visible buy program for dozens of stocks. In the end the combined buying rallied the Dow into a small gain, before closing at a slight loss. 
+","Almost simultaneously, PaineWebber began a very visible buy program for dozens of stocks. In the end this phenomenon often makes stock prices swing wildly at the end of the trading session. 
+",2,incoherent_sentences_arg2_same_sense_comparison.json,"Daily trading volume in the New York foreign exchange market is $130 billion. While the daily volume for Treasury Securities is about $110 billion. 
+","Daily trading volume in the New York foreign exchange market is $130 billion. While was not the title very clear. 
+",2,incoherent_sentences_arg2_same_sense_contingency.json,"Like Lebanon, and however unfairly, Israel is regarded by the Arab world as a colonial aberration. So its best hope of acceptance by its neighbours lies in reaching a settlement with the Palestinians. 
+","Like Lebanon, and however unfairly, Israel is regarded by the Arab world as a colonial aberration. So in such an environment, a market maker can absorb huge losses. 
+",1,incoherent_sentences_arg2_same_sense_temporal.json,"New York Stock Exchange volume was a heavy 224,070,000 shares. As decliners on the Big Board outnumbered advancers, 931 to 658. 
+","New York Stock Exchange volume was a heavy 224,070,000 shares. As the tender offer will be followed by the sale of all of Erbamont's assets, subject to all of its liabilities, to Montedison. 
+",2,incoherent_sentences_arg2_same_sense_temporal.json,"The bottom line, however, is not economic but political reform. Previously a long succession of Mexican presidents arbitrarily nationalized whatever industry they took a fancy to, without having to answer to the public. 
+","The bottom line, however, is not economic but political reform. Previously kKR loaded up the cable and television company with debt in an 1985 buy-out. 
+",2
+incoherent_sentences_arg2_same_sense_comparison.json,"You have to have clear feelings about someone before you can make jokes. But with Krenz, we just don't know what to expect. 
+","You have to have clear feelings about someone before you can make jokes. But the occasional Englishman tries to put on airs but we let it pass. 
+",1,incoherent_sentences_arg2_same_sense_temporal.json,"Signal provides stock quotes over an FM radio band that can be received by specially equipped personal computers. Then the computers will display stock prices selected by users. 
+","Signal provides stock quotes over an FM radio band that can be received by specially equipped personal computers. Then in the Reagan administration we designed a comprehensive program; we worked very hard on it. 
+",2,incoherent_sentences_arg2_same_sense_comparison.json,"It puts this president in the legislative business. But that's not what our fathers had in mind. 
+","It puts this president in the legislative business. But the Northeast and West regions were unchanged. 
+",2,incoherent_sentences_arg2_same_sense_expansion.json,"For example, Warner made more than $100 million from filmed entertainment in three months. Indeed that's a big number. 
+","For example, Warner made more than $100 million from filmed entertainment in three months. Indeed loews, the parent of CNA Financial, rose 1 3/8 to 123 1/8. 
+",2,incoherent_sentences_arg2_same_sense_expansion.json,"The prices of most livestock futures contracts had dropped sharply Monday. In addition cattle futures prices were also supported yesterday by signs that supermarket chains are making plans to increase their promotions concerning beef. 
+","The prices of most livestock futures contracts had dropped sharply Monday. In addition earlier this year, Time even discussed bringing Tele-Communications in as an investor in HBO. 
+",1,incoherent_sentences_arg2_same_sense_contingency.json,"P&G's Always sanitary napkin, sold under the Whisper name in Japan, has firmly established itself as a leading brand. Therefore p&G will expand its personal-care product line in Japan to ""continue that momentum. 
+","P&G's Always sanitary napkin, sold under the Whisper name in Japan, has firmly established itself as a leading brand. Therefore an earnings disappointment may reflect a situation that's short-term. 
+",1,incoherent_sentences_arg2_same_sense_contingency.json,"The deregulation of railroads and trucking companies that began in 1980 enabled shippers to bargain for transportation. As carriers could use their equipment more efficiently. 
+","The deregulation of railroads and trucking companies that began in 1980 enabled shippers to bargain for transportation. As unlike most loans to China, there was no Chinese guarantor. 
+",2,incoherent_sentences_arg2_same_sense_expansion.json,"Sierra Tucson, an initial public offering, made the most active list. As the company's shares began trading at 12 1/2, up from its initial offering price of 12, and closed at 13. 
+","Sierra Tucson, an initial public offering, made the most active list. As a labor chief speaks sardonically of having to ""man and woman"" Election Day phones. 
+",1,incoherent_sentences_arg2_same_sense_expansion.json,"I've got 70 kinds of apples. For example here's a Waltana. 
+","I've got 70 kinds of apples. For example analysts predict the sales impact will linger. 
+",2,incoherent_sentences_arg2_same_sense_expansion.json,"Cuban military personnel also have been active in Afghanistan since 1979. Moreover the Soviets cut a deal with Iran: a future Iranian role in Afghanistan in exchange for Iranian support of Soviet policy. 
+","Cuban military personnel also have been active in Afghanistan since 1979. Moreover they look the same. 
+",2
+incoherent_sentences_arg2_same_sense_contingency.json,"Institut Merieux's bid for Toronto-based Connaught has run into problems with the Canadian government. Consequently merieux officials are expected to meet with federal officials in Ottawa today to discuss the decision. 
+","Institut Merieux's bid for Toronto-based Connaught has run into problems with the Canadian government. Consequently food is the reformer's top priority, the key to popular support. 
+",2,incoherent_sentences_arg2_same_sense_comparison.json,"Say you purchased a stock because of a new product that was in the works. But now, because of various difficulties, the product has been scrapped. 
+","Say you purchased a stock because of a new product that was in the works. But at the time merchants were asking for premiums of about five cents a pound. 
+",2,incoherent_sentences_arg2_same_sense_temporal.json,"China, under the Nationalist government of Chiang Kai-shek, was a founding member of GATT in 1947. Then the Nationalists withdrew in 1950, after their flight to Taiwan. 
+","China, under the Nationalist government of Chiang Kai-shek, was a founding member of GATT in 1947. Then their museum had purchased an Attic black-figured column krater and shipped it from London. 
+",2,incoherent_sentences_arg2_same_sense_contingency.json,"The new chip plants ""won't be excessive investment. Because we have enough products to make and the markets to sell these products. 
+","The new chip plants ""won't be excessive investment. Because everybody was rubber-necking. 
+",1,incoherent_sentences_arg2_same_sense_contingency.json,"But 1991 could be a window for action. As the pressure for change will rise with costs. 
+","But 1991 could be a window for action. As you see, I know my father would have wished me to carry on just now. 
+",2,incoherent_sentences_arg2_same_sense_contingency.json,"Futures prices declined. Because a number of developments were negatively interpreted by traders. 
+","Futures prices declined. Because that way, parents will reduce borrowings and outlays from current income when the time comes to pay tuition. 
+",2,incoherent_sentences_arg2_same_sense_expansion.json,"Everybody is worried about the possibility of cancellations. For example the buyers who work for the various Campeau chains may lose their jobs. 
+","Everybody is worried about the possibility of cancellations. For example travelers up to age 99 get a percentage discount matching their age. 
+",1,incoherent_sentences_arg2_same_sense_temporal.json,"He talked about 20 minutes. Then when he was through, the court members asked many questions. 
+","He talked about 20 minutes. Then the fund is required to pay claims up to an additional $86 million. 
+",2,incoherent_sentences_arg2_same_sense_temporal.json,"Jon Peters will come barreling into a room, say he's got a great idea, and be gone. Then peter will take the kernel of that idea and make it grow into something specific. 
+","Jon Peters will come barreling into a room, say he's got a great idea, and be gone. Then when he was through, the court members asked many questions. 
+",1,incoherent_sentences_arg2_same_sense_contingency.json,"The industry is overbuilt. As fast-food franchisers have managed to squeeze in stores into every corner available. 
+","The industry is overbuilt. As wall Street economists are forecasting about everything from broad economic trends to the dinkiest monthly indicator. 
+",2
+incoherent_sentences_arg2_same_sense_temporal.json,"The early soft lenses were expected to last for a year. Then in 1983 ""extended wear"" versions, designed to be worn for 30 days at a time, wree offered. 
+","The early soft lenses were expected to last for a year. Then in October doctors were debating the product's safety, some claiming it caused infections. 
+",1,incoherent_sentences_arg2_same_sense_expansion.json,"Batibot has developed into a distinctly Philippine effort. Furthermore radio programs and books have followed the daily television show. 
+","Batibot has developed into a distinctly Philippine effort. Furthermore i think Peter even made some deals with the gorillas. 
+",2,incoherent_sentences_arg2_same_sense_expansion.json,"El Paso owns and operates a petroleum refinery. And franklin is a closed-end management investment company. 
+","El Paso owns and operates a petroleum refinery. And i don't see how we have the votes"" to place a capital-gains tax cut there. 
+",2,incoherent_sentences_arg2_same_sense_expansion.json,"The five astronauts returned to Earth about three hours early because high winds had been predicted at the landing site. Instead fog shrouded the base before touchdown. 
+","The five astronauts returned to Earth about three hours early because high winds had been predicted at the landing site. Instead he's had a history of deception and this is the latest chapter. 
+",1,incoherent_sentences_arg2_same_sense_comparison.json,"The result was a world-famous trial exposing profound cultural conflicts in American life between the ""smart set and the religious fundamentalists. But few now recall the actual outcome. 
+","The result was a world-famous trial exposing profound cultural conflicts in American life between the ""smart set and the religious fundamentalists. But big franchise groups ""can ride out the storm a lot longer. 
+",1,incoherent_sentences_arg2_same_sense_temporal.json,"Once activated, the card would sit in the car's window. Then when the motorist returned to his car he could turn the card off. 
+","Once activated, the card would sit in the car's window. Then others have tried to spruce up frequent-flier programs. 
+",1,incoherent_sentences_arg2_same_sense_comparison.json,"Wisconsin Toy has 71 retail stores, primarily in discount settings. Whereas everything's a Dollar operates 60 specialty-retail stores. 
+","Wisconsin Toy has 71 retail stores, primarily in discount settings. Whereas no one wants stock on their books. 
+",1,incoherent_sentences_arg2_same_sense_contingency.json,"But under Alan Greenspan that has changed. Because a supremely cautious man, the Fed chairman is forever blinking yellow. 
+","But under Alan Greenspan that has changed. Because they could no longer be classified as what Columbia regarded them, namely long-term investments. 
+",1,incoherent_sentences_arg2_same_sense_temporal.json,"The farmer barges into the naczelnik's office. Then a thin man in a gray suit looks up from a newspaper. 
+","The farmer barges into the naczelnik's office. Then once activated, the card would sit in the car's window, showing traffic wardens how much time the motorist could remain. 
+",2,incoherent_sentences_arg2_same_sense_comparison.json,"His daughter turns to dressmaking, then to peddling herself for a few piasters. And one son sacrifices his own career so that his avaricious brother can succeed. 
+","His daughter turns to dressmaking, then to peddling herself for a few piasters. And they're dead wrong. 
+",1
+incoherent_sentences_arg2_same_sense_expansion.json,"You're not going to make it in a 5% bank account. Instead to get the necessary growth you need to go to the stock market. 
+","You're not going to make it in a 5% bank account. Instead his pledge to clean up local administration and Indian politics, including his own party, went unfulfilled. 
+",1,incoherent_sentences_arg2_same_sense_expansion.json,"The fund's lawyers work in an Athenian grove of potted trees. And economists and administrators sit along a ""boulevard"" with street lamps and ficus trees. 
+","The fund's lawyers work in an Athenian grove of potted trees. And some highly publicized cases involving RICO TROs have been the subject of considerable criticism in the press. 
+",2,incoherent_sentences_arg2_same_sense_contingency.json,"After a while, someone has to go over the side. So although he doesn't expect any bankruptcies, he does see more plants being sold or closed. 
+","After a while, someone has to go over the side. So the answer will be obvious. 
+",1,incoherent_sentences_arg2_same_sense_contingency.json,"Who wants to be a public shareholder investing in a company controlled by the pilots' union. Because who would the board be working for -- the public shareholders or the pilots. 
+","Who wants to be a public shareholder investing in a company controlled by the pilots' union. Because i don't see this as a bear market at all. 
+",2,incoherent_sentences_arg2_same_sense_temporal.json,"It is an intentionally vague document that will create a wave of litigation. Then judges will write the real bill as suits roll through the courts. 
+","It is an intentionally vague document that will create a wave of litigation. Then about 140 Mayan, Aztec, Mixtec and Zapotec objects, including some of Mexico's best-known archaeological treasures, were taken. 
+",1,incoherent_sentences_arg2_same_sense_expansion.json,"The closed branches, in San Francisco, Hayward, Santa Clara and Santa Cruz, sustained structural damage. While power failures kept just seven of its 1,500 automated-teller machines off-line. 
+","The closed branches, in San Francisco, Hayward, Santa Clara and Santa Cruz, sustained structural damage. While it was scary to people thinking that they couldn't get their trades off. 
+",2,incoherent_sentences_arg2_same_sense_contingency.json,"But such thin-slab technology is only the beginning. As eager engineers espouse direct-steelmaking and direct casting, which by the end of the 1990s will enable production without coke ovens and blast furnaces. 
+","But such thin-slab technology is only the beginning. As asked about his greatest achievement in public life, he first speaks about the quality of his staff. 
+",2,incoherent_sentences_arg2_same_sense_temporal.json,"For the Parks and millions of other young Koreans, the long-cherished dream of home ownership has become a cruel illusion. Meanwhile for the government, it has become a highly volatile political issue. 
+","For the Parks and millions of other young Koreans, the long-cherished dream of home ownership has become a cruel illusion. Meanwhile the bill gets signed into law. 
+",2,incoherent_sentences_arg2_same_sense_comparison.json,"Burmah described the joint venture as ""fairly small. But it didn't provide details of setup costs. 
+","Burmah described the joint venture as ""fairly small. But a 60-day to 65-day supply is considered normal. 
+",2,incoherent_sentences_arg2_same_sense_temporal.json,"He savored the humor of his uncombed appearance among these buttoned-up chaps. Then back in Berkeley, he was violently scolded by a left-wing lady friend for consorting with such people. 
+","He savored the humor of his uncombed appearance among these buttoned-up chaps. Then the campaign so divided union leaders that the government found them far easier to control. 
+",2
+incoherent_sentences_arg2_same_sense_contingency.json,"The reaction to the UAL debacle ""is mindless. Because uAL is a small deal as far as the overall market is concerned. 
+","The reaction to the UAL debacle ""is mindless. Because the earlier use of incentives depleted the market of ""scavengers"" for bargain-basement 1989 cars. 
+",1,incoherent_sentences_arg2_same_sense_comparison.json,"Citicorp's venture-capital gains of $93 million before taxes ""strong. However a ""concerning"" item was the 10% jump in expenses. 
+","Citicorp's venture-capital gains of $93 million before taxes ""strong. However freddie Mac 9% securities were at 97 5/32, down 3/32. 
+",2,incoherent_sentences_arg2_same_sense_comparison.json,"Americans didn't dislike metrics; they simply ignored them. However scientists felt differently. 
+","Americans didn't dislike metrics; they simply ignored them. However the alternative -- Giuliani -- is ghastly. 
+",1,incoherent_sentences_arg2_same_sense_contingency.json,"The last six months has established the quality of the collection. So there's no fire sale here. 
+","The last six months has established the quality of the collection. So the exchange should take a pro-active position. 
+",2,incoherent_sentences_arg2_same_sense_comparison.json,"However, the maximum coupon at which the notes can be reset is 16 1/4%. While the minimum coupon is 13 3/4%. 
+","However, the maximum coupon at which the notes can be reset is 16 1/4%. While this is like asking foxes to feel remorse about chickens. 
+",1,incoherent_sentences_arg2_same_sense_contingency.json,"Marketers themselves are partly to blame. Because they've increased spending for coupons and other short-term promotions at the expense of image-building advertising. 
+","Marketers themselves are partly to blame. Because my position is one founded on both the facts and the law. 
+",1,incoherent_sentences_arg2_same_sense_expansion.json,"One concerns Japanese investors. Specifically barely visible on Hong Kong's property scene in 1985, by last year Japan had become the top foreign investor, spending $602 million. 
+","One concerns Japanese investors. Specifically the computers find all the key words they can, but the editors confirm every one. 
+",1,incoherent_sentences_arg2_same_sense_temporal.json,"That figure has been inching up for several years. Later as the trend continues, demand for mass-market items that are high quality but only mid-priced -- particularly skin-care products -- is expected to increase. 
+","That figure has been inching up for several years. Later for years, he quietly stuck to the back accounting rooms. 
+",2,incoherent_sentences_arg2_same_sense_expansion.json,"Massachusetts Attorney General James Shannon, opposing the license, said he will appeal the ruling in federal court. While seabrook officials said the plant could receive a full-power license by the end of the year. 
+","Massachusetts Attorney General James Shannon, opposing the license, said he will appeal the ruling in federal court. While even a pack of 20 Western cigarettes can fetch 20 rubles or more. 
+",2,incoherent_sentences_arg2_same_sense_temporal.json,"And at 9:15, they posted a $135 to $155 ""first indication. Then that range was quickly narrowed to $145 to $155. 
+","And at 9:15, they posted a $135 to $155 ""first indication. Then three days later, before the new embryo had become implanted in the uterus, it was washed out of the mother mouse. 
+",1
+incoherent_sentences_arg2_same_sense_temporal.json,"Here's a Waltana,"" he exclaims, picking one off a tree. Then he bites it, scowls and throws it down. 
+","Here's a Waltana,"" he exclaims, picking one off a tree. Then market makers, to cut costs, slashed inventories of stocks they keep on hand to sell investors when other holders aren't selling. 
+",2,incoherent_sentences_arg2_same_sense_contingency.json,"The crime goes to character. So it's serious stuff. 
+","The crime goes to character. So we didn't think a sleeping {Bell} mentality would be willing to take on dilution. 
+",1,incoherent_sentences_arg2_same_sense_comparison.json,"Chicagoans have just elected 540 neophyte school boards, one for each school. But this of course led to disaster in New York City. 
+","Chicagoans have just elected 540 neophyte school boards, one for each school. But it's hard to know right now if the change is fundamental or cyclical. 
+",1,incoherent_sentences_arg2_same_sense_expansion.json,"The NCI report attributes the differences in mortality rates by race to different smoking patterns. In particular a higher proportion of black men smoke than white men. 
+","The NCI report attributes the differences in mortality rates by race to different smoking patterns. In particular they stroll through the marble-encased corridors of the Atrium Court. 
+",2,incoherent_sentences_arg2_same_sense_expansion.json,"Analysts, however, were surprised because the tender offer appeared unsolicited. For example it's quite a bombshell,"" said one, adding that the offer could spark a period of industry consolidation. 
+","Analysts, however, were surprised because the tender offer appeared unsolicited. For example they eat ""sinful and sensual things"" -- and explain their clips. 
+",2,incoherent_sentences_arg2_same_sense_comparison.json,"You have time to put precautionary mechanisms in place. By contrast a situation like San Francisco is so frightening because there's no warning. 
+","You have time to put precautionary mechanisms in place. By contrast few now recall the actual outcome. 
+",1,incoherent_sentences_arg2_same_sense_comparison.json,"Consolidation has been long overdue. But it was just the culture of the industry that kept it from happening. 
+","Consolidation has been long overdue. But if you want to be a player, you have to be in America, Europe and the Far East. 
+",1,incoherent_sentences_arg2_same_sense_comparison.json,"We had a management breakdown in 1987 in terms of compliance. But we recognized the problem and took care of it. 
+","We had a management breakdown in 1987 in terms of compliance. But the only other thing I'm really loyal to is my Virginia Slims cigarettes. 
+",2,incoherent_sentences_arg2_same_sense_comparison.json,"Earlier it had been approached again by two other possible suitors. But yesterday that the two other parties told the company that they don't have any current intention of making a takeover bid. 
+","Earlier it had been approached again by two other possible suitors. But tokyu is one of the potential buyers who might raise its hand. 
+",1,incoherent_sentences_arg2_same_sense_contingency.json,"With a hurricane you know it's coming. So you have time to put precautionary mechanisms in place. 
+","With a hurricane you know it's coming. So competition among underwriters and brokers makes them loath to centralize price and policy information. 
+",1
+incoherent_sentences_arg2_same_sense_temporal.json,"It was whooosh. As in five minutes, the Dow industrials climbed almost 30 points. 
+","It was whooosh. As i decided to brave the storm. 
+",2,incoherent_sentences_arg2_same_sense_comparison.json,"We weren't allowed to do any due diligence because of competitive reasons. But if we had, it might have scared us off. 
+","We weren't allowed to do any due diligence because of competitive reasons. But this untried concept would expose these firms to potentially astronomical punitive damages. 
+",1,incoherent_sentences_arg2_same_sense_expansion.json,"Americans place native or native speakers in charge of subsidiaries overseas. And european multinationals do likewise; even in America, their affiliates are usually run by American managers. 
+","Americans place native or native speakers in charge of subsidiaries overseas. And the bank said the talks resulted from solicitations by its financial adviser. 
+",2,incoherent_sentences_arg2_same_sense_expansion.json,"She only put her foot down twice. First in my freshman year, my roommate was known as a party animal. 
+","She only put her foot down twice. First aimed specifically at CD holders are so-called CD-type annuities, or certificates of annuity. 
+",2,incoherent_sentences_arg2_same_sense_contingency.json,"But any lawyer will select the facts and the strategy to employ. Because in our system of advocacy, the trial lawyer is duty bound to present the best case he possibly can. 
+","But any lawyer will select the facts and the strategy to employ. Because the downside is very considerable, and at the moment the upside is very marginal. 
+",2,incoherent_sentences_arg2_same_sense_comparison.json,"Eagle's plastic type sharpens and looks like a wooden pencil. However a major difference is that a snapped wooden pencil will have a slivered break while a plastic model will break cleanly. 
+","Eagle's plastic type sharpens and looks like a wooden pencil. However when he sneaked back later to try again, a different policeman offered to help him get the car out. 
+",1,incoherent_sentences_arg2_same_sense_temporal.json,"It hops on an issue that is unopposable -- cleaner air, better treatment of the disabled, better child care. Then it comes up with a toned-down version of a Democratic proposal. 
+","It hops on an issue that is unopposable -- cleaner air, better treatment of the disabled, better child care. Then like other Soviet bloc nations, it had been known as a ""people's republic"" since. 
+",1,incoherent_sentences_arg2_same_sense_expansion.json,"I am waiting. In fact i have plenty more at home. 
+","I am waiting. In fact it's tabloid news from A to Z. 
+",2,incoherent_sentences_arg2_same_sense_temporal.json,"It arrived just as the regulator handling such operations was retiring. Then his successor approved the $1 price in the process of clearing the backed-up papers on his desk. 
+","It arrived just as the regulator handling such operations was retiring. Then he had been president of the international operations. 
+",1,incoherent_sentences_arg2_same_sense_temporal.json,"SCI TV's six stations once were part of Storer Communications. Then kKR loaded up the cable and television company with debt in an 1985 buy-out. 
+","SCI TV's six stations once were part of Storer Communications. Then he chastises Jo Franklin-Trout for her inept presentation of advocacy journalism, judging her project as ""intellectually slipshod. 
+",2

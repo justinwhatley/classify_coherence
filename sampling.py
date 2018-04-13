@@ -136,7 +136,6 @@ def is_longer_than_length_limit(sentence, length_limit, length_type):
         return True
     return False
 
-
 def generate_random_sentence_pairs(sample_size, coherent_data, incoherent_data, filename):
     # Insert from sampling module
     population_size = len(incoherent_data)
@@ -192,6 +191,38 @@ def write_csv_data_multi_question_hit(sample_name, sample_directory, questions_p
             column_list = []
         counter += 1
 
+def read_csv(sample):
+    """
+    Loads the csv data by row, assigning each row value to a column key
+    :return:
+    """
+    csv_list_of_dicts = []
+    with open(sample, 'rb') as csv_file:
+        reader = csv.reader(csv_file, delimiter=',')
+        header = None
+        for i, row_list in enumerate(reader):
+            if i == 0:
+                header = row_list
+            else:
+                result_obj = {}
+                for j, result in enumerate(row_list):
+                    result_obj[header[j]] = row_list[j]
+                csv_list_of_dicts.append(result_obj)
+
+    return csv_list_of_dicts
+
+def is_incoherent_sentence_in_previous_sample(sample_name, sample_directory, incoherent_sentence):
+    for filename in os.listdir(sample_directory):
+        if filename=='.keep':
+            continue
+        else:
+            sample_dict = read_csv(os.path.join(sample_directory, filename))
+            for line in sample_dict:
+                for key in line:
+                    if key.startswith('Sample') and not key.strip().endswith('Dataset'):
+                        if line[key] == incoherent_sentence:
+                            return True
+            return False
 
 def prepare_coherent_incoherent_pair_sample(sample_name, sample_directory, sample_size, questions_per_hit = 1, length_limit = None , length_type = 'word', specify_datasets = None):
 
@@ -218,12 +249,14 @@ def prepare_coherent_incoherent_pair_sample(sample_name, sample_directory, sampl
             incoherent_data.append(json.loads(line))
             if length_limit:
                 line = incoherent_data.pop()
-                # ensures that neither the incoherent or coherent sentence will be too long
+                # Ensures that neither the incoherent or coherent sentence will be too long
                 incoherent_sentence = connect_sentence(line).encode('ascii', 'ignore')
                 coherent_sentence = get_original_sentence(coherent_data, line).encode('ascii', 'ignore')
                 one_of_pair_too_long = is_longer_than_length_limit(incoherent_sentence, length_limit, length_type) or \
                                        is_longer_than_length_limit(coherent_sentence, length_limit, length_type)
-                if not one_of_pair_too_long:
+                # Ensures that the incoherent sentence was not already used in a previous sample
+                already_in_previous_sample = is_incoherent_sentence_in_previous_sample(sample_name, sample_directory, incoherent_sentence)
+                if not one_of_pair_too_long and not already_in_previous_sample:
                     incoherent_data.append(line)
 
         sample_pair_list = sample_pair_list + generate_random_sentence_pairs(sample_size, coherent_data, incoherent_data, filename)
@@ -259,14 +292,6 @@ def test_csv_sample():
     with open(path, 'rb') as csvfile:
         reader = csv.DictReader(csvfile)
         for i, row in enumerate(reader):
-            # print row
-            # for keys in row:
-            #     print keys
-            # break
-
-            # Single question per HIT
-            # if row['Sample1'] == row['Sample2']:
-            #     print 'duplicate'
 
             # Multiple questions per HIT
             for i in range(1, 10):
