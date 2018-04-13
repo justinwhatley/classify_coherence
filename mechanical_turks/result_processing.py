@@ -171,13 +171,14 @@ def get_bin_data(_bin, categories_list, agreement_threshold, aggregate=False):
         return result
 
 
-def count_incoherence_agreement(agreement_threshold, temp_list):
+def count_incoherence_agreement(agreement_threshold, temp_list, count_with_0_confidence = False):
     """
     First sorts the list to ensure that the same samples are placed next to eachother. After this is done, the
     frequency of correct answers are calculated over the total possible answers. A particular sample is counted when it
     meets the agreement threshold criteria
     :param agreement_threshold: decimal fraction required to count a particular question as correctly labelled incoherent
     :param temp_list:
+    :param do_not_count_with_0_confidence: optional boolean that removes passing results if user answered followup with 0
     :return:
     """
 
@@ -193,10 +194,18 @@ def count_incoherence_agreement(agreement_threshold, temp_list):
 
     for row in temp_list:
         if (row['Input.Sample1'], row['Input.Sample2']) == testing_sample:
-            if row['correct_answer']:
-                incoherent_counter += 1
+            # Includes user's answer regardless of confidence level
+            if count_with_0_confidence:
+                if row['correct_answer']:
+                    incoherent_counter += 1
+                else:
+                    coherent_counter += 1
+            # Only includes user's answer if they do not have confidence 0 in their followup answer
             else:
-                coherent_counter += 1
+                if row['correct_answer'] and row['Answer.FollowupAnswer'] != '0':
+                    incoherent_counter += 1
+                else:
+                    coherent_counter += 1
         else:
             # Tally result
             if incoherent_counter/(incoherent_counter+coherent_counter) >= agreement_threshold:
@@ -514,7 +523,7 @@ if __name__ == '__main__':
     # original_csv_data = evaluate_single_user(original_csv_data, worker_id)
 
     # Distributes CSV rows to columnsls
-    
+
     # print(original_csv_data)
     length_of_questionnaire = get_number_of_questions(original_csv_data)
     if length_of_questionnaire > 1:
