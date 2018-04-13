@@ -466,6 +466,23 @@ def count_instances(csv_data, key):
             occurence_dict[row[key]] += 1
     print(occurence_dict)
 
+def evaluate_single_user(original_csv_data, worker_id):
+    """
+    Removes all data except a particular user's
+    :param worker_id:
+    :return:
+    """
+    key = 'WorkerId'
+
+    single_user_dict_list = []
+    for row in original_csv_data:
+        if row[key] == worker_id:
+            single_user_dict_list.append(row)
+
+    return single_user_dict_list
+
+
+
 def remove_duplicate_submissions(original_csv_data):
     """
     Removes duplicate, keeping the latest form submission
@@ -493,9 +510,12 @@ if __name__ == '__main__':
     original_csv_data = read_csv()
     original_csv_data = remove_duplicate_submissions(original_csv_data)
     count_instances(original_csv_data, 'WorkerId')
+    # worker_id = 'justin.whatley@mail.mcgill.ca'
+    # original_csv_data = evaluate_single_user(original_csv_data, worker_id)
 
-    # Distributes CSV rows to columns
-    print(original_csv_data)
+    # Distributes CSV rows to columnsls
+    
+    # print(original_csv_data)
     length_of_questionnaire = get_number_of_questions(original_csv_data)
     if length_of_questionnaire > 1:
         csv_data = expand_csv_data(original_csv_data, length_of_questionnaire)
