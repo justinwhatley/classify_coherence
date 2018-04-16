@@ -336,7 +336,37 @@ def remove_infrequent_samples(csv_data, sample_threshold):
     # print(marked_for_removal)
     # print(len(marked_for_removal))
 
-def update_correct_answers(csv_data):
+def update_correct_answers_old(csv_data):
+    """
+        Depricated: Adds a new key 'correct_answer' indicating whether the answer for each row was correct through a boolean
+        :param csv_data:
+        :return:
+        """
+
+    correct_counter = 0
+    incorrect_counter = 0
+
+    for line in csv_data:
+        correct_answer = int(line['Input.Incoherent_Sample'].strip())
+        answer_given = line['Answer.Answer'].strip()
+
+        # TODO handle empty submission
+        if (answer_given == '2'):
+            correct_counter += 1
+            line['correct_answer'] = True
+        elif (answer_given == '1'):
+            incorrect_counter += 1
+            line['correct_answer'] = False
+        else:
+            print 'Empty response'
+            line['correct_answer'] = False
+
+    # print correct_counter
+    # print incorrect_counter
+
+    return csv_data
+
+def update_correct_answers_new(csv_data):
     """
     Adds a new key 'correct_answer' indicating whether the answer for each row was correct through a boolean
     :param csv_data:
@@ -349,6 +379,12 @@ def update_correct_answers(csv_data):
     for line in csv_data:
         correct_answer = int(line['Input.Incoherent_Sample'].strip())
         answer_given = line['Answer.Answer'].strip()
+        print('Answer given: ')
+        print(answer_given)
+        print('Expected: ')
+        print(line['Input.Incoherent_Sample'])
+
+        print
 
         #TODO handle empty submission
         if (answer_given == '1' and correct_answer == 1) or (answer_given == '2' and correct_answer == 2):
@@ -543,7 +579,7 @@ if __name__ == '__main__':
     # remove_infrequent_samples(csv_data, sample_threshold)
 
     agreement_threshold = 2/3
-    update_correct_answers(csv_data)
+    update_correct_answers_new(csv_data)
 
     # for row in csv_data:
     #     print(row['TimeElapsed'],row['correct_answer'], row['WorkerId'], row['Answer.FollowupAnswer'], row['HITId'], row['Input.Incoherent_Sample'], row['Input.Sample1'], row['Input.Sample2'])

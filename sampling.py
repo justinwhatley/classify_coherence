@@ -151,9 +151,10 @@ def generate_random_sentence_pairs(sample_size, coherent_data, incoherent_data, 
 
             incoherent_selection = random.randint(0, 1)
             if incoherent_selection:
+                # Then incoherent_selection is 1
                 sample_pair_list.append([filename, coherent_sentence, incoherent_sentence, incoherent_selection + 1])
             else:
-                sample_pair_list.append([filename, coherent_sentence, incoherent_sentence, incoherent_selection + 1])
+                sample_pair_list.append([filename, incoherent_sentence, coherent_sentence, incoherent_selection + 1])
             sample_list.remove(i)
             if len(sample_list) == 0:
                 break
@@ -185,6 +186,7 @@ def write_csv_data_multi_question_hit(sample_name, sample_directory, questions_p
     counter = 1
     column_list = []
     for row in sample_pair_list:
+        print(row)
         column_list = column_list + row
         if counter % questions_per_hit == 0:
             writer.writerow(column_list)

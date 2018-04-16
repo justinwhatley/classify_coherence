@@ -23,12 +23,22 @@ login_manager.init_app(app)
 manager.create_api(User, methods=['GET', 'POST', 'DELETE'])
 manager.create_api(Completed_Questionnaires, methods=['GET', 'POST', 'DELETE'])
 
+"""
+********************************************************************************************
+Directories
+********************************************************************************************
+"""
+import os
+def newest(path):
+    files = os.listdir(path)
+    paths = [os.path.join(path, basename) for basename in files]
+    return max(paths, key=os.path.getctime)
+
 # Result input/output directories
 sample_directory = 'mechanical_turks_input_data'
-sample_name = '2018_04_03_09_57_sample.csv'
+sample = newest(sample_directory)
 result_directory = 'local_server_output_data'
-from os.path import join
-sample = join(sample_directory, sample_name)
+
 
 
 """
@@ -255,12 +265,11 @@ def write_header(result_file):
 
 def result_writer():
     global result_directory
-    import os.path
 
     # Creates a new output file when the file already exists
     i = 0
     while True:
-        result_path = join(result_directory, 'result')
+        result_path = os.path.join(result_directory, 'result')
         if i == 0:
             to_check = result_path + '.csv'
         else:
