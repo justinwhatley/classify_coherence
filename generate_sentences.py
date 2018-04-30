@@ -244,11 +244,22 @@ def generate_sentences_swapping_arg2_different_sense(coherent_sentences):
 
     for i, line in enumerate(data):
         # Get a random sentence that is not the same as the current one
-        # if line['Sense'] == 'Comparison' or line['Sense'] == 'Contingency':
-        index = randint(0, len(coherent_copy) - 1)
-        random_coherent_sentence = coherent_copy[index]
 
-        coherent_copy.pop(index)  # Remove sentence with used Arg2 from set of sentences
+        # Loops through the possible options for Arg2 until finding one with a different sense from orig line
+        current_sense = line['Sense']
+        done = False
+        index = None
+        while not done:
+            index = randint(0, len(coherent_copy) - 1)
+            random_coherent_sentence = coherent_copy[index]
+            # print line['Sense']
+            # print random_coherent_sentence['Sense']
+            # print
+            if random_coherent_sentence['Sense'] != line['Sense']:
+                done = True
+
+        coherent_copy.pop(index)  # Remove sentence using Arg2 from list of sentences
+
         incoherent_sentences.append(create_sentence_pair(line['Arg1']['RawText'],
                                                     random_coherent_sentence['Arg2Raw'],
                                                     line['Connective']['RawText'],
