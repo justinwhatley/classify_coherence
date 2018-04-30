@@ -245,6 +245,12 @@ def prepare_coherent_incoherent_pair_sample(sample_name, sample_directory, sampl
         if filename in [".keep", coherent_json_filename]:
             continue
 
+        if filename in ["incoherent_sentences_arg2_same_sense_comparison.json",
+                        "incoherent_sentences_arg2_same_sense_contingency.json",
+                        "incoherent_sentences_arg2_same_sense_expansion.json",
+                        "incoherent_sentences_arg2_same_sense_temporal.json"]:
+            continue
+
         # Loads data for the corrupted sentences
         incoherent_data = []
         for line in open(os.path.join("data/json/",filename), 'r'):
@@ -325,7 +331,7 @@ if __name__ == '__main__':
     print('Writing to: ' )
     print(os.path.join(MECHANICAL_TURKS_DIR, sample_name))
 
-    sample_size_per_dataset = 20
+    sample_size_per_dataset = 40
     questions_per_hit = 10
 
 

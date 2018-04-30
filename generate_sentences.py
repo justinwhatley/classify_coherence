@@ -244,16 +244,16 @@ def generate_sentences_swapping_arg2_different_sense(coherent_sentences):
 
     for i, line in enumerate(data):
         # Get a random sentence that is not the same as the current one
-        if line['Sense'] == 'Comparison' or line['Sense'] == 'Contingency':
-            index = randint(0, len(coherent_copy) - 1)
-            random_coherent_sentence = coherent_copy[index]
+        # if line['Sense'] == 'Comparison' or line['Sense'] == 'Contingency':
+        index = randint(0, len(coherent_copy) - 1)
+        random_coherent_sentence = coherent_copy[index]
 
-            coherent_copy.pop(index)  # Remove sentence with used Arg2 from set of sentences
-            incoherent_sentences.append(create_sentence_pair(line['Arg1']['RawText'],
-                                                        random_coherent_sentence['Arg2Raw'],
-                                                        line['Connective']['RawText'],
-                                                        line['Sense'],
-                                                        i))
+        coherent_copy.pop(index)  # Remove sentence with used Arg2 from set of sentences
+        incoherent_sentences.append(create_sentence_pair(line['Arg1']['RawText'],
+                                                    random_coherent_sentence['Arg2Raw'],
+                                                    line['Connective']['RawText'],
+                                                    line['Sense'],
+                                                    i))
 
     output_sentences(incoherent_sentences, incoherent_sentences_arg2_diff_sense)
 
@@ -328,25 +328,25 @@ if __name__ == '__main__':
         unique_connectives_senses = create_unique_connectives()
 
         # Generate sentences
-        # generate_sentences_random_arg2(coherent_sentences)
+        generate_sentences_random_arg2(coherent_sentences)
         # generate_sentences_swapping_connectives(unique_connectives_senses)
         # generate_sentences_swapping_arg2_same_sense(unique_connectives_senses, coherent_sentences)
 
         # Note - was modified to only swap with
-        sense = 'comparison'
-        generate_sentences_swapping_arg2_same_sense(coherent_sentences, sense)
-
-        sense = 'temporal'
-        generate_sentences_swapping_arg2_same_sense(coherent_sentences, sense)
-
-        sense = 'contingency'
-        generate_sentences_swapping_arg2_same_sense(coherent_sentences, sense)
-
-        sense = 'expansion'
-        generate_sentences_swapping_arg2_same_sense(coherent_sentences, sense)
+        # sense = 'comparison'
+        # generate_sentences_swapping_arg2_same_sense(coherent_sentences, sense)
+        #
+        # sense = 'temporal'
+        # generate_sentences_swapping_arg2_same_sense(coherent_sentences, sense)
+        #
+        # sense = 'contingency'
+        # generate_sentences_swapping_arg2_same_sense(coherent_sentences, sense)
+        #
+        # sense = 'expansion'
+        # generate_sentences_swapping_arg2_same_sense(coherent_sentences, sense)
 
         # Note - was modified to only use Comparison and Contingency senses
-        # generate_sentences_swapping_arg2_different_sense(coherent_sentences)
+        generate_sentences_swapping_arg2_different_sense(coherent_sentences)
 
         # generate_sentences_swapping_arg2_matching_connective(coherent_sentences)
         # generate_sentences_swapping_arg2_different_sense_connective(unique_connectives_senses)
