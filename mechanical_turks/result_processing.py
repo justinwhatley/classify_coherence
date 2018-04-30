@@ -379,12 +379,12 @@ def update_correct_answers_new(csv_data):
     for line in csv_data:
         correct_answer = int(line['Input.Incoherent_Sample'].strip())
         answer_given = line['Answer.Answer'].strip()
-        print('Answer given: ')
-        print(answer_given)
-        print('Expected: ')
-        print(line['Input.Incoherent_Sample'])
-
-        print
+        # print('Answer given: ')
+        # print(answer_given)
+        # print('Expected: ')
+        # print(line['Input.Incoherent_Sample'])
+        #
+        # print
 
         #TODO handle empty submission
         if (answer_given == '1' and correct_answer == 1) or (answer_given == '2' and correct_answer == 2):
@@ -555,10 +555,12 @@ if __name__ == '__main__':
     original_csv_data = read_csv()
     original_csv_data = remove_duplicate_submissions(original_csv_data)
     count_instances(original_csv_data, 'WorkerId')
+
+    # Evaluate a single user's performance by WorkerId
     # worker_id = 'justin.whatley@mail.mcgill.ca'
     # original_csv_data = evaluate_single_user(original_csv_data, worker_id)
 
-    # Distributes CSV rows to columnsls
+    # Distributes CSV rows to columns
 
     # print(original_csv_data)
     length_of_questionnaire = get_number_of_questions(original_csv_data)
@@ -578,7 +580,8 @@ if __name__ == '__main__':
     # sample_threshold = 4
     # remove_infrequent_samples(csv_data, sample_threshold)
 
-    agreement_threshold = 2/3
+    agreement_threshold = 4/4
+    # update_correct_answers_old(csv_data)
     update_correct_answers_new(csv_data)
 
     # for row in csv_data:
