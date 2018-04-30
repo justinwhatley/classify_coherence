@@ -248,15 +248,25 @@ def generate_sentences_swapping_arg2_different_sense(coherent_sentences):
         # Loops through the possible options for Arg2 until finding one with a different sense from orig line
         current_sense = line['Sense']
         done = False
+        no_different_senses_remaining = False
         index = None
+        attempt_counter = 0
+
         while not done:
             index = randint(0, len(coherent_copy) - 1)
             random_coherent_sentence = coherent_copy[index]
-            # print line['Sense']
-            # print random_coherent_sentence['Sense']
-            # print
-            if random_coherent_sentence['Sense'] != line['Sense']:
+
+            if attempt_counter == 1000:
+                no_different_senses_remaining = True
+                break
+
+            if random_coherent_sentence['Sense'].lower() != line['Sense'].lower():
                 done = True
+            else:
+                attempt_counter += 1
+
+        if no_different_senses_remaining:
+            break
 
         coherent_copy.pop(index)  # Remove sentence using Arg2 from list of sentences
 
