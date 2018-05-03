@@ -132,11 +132,23 @@ def output_percent_incoherence_with_annotator_agreement(dict, to_check, agreemen
     :param agreement_threshold:
     :return:
     """
-    return ("Percent Incoherent at " + str(agreement_threshold) + " agreement: " +  str(
+    output = ("Percent Incoherent at " + str(agreement_threshold) + " agreement: " +  str(
                 dict[to_check]['incoherence_agreement'][0] / dict[to_check]['incoherence_agreement'][1] * 100)
             + " (" + str(dict[to_check]['incoherence_agreement'][0]) + " labelled incoherent at agreement rate out of "
-            + str(dict[to_check]['incoherence_agreement'][1]) + " possible)"
-            + '\n')
+            + str(dict[to_check]['incoherence_agreement'][1]) + " possible)\n")
+
+    # Adds responder confidence in their choices
+    if dict[to_check]['correct_count'] > 0:
+        average_confidence_correct = dict[to_check]['correct_score']/dict[to_check]['correct_count']
+    if dict[to_check]['correct_count'] > 0:
+        average_confidence_incorrect = dict[to_check]['incorrect_score']/dict[to_check]['incorrect_count']
+
+    output += (str(average_confidence_correct) + " confidence on correct responses"
+               + ' (out of ' + str(dict[to_check]['correct_count']) + ' correct responses)\n'
+               + str(average_confidence_incorrect) + " confidence on incorrect responses"
+               + ' (out of ' + str(dict[to_check]['incorrect_count']) + ' incorrect responses)\n')
+
+    return output
 
 def get_bin_data(_bin, categories_list, agreement_threshold, aggregate=False):
     """
@@ -165,10 +177,45 @@ def get_bin_data(_bin, categories_list, agreement_threshold, aggregate=False):
                     temp_list.append(dict)
 
             incoherence_agreement = count_incoherence_agreement(agreement_threshold, temp_list)
+            correct_score, correct_count, incorrect_score, incorrect_count = get_confidence_score(temp_list)
+
             bin_incoherence_freq = evaluate_incoherence_frequency(temp_list)
-            result[to_check] = {'incoherence_agreement':incoherence_agreement, 'bin_incoherence_freq': bin_incoherence_freq, 'total_size': len(temp_list)}
+            result[to_check] = {'incoherence_agreement':incoherence_agreement,
+                                'bin_incoherence_freq': bin_incoherence_freq,
+                                'total_size': len(temp_list),
+                                'correct_score': correct_score,
+                                'correct_count': correct_count,
+                                'incorrect_score': incorrect_score,
+                                'incorrect_count': incorrect_count,}
 
         return result
+
+def get_confidence_score(temp_list):
+    """
+    Computes the average confidence across users in their answers to which text was incoherent
+    :param temp_list:
+    :return:
+    """
+    correct_score = 0
+    correct_count = 0
+
+    incorrect_score = 0
+    incorrect_count = 0
+
+    for line in temp_list:
+        if line['correct_answer']:
+            correct_score += int(line['Answer.FollowupAnswer'])
+            correct_count += 1
+        else:
+            incorrect_score += int(line['Answer.FollowupAnswer'])
+            incorrect_count += 1
+
+    # if correct_count > 0:
+    #     correct_answer_average_score = correct_score/correct_count
+    # if incorrect_count >0:
+    #     incorrect_answer_average_score = incorrect_score/incorrect_count
+
+    return correct_score, correct_count, incorrect_score, incorrect_count
 
 
 def count_incoherence_agreement(agreement_threshold, temp_list, count_with_0_confidence = False):
@@ -338,7 +385,7 @@ def remove_infrequent_samples(csv_data, sample_threshold):
 
 def update_correct_answers_old(csv_data):
     """
-        Depricated: Adds a new key 'correct_answer' indicating whether the answer for each row was correct through a boolean
+        Deprecated: Adds a new key 'correct_answer' indicating whether the answer for each row was correct through a boolean
         :param csv_data:
         :return:
         """
@@ -580,12 +627,10 @@ if __name__ == '__main__':
     # sample_threshold = 4
     # remove_infrequent_samples(csv_data, sample_threshold)
 
-    agreement_threshold = 4/4
+    agreement_threshold = 2/3
+    # Note, use the old version for results from samples generated before 2018_04_30_13
     # update_correct_answers_old(csv_data)
     update_correct_answers_new(csv_data)
-
-    # for row in csv_data:
-    #     print(row['TimeElapsed'],row['correct_answer'], row['WorkerId'], row['Answer.FollowupAnswer'], row['HITId'], row['Input.Incoherent_Sample'], row['Input.Sample1'], row['Input.Sample2'])
 
     #Gets the different corruption method datasets
     categories_list = get_diff_values_from_category(csv_data, 'Input.Dataset')
