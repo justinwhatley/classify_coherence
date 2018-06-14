@@ -1,15 +1,17 @@
-# Classify Coherence
-An attempt to classify sentences from the Penn Discourse Treebank as either coherent or incoherent. 
+# Classifying Text Incoherence
+
+This project investigated the automatic generation of corrupted sentences based on changes to discourse relations of sentences in the Penn Discourse Treebank in an attempt to classify Coherent vs Incoherent sentences. This was an attempt to generate labelled examples (coherent or incoherent) that could then be used to train a classifier to detect text incoherence, a problem in Natural Language Processing. 
+
 
 ### Getting Started
-To get started,  you will need acces to the Penn Discourse Tree Bank (PDTB) (the CLaC lab has the data). 
+To get started,  you will need access to a modified version of the Penn Discourse Tree Bank (PDTB), available in CLaC. 
 Once you have this, add a PDTB `relations-XX-XX-XX-{dev | train | test}.json` file to the `/data` directory, and update the value of `relations_json` in `generate_sentences.py` (declared around line 10) to the name of that file. 
 
 In order to train with the Google News word2vec embeddings, you will need to download them (available here: https://drive.google.com/file/d/0B7XkCwpI5KDYNlNUTTlSS21pQmM), and unzip them in the `\model` directory. 
 
 ### Functionality breakdown
 
-Below are brief explanations of what each python file does, and how it interacts with other files.
+Below are brief explanations of what general python file do:
 
 #### generate_sentences.py 
 This script takes a PDTB `.json` file from the `/data` directory and create the coherent and incoherent datasets for our model from it. It first reads the `.json` and extracts relevant values from it, then it creates the various datasets (specifying which one  in the comments) in `.json` format.
@@ -27,7 +29,7 @@ This is the class that implements the underlying logic of our convolutional neur
 Prepares samples for either Mechanical Turks or Crowdflower(deprecated) in order to validate sentence corruption techniques
 
 #### mechanical_turks
-Web server logic which can be used to process results from a Mechanical Turks output csv file or an output csv file generated from a local server which simulates the Mechanical Turks testing environment
+This directory contains several scripts which can be used to process Mechanical Turks output (result_processing.py) as well as a local server which simulates the Mechanical Turks testing environment for internal testing and generates similar MT files
 
 #### connective_middle_frequency.py 
 This file looks at which connectives in our data are more likely to be in the middle of `Arg1` and `Arg2`. It was not used for our experiments, but is still in the code because it would be useful if we want to experiment with unannotated data in the future. 
@@ -57,6 +59,8 @@ Where we store the various datasets used in the project. The files in this folde
 
   `/data/txt`
       Input data for `train.py` constructed from the PDTB data
+
+`/mechanical_turks`
 
 `/runs`
 Model parameters saved by tensorflow after each run
