@@ -1,2 +1,2 @@
-# flask-kickstart
-Flask application template for kickstarting development of small to medium sized applications
+# Flask MT simulation server
+This application works as a server that can be used to simulate our mechanical turks environment for local testing
