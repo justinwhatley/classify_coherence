@@ -23,6 +23,12 @@ This file is where we run our convolutional neural network. It defines many flag
 #### cnn.py 
 This is the class that implements the underlying logic of our convolutional neural network. It creates the actual network, connects layers, implements the convolution, etc. 
 
+#### sampling.py 
+Prepares samples for either Mechanical Turks or Crowdflower(deprecated) in order to validate sentence corruption techniques
+
+#### mechanical_turks
+Web server logic which can be used to process results from a Mechanical Turks output csv file or an output csv file generated from a local server which simulates the Mechanical Turks testing environment
+
 #### connective_middle_frequency.py 
 This file looks at which connectives in our data are more likely to be in the middle of `Arg1` and `Arg2`. It was not used for our experiments, but is still in the code because it would be useful if we want to experiment with unannotated data in the future. 
 
