@@ -60,9 +60,3 @@ Where we store the various datasets used in the project. The files in this folde
 
 `/runs`
 Model parameters saved by tensorflow after each run
-
-
-
-### Detailed Report
-A detailed report of this project can be found at https://www.overleaf.com/read/ngfcbdxkcgby
-
